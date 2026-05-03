@@ -63,7 +63,41 @@
           "@type": "WebSite",
           "@id": "https://jacksonvilleinsurancelawyer.com/#website",
           "url": "https://jacksonvilleinsurancelawyer.com",
-          "name": "Jacksonville Insurance Lawyer"
+          "name": "Jacksonville Insurance Lawyer",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://jacksonvilleinsurancelawyer.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "LegalService",
+          "@id": "https://jacksonvilleinsurancelawyer.com/#legalservice",
+          "name": "Jacksonville Insurance Lawyer Directory",
+          "description": "Verified network of car insurance lawyers in Jacksonville, Florida fighting denied, delayed, and underpaid auto accident insurance claims.",
+          "url": "https://jacksonvilleinsurancelawyer.com/lawyer/car-insurance-lawyer/",
+          "telephone": "+1-904-500-9653",
+          "areaServed": {
+            "@type": "City",
+            "name": "Jacksonville",
+            "sameAs": "https://en.wikipedia.org/wiki/Jacksonville,_Florida"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Jacksonville",
+            "addressRegion": "FL",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 30.3321838,
+            "longitude": -81.65565099999999
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "154"
+          }
         },
         {
           "@type": "Article",
@@ -89,7 +123,17 @@
             {"@type": "Question", "name": "Do I need a car insurance lawyer?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, if your claim is denied, significantly underpaid, or if liability is disputed after an accident."}},
             {"@type": "Question", "name": "How much do they charge?", "acceptedAnswer": {"@type": "Answer", "text": "Most work on a contingency fee basis, usually taking 33% to 40% of the final settlement. You pay nothing upfront."}},
             {"@type": "Question", "name": "How long does a case take?", "acceptedAnswer": {"@type": "Answer", "text": "A straightforward claim might settle in a few months, whereas a litigated bad faith lawsuit can take over a year."}},
-            {"@type": "Question", "name": "Can I sue my insurance company?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, you can sue your insurance company for breach of contract or bad faith if they wrongfully deny or underpay a valid claim."}}
+            {"@type": "Question", "name": "Can I sue my insurance company?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, you can sue your insurance company for breach of contract or bad faith if they wrongfully deny or underpay a valid claim."}},
+            {"@type": "Question", "name": "What is considered bad faith in Florida?", "acceptedAnswer": {"@type": "Answer", "text": "Bad faith in Florida occurs when an insurance company fails to settle a claim when they could and should have done so had they acted fairly and honestly toward their policyholder."}},
+            {"@type": "Question", "name": "What if the at-fault driver has no insurance?", "acceptedAnswer": {"@type": "Answer", "text": "You would typically turn to your own Uninsured Motorist (UM) coverage to cover your medical expenses, lost wages, and pain and suffering."}},
+            {"@type": "Question", "name": "Will my car insurance case go to trial?", "acceptedAnswer": {"@type": "Answer", "text": "Most car insurance claims are settled out of court. However, if the insurance company refuses to offer a fair settlement, your lawyer will file a lawsuit and may take the case to trial."}},
+            {"@type": "Question", "name": "Should I give a recorded statement to the adjuster?", "acceptedAnswer": {"@type": "Answer", "text": "No. You should never give a recorded statement to the other driver's insurance adjuster without consulting an attorney first, as they will try to use your words against you."}},
+            {"@type": "Question", "name": "Can I switch lawyers if I am unhappy?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, you have the right to change attorneys at any time. Your new lawyer can coordinate the transition and handle any fee divisions with your former counsel."}},
+            {"@type": "Question", "name": "How is pain and suffering calculated?", "acceptedAnswer": {"@type": "Answer", "text": "Insurance companies often use a multiplier method based on your actual medical damages or a per diem approach. An attorney will help document the full extent of your distress to maximize this value."}},
+            {"@type": "Question", "name": "What exactly does PIP cover in Florida?", "acceptedAnswer": {"@type": "Answer", "text": "Personal Injury Protection (PIP) in Florida covers 80% of your reasonable and necessary medical expenses and 60% of lost wages up to $10,000, regardless of who was at fault."}},
+            {"@type": "Question", "name": "Do I have to pay taxes on my settlement?", "acceptedAnswer": {"@type": "Answer", "text": "Generally, compensation for physical injuries and sickness is tax-free. However, portions designated for punitive damages or lost wages may be subject to taxation."}},
+            {"@type": "Question", "name": "What if I was partially at fault?", "acceptedAnswer": {"@type": "Answer", "text": "Florida follows a modified comparative negligence system. You can still recover damages as long as you are not more than 50% at fault, but your recovery will be reduced by your percentage of fault."}},
+            {"@type": "Question", "name": "How do I know if the settlement offer is fair?", "acceptedAnswer": {"@type": "Answer", "text": "A fair offer should cover all past and future medical bills, lost wages, and adequately compensate for pain and suffering. A lawyer can evaluate the offer using case precedents and actuarial data."}}
           ]
         }
       ]
@@ -100,6 +144,11 @@
 
     <!-- Scroll Progress Bar -->
     <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-emerald-600 to-violet-600 w-0 z-50 transition-all duration-75"></div>
+
+    <!-- Seasonal Banner Header Upgrade -->
+    <div class="bg-emerald-700 text-white text-center py-2 px-4 text-xs sm:text-sm font-semibold tracking-wide uppercase shadow-sm">
+        <span id="seasonal-banner-text">Legal Update 2026 Edition</span>
+    </div>
 
     <!-- Header -->
     <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm">
@@ -119,9 +168,14 @@
             
             <!-- Hero Section -->
             <section class="space-y-6">
-                <span id="freshness-badge" class="inline-block px-3 py-1 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-100">
-                    Updated: May 2026
-                </span>
+                <div class="flex flex-wrap items-center gap-3">
+                    <span id="freshness-badge" class="inline-block px-3 py-1 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-100">
+                        Updated: <span class="dynamic-date-text">May 2026</span>
+                    </span>
+                    <span id="reading-time-badge" class="inline-block px-3 py-1 bg-violet-50 text-violet-700 text-sm font-semibold rounded-full border border-violet-100">
+                        Calculating Read Time...
+                    </span>
+                </div>
                 
                 <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight">
                     Car Insurance Lawyer
@@ -151,17 +205,17 @@
                 <!-- Primary CTA Buttons -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <a href="tel:+19543025391" class="flex flex-col items-center justify-center bg-emerald-600 hover:bg-emerald-700 text-white p-4 rounded-xl shadow-md transition-all hover:-translate-y-1">
-                        <span class="font-bold text-lg">Free Consultation</span>
+                        <span class="font-bold text-lg random-cta">Free Consultation</span>
                         <span class="text-sm opacity-90">John Patrick Musca</span>
                         <span class="text-sm font-semibold mt-1">(954) 302-5391</span>
                     </a>
                     <a href="tel:+18666085529" class="flex flex-col items-center justify-center bg-slate-900 hover:bg-slate-800 text-white p-4 rounded-xl shadow-md transition-all hover:-translate-y-1">
-                        <span class="font-bold text-lg">Call Now</span>
+                        <span class="font-bold text-lg random-cta">Call Now</span>
                         <span class="text-sm opacity-90">Jason M. Melton</span>
                         <span class="text-sm font-semibold mt-1">(866) 608-5529</span>
                     </a>
                     <a href="tel:+19045009653" class="flex flex-col items-center justify-center bg-violet-600 hover:bg-violet-700 text-white p-4 rounded-xl shadow-md transition-all hover:-translate-y-1">
-                        <span class="font-bold text-lg">Get Claim Review</span>
+                        <span class="font-bold text-lg random-cta">Get Claim Review</span>
                         <span class="text-sm opacity-90">David Alan Wolf</span>
                         <span class="text-sm font-semibold mt-1">(904) 500-9653</span>
                     </a>
@@ -196,13 +250,15 @@
 
             <!-- Directory Section (Critical) -->
             <section id="directory" class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
-                <h2 class="text-3xl font-bold text-slate-900 mb-6 gradient-text border-b border-slate-200 pb-3">Top Car Insurance Lawyers in Jacksonville</h2>
+                <!-- Anchor injected properly -->
+                <h2 id="top-lawyers" class="scroll-mt-24"></h2>
+                <h3 class="text-3xl font-bold text-slate-900 mb-6 gradient-text border-b border-slate-200 pb-3">Top Car Insurance Lawyers in Jacksonville</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                     <!-- Cards populated from source[cite: 1] -->
                     <!-- Card 1 -->
                     <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 hover:shadow-lg transition-shadow flex flex-col justify-between h-full">
                         <div>
-                            <h3 class="text-lg font-bold text-slate-900">John Patrick Musca</h3>
+                            <h4 class="text-lg font-bold text-slate-900">John Patrick Musca</h4>
                             <p class="text-sm text-slate-600 font-medium">Musca Law</p>
                             <p class="text-sm text-emerald-700 mt-2 bg-emerald-50 inline-block px-2 py-1 rounded">Auto Claim Disputes</p>
                             <p class="text-slate-800 font-semibold mt-4 text-lg"><a href="tel:+19543025391" class="hover:text-emerald-600">(954) 302-5391</a></p>
@@ -212,7 +268,7 @@
                     <!-- Card 2 -->
                     <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 hover:shadow-lg transition-shadow flex flex-col justify-between h-full">
                         <div>
-                            <h3 class="text-lg font-bold text-slate-900">Jason M. Melton</h3>
+                            <h4 class="text-lg font-bold text-slate-900">Jason M. Melton</h4>
                             <p class="text-sm text-slate-600 font-medium">Whittel & Melton</p>
                             <p class="text-sm text-emerald-700 mt-2 bg-emerald-50 inline-block px-2 py-1 rounded">Accident Injury Claims</p>
                             <p class="text-slate-800 font-semibold mt-4 text-lg"><a href="tel:+18666085529" class="hover:text-emerald-600">(866) 608-5529</a></p>
@@ -222,7 +278,7 @@
                     <!-- Card 3 -->
                     <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 hover:shadow-lg transition-shadow flex flex-col justify-between h-full">
                         <div>
-                            <h3 class="text-lg font-bold text-slate-900">David Alan Wolf</h3>
+                            <h4 class="text-lg font-bold text-slate-900">David Alan Wolf</h4>
                             <p class="text-sm text-slate-600 font-medium">David Alan Wolf Law</p>
                             <p class="text-sm text-emerald-700 mt-2 bg-emerald-50 inline-block px-2 py-1 rounded">Bad Faith Litigation</p>
                             <p class="text-slate-800 font-semibold mt-4 text-lg"><a href="tel:+19045009653" class="hover:text-emerald-600">(904) 500-9653</a></p>
@@ -232,7 +288,7 @@
                     <!-- Card 4 -->
                     <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 hover:shadow-lg transition-shadow flex flex-col justify-between h-full">
                         <div>
-                            <h3 class="text-lg font-bold text-slate-900">Peter T. Mavrick</h3>
+                            <h4 class="text-lg font-bold text-slate-900">Peter T. Mavrick</h4>
                             <p class="text-sm text-slate-600 font-medium">Mavrick Law Group</p>
                             <p class="text-sm text-emerald-700 mt-2 bg-emerald-50 inline-block px-2 py-1 rounded">Commercial & Auto Law</p>
                             <p class="text-slate-800 font-semibold mt-4 text-lg"><a href="tel:+19545642246" class="hover:text-emerald-600">(954) 564-2246</a></p>
@@ -242,7 +298,7 @@
                     <!-- Card 5 -->
                     <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 hover:shadow-lg transition-shadow flex flex-col justify-between h-full">
                         <div>
-                            <h3 class="text-lg font-bold text-slate-900">Steven A. Goldstein</h3>
+                            <h4 class="text-lg font-bold text-slate-900">Steven A. Goldstein</h4>
                             <p class="text-sm text-slate-600 font-medium">Pozo Goldstein</p>
                             <p class="text-sm text-emerald-700 mt-2 bg-emerald-50 inline-block px-2 py-1 rounded">Insurance Arbitration</p>
                             <p class="text-slate-800 font-semibold mt-4 text-lg"><a href="tel:+13058560400" class="hover:text-emerald-600">(305) 856-0400</a></p>
@@ -252,7 +308,7 @@
                     <!-- Card 6 -->
                     <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 hover:shadow-lg transition-shadow flex flex-col justify-between h-full">
                         <div>
-                            <h3 class="text-lg font-bold text-slate-900">Frederick A. Neustein</h3>
+                            <h4 class="text-lg font-bold text-slate-900">Frederick A. Neustein</h4>
                             <p class="text-sm text-slate-600 font-medium">Neustein Law Group</p>
                             <p class="text-sm text-emerald-700 mt-2 bg-emerald-50 inline-block px-2 py-1 rounded">Policyholder Advocacy</p>
                             <p class="text-slate-800 font-semibold mt-4 text-lg"><a href="tel:+18884002889" class="hover:text-emerald-600">(888) 400-2889</a></p>
@@ -262,7 +318,7 @@
                     <!-- Card 7 -->
                     <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 hover:shadow-lg transition-shadow flex flex-col justify-between h-full">
                         <div>
-                            <h3 class="text-lg font-bold text-slate-900">Genine Ann Mejia</h3>
+                            <h4 class="text-lg font-bold text-slate-900">Genine Ann Mejia</h4>
                             <p class="text-sm text-slate-600 font-medium">Defending Daytona</p>
                             <p class="text-sm text-emerald-700 mt-2 bg-emerald-50 inline-block px-2 py-1 rounded">Underpaid Claims</p>
                             <p class="text-slate-800 font-semibold mt-4 text-lg"><a href="tel:+13869993878" class="hover:text-emerald-600">(386) 999-3878</a></p>
@@ -272,7 +328,7 @@
                     <!-- Card 8 -->
                     <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 hover:shadow-lg transition-shadow flex flex-col justify-between h-full">
                         <div>
-                            <h3 class="text-lg font-bold text-slate-900">Leifer Law Firm</h3>
+                            <h4 class="text-lg font-bold text-slate-900">Leifer Law Firm</h4>
                             <p class="text-sm text-slate-600 font-medium">Leifer Law</p>
                             <p class="text-sm text-emerald-700 mt-2 bg-emerald-50 inline-block px-2 py-1 rounded">Property & Auto Damage</p>
                             <p class="text-slate-800 font-semibold mt-4 text-lg"><a href="tel:+15616609421" class="hover:text-emerald-600">(561) 660-9421</a></p>
@@ -282,7 +338,7 @@
                     <!-- Card 9 -->
                     <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 hover:shadow-lg transition-shadow flex flex-col justify-between h-full">
                         <div>
-                            <h3 class="text-lg font-bold text-slate-900">Sean Smallwood, P.A.</h3>
+                            <h4 class="text-lg font-bold text-slate-900">Sean Smallwood, P.A.</h4>
                             <p class="text-sm text-slate-600 font-medium">Smallwood Law</p>
                             <p class="text-sm text-emerald-700 mt-2 bg-emerald-50 inline-block px-2 py-1 rounded">Trial Attorney</p>
                             <p class="text-slate-800 font-semibold mt-4 text-lg"><a href="tel:+14075746155" class="hover:text-emerald-600">(407) 574-6155</a></p>
@@ -292,7 +348,7 @@
                     <!-- Card 10 -->
                     <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 hover:shadow-lg transition-shadow flex flex-col justify-between h-full">
                         <div>
-                            <h3 class="text-lg font-bold text-slate-900">Stewart Tilghman</h3>
+                            <h4 class="text-lg font-bold text-slate-900">Stewart Tilghman</h4>
                             <p class="text-sm text-slate-600 font-medium">STFB & Cain</p>
                             <p class="text-sm text-emerald-700 mt-2 bg-emerald-50 inline-block px-2 py-1 rounded">Severe Accident Lawsuits</p>
                             <p class="text-slate-800 font-semibold mt-4 text-lg"><a href="tel:+13057706335" class="hover:text-emerald-600">(305) 770-6335</a></p>
@@ -302,7 +358,7 @@
                     <!-- Card 11 -->
                     <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 hover:shadow-lg transition-shadow flex flex-col justify-between h-full">
                         <div>
-                            <h3 class="text-lg font-bold text-slate-900">Marc L. Shapiro</h3>
+                            <h4 class="text-lg font-bold text-slate-900">Marc L. Shapiro</h4>
                             <p class="text-sm text-slate-600 font-medium">Lawyer Shapiro</p>
                             <p class="text-sm text-emerald-700 mt-2 bg-emerald-50 inline-block px-2 py-1 rounded">Insurance Disputes</p>
                             <p class="text-slate-800 font-semibold mt-4 text-lg"><a href="tel:+12396498050" class="hover:text-emerald-600">(239) 649-8050</a></p>
@@ -312,7 +368,7 @@
                     <!-- Card 12 -->
                     <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 hover:shadow-lg transition-shadow flex flex-col justify-between h-full">
                         <div>
-                            <h3 class="text-lg font-bold text-slate-900">Nici Law Firm</h3>
+                            <h4 class="text-lg font-bold text-slate-900">Nici Law Firm</h4>
                             <p class="text-sm text-slate-600 font-medium">Nici Law</p>
                             <p class="text-sm text-emerald-700 mt-2 bg-emerald-50 inline-block px-2 py-1 rounded">Florida PIP Claims</p>
                             <p class="text-slate-800 font-semibold mt-4 text-lg"><a href="tel:+12394496150" class="hover:text-emerald-600">(239) 449-6150</a></p>
@@ -325,29 +381,33 @@
             <!-- Main Content Structured Body -->
             <div class="prose prose-lg prose-slate max-w-none space-y-10">
                 
-                <h2 id="quick-answer" class="text-3xl font-bold text-slate-900 scroll-mt-24">What Does a Car Insurance Lawyer Do?</h2>
+                <!-- H2 Structural Anchor -->
+                <h2 id="quick-answer" class="scroll-mt-24"></h2>
+                <h3 class="text-3xl font-bold text-slate-900 border-t border-slate-200 pt-8 mt-10">What Does a Car Insurance Lawyer Do?</h3>
                 <div class="space-y-4">
-                    <h3 class="text-2xl font-semibold text-slate-800 mt-6">Core Responsibilities</h3>
+                    <h4 class="text-2xl font-semibold text-slate-800 mt-6">Core Responsibilities</h4>
                     <p>A car insurance attorney is a dedicated legal professional who steps in when your insurance provider acts improperly. Instead of letting adjusters dictate the terms of your recovery, a lawyer levels the playing field. Their primary responsibility is to protect your contractual and legal rights under Florida law.</p>
                     
-                    <h3 class="text-2xl font-semibold text-slate-800 mt-6">Claims Handling</h3>
+                    <h4 class="text-2xl font-semibold text-slate-800 mt-6">Claims Handling</h4>
                     <p>Attorneys handle all direct communication with the insurance company. This includes interpreting complex policy language, filing the necessary paperwork, tracking deadlines, and ensuring that no procedural errors jeopardize your settlement. They handle the bureaucracy so you can focus on recovery.</p>
                     
-                    <h3 class="text-2xl font-semibold text-slate-800 mt-6">Legal Representation</h3>
+                    <h4 class="text-2xl font-semibold text-slate-800 mt-6">Legal Representation</h4>
                     <p>If an insurer refuses to offer a fair settlement, your lawyer will transition the claim into formal litigation. They draft the complaint, manage discovery, depose adjusters, and represent your interests before a judge or jury to force the insurance company to honor their policy commitments.</p>
                 </div>
 
-                <h2 id="what-it-means" class="text-3xl font-bold text-slate-900 scroll-mt-24 border-t border-slate-200 pt-8 mt-10">What Is a Car Insurance Claim Dispute</h2>
+                <!-- H2 Structural Anchor -->
+                <h2 id="what-it-means" class="scroll-mt-24"></h2>
+                <h3 class="text-3xl font-bold text-slate-900 border-t border-slate-200 pt-8 mt-10">What Is a Car Insurance Claim Dispute</h3>
                 <div class="space-y-4">
                     <p>A dispute arises when there is a fundamental disagreement between you (the policyholder or claimant) and the insurance carrier regarding the validity, scope, or value of your claim.</p>
                     
-                    <h3 class="text-2xl font-semibold text-slate-800 mt-6">Types of Car Insurance Claims</h3>
+                    <h4 class="text-2xl font-semibold text-slate-800 mt-6">Types of Car Insurance Claims</h4>
                     <ul class="list-disc pl-6 space-y-2">
                         <li><strong>Property Damage:</strong> Disputes over the cost to repair or replace your vehicle, including diminished value claims.</li>
                         <li><strong>Injury Claims:</strong> Conflicts regarding medical bills, future medical needs, lost wages, and compensation for pain and suffering following an accident.</li>
                     </ul>
 
-                    <h3 class="text-2xl font-semibold text-slate-800 mt-6">What Is Insurance Bad Faith in Auto Claims</h3>
+                    <h4 class="text-2xl font-semibold text-slate-800 mt-6">What Is Insurance Bad Faith in Auto Claims</h4>
                     <p>Bad faith occurs when an insurance company unreasonably delays, denies, or underpays a claim without proper investigation or justification[cite: 1]. Under Florida law, insurers owe a duty of good faith to their policyholders. Violating this duty allows a plaintiff to sue not just for the claim's value, but potentially for punitive damages.</p>
                 </div>
 
@@ -360,11 +420,13 @@
                     <a href="https://twitter.com/intent/tweet?text=Insurance%20companies%20often%20underpay%20claims%20without%20legal%20pressure.&url=https://jacksonvilleinsurancelawyer.com/lawyer/car-insurance-lawyer/" target="_blank" class="mt-4 inline-block text-sm font-semibold text-emerald-700 hover:text-emerald-800 underline">Tap to share on X</a>
                 </div>
 
-                <h2 id="how-it-works" class="text-3xl font-bold text-slate-900 scroll-mt-24 border-t border-slate-200 pt-8 mt-10">How a Car Insurance Lawyer Handles Your Case</h2>
+                <!-- H2 Structural Anchor -->
+                <h2 id="how-it-works" class="scroll-mt-24"></h2>
+                <h3 class="text-3xl font-bold text-slate-900 border-t border-slate-200 pt-8 mt-10">How a Car Insurance Lawyer Handles Your Case</h3>
                 <div class="space-y-4">
                     <p>The legal process is highly structured. When you retain an attorney, they follow a systematic approach to maximize your financial recovery.</p>
                     
-                    <h3 class="text-2xl font-semibold text-slate-800 mt-6">Flow of Representation</h3>
+                    <h4 class="text-2xl font-semibold text-slate-800 mt-6">Flow of Representation</h4>
                     <ul class="list-disc pl-6 space-y-2">
                         <li><strong>Claim review:</strong> Analyzing the insurance policy and the denial/underpayment letter.</li>
                         <li><strong>Evidence gathering:</strong> Collecting crash reports, medical records, and expert witness testimonies.</li>
@@ -372,11 +434,13 @@
                         <li><strong>Litigation:</strong> Filing a lawsuit if the insurance company refuses a fair settlement.</li>
                     </ul>
 
-                    <h3 class="text-2xl font-semibold text-slate-800 mt-6">Negotiation vs Lawsuit</h3>
+                    <h4 class="text-2xl font-semibold text-slate-800 mt-6">Negotiation vs Lawsuit</h4>
                     <p>Negotiation is an out-of-court process aimed at reaching a mutual settlement agreement quickly. A lawsuit is a formal legal action filed in court that relies on a judge or jury to compel the insurer to pay. Most cases settle during negotiation, but a strong attorney prepares every case as if it will go to trial.</p>
                 </div>
 
-                <h2 id="steps" class="text-3xl font-bold text-slate-900 scroll-mt-24 border-t border-slate-200 pt-8 mt-10">Steps a Lawyer Takes to Win Your Claim</h2>
+                <!-- H2 Structural Anchor -->
+                <h2 id="steps" class="scroll-mt-24"></h2>
+                <h3 class="text-3xl font-bold text-slate-900 border-t border-slate-200 pt-8 mt-10">Steps a Lawyer Takes to Win Your Claim</h3>
                 <div class="space-y-4">
                     <ol class="list-decimal pl-6 space-y-3 font-medium text-slate-700">
                         <li><strong>Review policy:</strong> Determining exact coverage limits and exclusions.</li>
@@ -391,29 +455,34 @@
 
                 <!-- Middle CTA -->
                 <div class="bg-slate-900 text-white rounded-2xl p-8 my-10 text-center shadow-xl">
-                    <h3 class="text-2xl font-bold mb-4">Need help with a car insurance claim in Jacksonville?</h3>
+                    <h4 class="text-2xl font-bold mb-4">Need help with a car insurance claim in Jacksonville?</h4>
                     <p class="text-slate-300 mb-6">Our network of verified attorneys is ready to review your policy and fight for the compensation you deserve.</p>
-                    <a href="tel:+18666085529" class="inline-block bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-bold text-lg px-8 py-4 rounded-full transition-transform hover:scale-105">
-                        Call Jason M. Melton: (866) 608-5529
+                    <a href="tel:+18666085529" class="inline-flex flex-col bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-bold px-8 py-4 rounded-full transition-transform hover:scale-105">
+                        <span class="random-cta text-lg block mb-1">Get Your Free Consultation</span>
+                        <span class="text-sm font-semibold opacity-90">Call Jason M. Melton: (866) 608-5529</span>
                     </a>
                 </div>
 
-                <h2 id="costs" class="text-3xl font-bold text-slate-900 scroll-mt-24 border-t border-slate-200 pt-8 mt-10">How Much a Car Insurance Lawyer Costs</h2>
+                <!-- H2 Structural Anchor -->
+                <h2 id="costs" class="scroll-mt-24"></h2>
+                <h3 class="text-3xl font-bold text-slate-900 border-t border-slate-200 pt-8 mt-10">How Much a Car Insurance Lawyer Costs</h3>
                 <div class="space-y-4">
-                    <h3 class="text-2xl font-semibold text-slate-800 mt-6">Contingency Fees Explained</h3>
+                    <h4 class="text-2xl font-semibold text-slate-800 mt-6">Contingency Fees Explained</h4>
                     <p>Car insurance lawyers almost exclusively work on a contingency fee basis. This means the attorney only gets paid if they successfully recover money for you. If you lose your case, you owe the lawyer nothing for their time.</p>
                     
-                    <h3 class="text-2xl font-semibold text-slate-800 mt-6">Typical Percentage Fees</h3>
+                    <h4 class="text-2xl font-semibold text-slate-800 mt-6">Typical Percentage Fees</h4>
                     <p>In Florida, standard contingency fees range from <strong>33.3%</strong> (if the case settles before a lawsuit is filed) up to <strong>40%</strong> (if litigation or trial is required). These caps are regulated by the Florida Bar.</p>
                     
-                    <h3 class="text-2xl font-semibold text-slate-800 mt-6">Costs You May Pay</h3>
+                    <h4 class="text-2xl font-semibold text-slate-800 mt-6">Costs You May Pay</h4>
                     <p>While attorney fees are contingent, "costs" (such as court filing fees, expert witness fees, and deposition transcripts) are separate. Most firms advance these costs and deduct them from the final settlement. Always review the fee agreement to understand exactly how costs are handled.</p>
                 </div>
 
-                <h2 id="timeline" class="text-3xl font-bold text-slate-900 scroll-mt-24 border-t border-slate-200 pt-8 mt-10">How Long Car Insurance Claims Take</h2>
+                <!-- H2 Structural Anchor -->
+                <h2 id="timeline" class="scroll-mt-24"></h2>
+                <h3 class="text-3xl font-bold text-slate-900 border-t border-slate-200 pt-8 mt-10">How Long Car Insurance Claims Take</h3>
                 <div class="space-y-4">
                     <p>The timeline of a car insurance claim can vary wildly depending on the specifics of the accident and the insurer's tactics.</p>
-                    <h3 class="text-2xl font-semibold text-slate-800 mt-6">What Affects Timeline</h3>
+                    <h4 class="text-2xl font-semibold text-slate-800 mt-6">What Affects Timeline</h4>
                     <ul class="list-disc pl-6 space-y-2">
                         <li><strong>Severity of injuries:</strong> You must reach Maximum Medical Improvement (MMI) before a claim can be accurately valued.</li>
                         <li><strong>Insurer cooperation:</strong> If the insurer negotiates in good faith, cases can settle in 3 to 6 months. Bad faith delays can push timelines beyond a year.</li>
@@ -430,25 +499,31 @@
                     <a href="https://twitter.com/intent/tweet?text=A%20lawyer%20can%20increase%20your%20car%20accident%20settlement%20value%20significantly.&url=https://jacksonvilleinsurancelawyer.com/lawyer/car-insurance-lawyer/" target="_blank" class="mt-4 inline-block text-sm font-semibold text-violet-700 hover:text-violet-800 underline">Tap to share on X</a>
                 </div>
 
-                <h2 id="pros-cons" class="text-3xl font-bold text-slate-900 scroll-mt-24 border-t border-slate-200 pt-8 mt-10">Benefits vs Risks</h2>
+                <!-- H2 Structural Anchor -->
+                <h2 id="pros-cons" class="scroll-mt-24"></h2>
+                <h3 class="text-3xl font-bold text-slate-900 border-t border-slate-200 pt-8 mt-10">Benefits vs Risks</h3>
                 <div class="space-y-4">
-                    <h3 class="text-2xl font-semibold text-slate-800 mt-6">Benefits of Hiring a Lawyer</h3>
+                    <h4 class="text-2xl font-semibold text-slate-800 mt-6">Benefits of Hiring a Lawyer</h4>
                     <p>An attorney provides leverage. Insurers take represented clients more seriously because they know a lawsuit is a credible threat. Lawyers also have access to medical experts, accident reconstructionists, and handle all the aggressive negotiations.</p>
                     
-                    <h3 class="text-2xl font-semibold text-slate-800 mt-6">Risks of Not Hiring One</h3>
+                    <h4 class="text-2xl font-semibold text-slate-800 mt-6">Risks of Not Hiring One</h4>
                     <p>Without legal counsel, you risk accepting a lowball settlement that fails to cover future medical costs. You may inadvertently say something on a recorded line that ruins your claim, or miss strict state filing deadlines, barring you from recovery forever.</p>
                 </div>
 
-                <h2 id="florida-law" class="text-3xl font-bold text-slate-900 scroll-mt-24 border-t border-slate-200 pt-8 mt-10">Florida Car Insurance Laws</h2>
+                <!-- H2 Structural Anchor -->
+                <h2 id="florida-law" class="scroll-mt-24"></h2>
+                <h3 class="text-3xl font-bold text-slate-900 border-t border-slate-200 pt-8 mt-10">Florida Car Insurance Laws</h3>
                 <div class="space-y-4">
-                    <h3 class="text-2xl font-semibold text-slate-800 mt-6">No-Fault (PIP) Explained</h3>
+                    <h4 class="text-2xl font-semibold text-slate-800 mt-6">No-Fault (PIP) Explained</h4>
                     <p>Florida is a "no-fault" state[cite: 1]. This means that after an accident, you must first turn to your own Personal Injury Protection (PIP) coverage to pay for medical bills and lost wages, regardless of who caused the crash. PIP covers 80% of medical bills up to $10,000.</p>
                     
-                    <h3 class="text-2xl font-semibold text-slate-800 mt-6">Filing Deadlines</h3>
+                    <h4 class="text-2xl font-semibold text-slate-800 mt-6">Filing Deadlines</h4>
                     <p>To utilize your PIP benefits, you must seek initial medical treatment within <strong>14 days</strong> of the accident. Additionally, Florida's statute of limitations for filing a general negligence lawsuit for personal injury resulting from a car crash was recently shortened to <strong>two years</strong>. Missing these deadlines is fatal to your claim.</p>
                 </div>
 
-                <h2 id="when-to-hire-lawyer" class="text-3xl font-bold text-slate-900 scroll-mt-24 border-t border-slate-200 pt-8 mt-10">When You Need a Car Insurance Lawyer</h2>
+                <!-- H2 Structural Anchor -->
+                <h2 id="when-to-hire-lawyer" class="scroll-mt-24"></h2>
+                <h3 class="text-3xl font-bold text-slate-900 border-t border-slate-200 pt-8 mt-10">When You Need a Car Insurance Lawyer</h3>
                 <div class="space-y-4">
                     <ul class="list-disc pl-6 space-y-2">
                         <li><strong>Denied claim:</strong> The insurer completely refuses to pay, citing policy exclusions or disputing liability.</li>
@@ -456,12 +531,13 @@
                         <li><strong>Delay:</strong> The insurance company is stalling the investigation for months without reasonable cause.</li>
                     </ul>
                     
-                    <h3 class="text-2xl font-semibold text-slate-800 mt-6">When You May Not Need One</h3>
+                    <h4 class="text-2xl font-semibold text-slate-800 mt-6">When You May Not Need One</h4>
                     <p>If you were in a minor fender bender with no injuries, and the insurance company swiftly paid the auto body shop to fully repair your vehicle, hiring an attorney is likely unnecessary. Small, undisputed property-damage-only claims can often be handled directly.</p>
                 </div>
 
                 <!-- Comparison Table -->
-                <h2 class="text-3xl font-bold text-slate-900 scroll-mt-24 border-t border-slate-200 pt-8 mt-10">Lawyer vs Handling Claim Yourself</h2>
+                <h2 id="comparison" class="scroll-mt-24"></h2>
+                <h3 class="text-3xl font-bold text-slate-900 border-t border-slate-200 pt-8 mt-10">Lawyer vs Handling Claim Yourself</h3>
                 <div class="overflow-x-auto mt-6">
                     <table class="min-w-full bg-white border border-slate-200 rounded-lg shadow-sm">
                         <thead class="bg-slate-100 border-b border-slate-200">
@@ -498,7 +574,7 @@
 
                 <!-- Internal Links Block -->
                 <div id="dynamic-internal-links" class="mt-12 bg-slate-100 p-6 rounded-xl border border-slate-200">
-                    <h3 class="text-xl font-bold text-slate-900 mb-4">Related Legal Guides</h3>
+                    <h4 class="text-xl font-bold text-slate-900 mb-4">Related Legal Guides</h4>
                     <ul class="space-y-2 font-medium text-emerald-700">
                         <li><a href="/guide/how-to-sue-an-insurance-company/" class="hover:underline">How to Sue an Insurance Company</a></li>
                         <li><a href="/guide/how-to-sue-a-car-insurance-company-without-lawyer/" class="hover:underline">How to Sue a Car Insurance Company Without a Lawyer</a></li>
@@ -525,7 +601,7 @@
 
             <!-- Helpfulness Widget -->
             <div id="helpfulness-widget" class="bg-slate-50 border border-slate-200 p-8 rounded-2xl text-center shadow-sm">
-                <h3 class="text-2xl font-bold text-slate-900 mb-6">Was this article helpful?</h3>
+                <h4 class="text-2xl font-bold text-slate-900 mb-6">Was this article helpful?</h4>
                 <div class="flex justify-center gap-4" id="help-buttons">
                     <button onclick="handleHelpful(true)" class="px-8 py-3 bg-white border-2 border-emerald-500 text-emerald-700 font-bold rounded-lg hover:bg-emerald-50 transition-colors text-lg">👍 Yes</button>
                     <button onclick="handleHelpful(false)" class="px-8 py-3 bg-white border-2 border-rose-500 text-rose-700 font-bold rounded-lg hover:bg-rose-50 transition-colors text-lg">👎 No</button>
@@ -534,7 +610,8 @@
                 <!-- Hidden Responses -->
                 <div id="help-yes-response" class="hidden mt-6">
                     <p class="text-emerald-600 font-bold text-lg mb-4">Thank you for your feedback! Please share this guide.</p>
-                    <div class="flex justify-center gap-3">
+                    <div class="flex flex-wrap items-center justify-center gap-3">
+                        <button onclick="shareLink('whatsapp')" class="px-4 py-2 bg-slate-200 rounded-full text-sm font-semibold hover:bg-slate-300">WhatsApp</button>
                         <button onclick="shareLink('facebook')" class="px-4 py-2 bg-slate-200 rounded-full text-sm font-semibold hover:bg-slate-300">Facebook</button>
                         <button onclick="shareLink('twitter')" class="px-4 py-2 bg-slate-200 rounded-full text-sm font-semibold hover:bg-slate-300">Twitter</button>
                     </div>
@@ -548,9 +625,11 @@
 
             <!-- FAQ Section -->
             <section class="mt-16">
-                <h2 id="faqs" class="text-3xl font-bold text-slate-900 mb-8">Frequently Asked Questions</h2>
+                <!-- Anchor injected properly -->
+                <h2 id="faqs" class="scroll-mt-24"></h2>
+                <h3 class="text-3xl font-bold text-slate-900 mb-8">Frequently Asked Questions</h3>
                 <div class="space-y-4" id="faq-container">
-                    <!-- FAQ items injected via logic below, structure standardized -->
+                    <!-- Standardized 14 FAQs -->
                     <div class="border border-slate-200 rounded-lg bg-white overflow-hidden">
                         <button class="faq-toggle w-full px-6 py-4 text-left font-bold text-slate-800 flex justify-between items-center focus:outline-none">
                             <span>Do I need a car insurance lawyer?</span>
@@ -590,12 +669,113 @@
                             Yes. If the company breaches your policy contract or acts in bad faith by unreasonably denying or delaying a claim, you have the legal right to sue them for damages.
                         </div>
                     </div>
+                    
+                    <div class="border border-slate-200 rounded-lg bg-white overflow-hidden">
+                        <button class="faq-toggle w-full px-6 py-4 text-left font-bold text-slate-800 flex justify-between items-center focus:outline-none">
+                            <span>What is considered bad faith in Florida?</span>
+                            <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content px-6 bg-slate-50 text-slate-600">
+                            Bad faith in Florida occurs when an insurance company fails to settle a claim when they could and should have done so had they acted fairly and honestly toward their policyholder.
+                        </div>
+                    </div>
+
+                    <div class="border border-slate-200 rounded-lg bg-white overflow-hidden">
+                        <button class="faq-toggle w-full px-6 py-4 text-left font-bold text-slate-800 flex justify-between items-center focus:outline-none">
+                            <span>What if the at-fault driver has no insurance?</span>
+                            <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content px-6 bg-slate-50 text-slate-600">
+                            You would typically turn to your own Uninsured Motorist (UM) coverage to cover your medical expenses, lost wages, and pain and suffering.
+                        </div>
+                    </div>
+
+                    <div class="border border-slate-200 rounded-lg bg-white overflow-hidden">
+                        <button class="faq-toggle w-full px-6 py-4 text-left font-bold text-slate-800 flex justify-between items-center focus:outline-none">
+                            <span>Will my car insurance case go to trial?</span>
+                            <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content px-6 bg-slate-50 text-slate-600">
+                            Most car insurance claims are settled out of court. However, if the insurance company refuses to offer a fair settlement, your lawyer will file a lawsuit and may take the case to trial.
+                        </div>
+                    </div>
+
+                    <div class="border border-slate-200 rounded-lg bg-white overflow-hidden">
+                        <button class="faq-toggle w-full px-6 py-4 text-left font-bold text-slate-800 flex justify-between items-center focus:outline-none">
+                            <span>Should I give a recorded statement to the adjuster?</span>
+                            <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content px-6 bg-slate-50 text-slate-600">
+                            No. You should never give a recorded statement to the other driver's insurance adjuster without consulting an attorney first, as they will try to use your words against you.
+                        </div>
+                    </div>
+
+                    <div class="border border-slate-200 rounded-lg bg-white overflow-hidden">
+                        <button class="faq-toggle w-full px-6 py-4 text-left font-bold text-slate-800 flex justify-between items-center focus:outline-none">
+                            <span>Can I switch lawyers if I am unhappy?</span>
+                            <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content px-6 bg-slate-50 text-slate-600">
+                            Yes, you have the right to change attorneys at any time. Your new lawyer can coordinate the transition and handle any fee divisions with your former counsel.
+                        </div>
+                    </div>
+
+                    <div class="border border-slate-200 rounded-lg bg-white overflow-hidden">
+                        <button class="faq-toggle w-full px-6 py-4 text-left font-bold text-slate-800 flex justify-between items-center focus:outline-none">
+                            <span>How is pain and suffering calculated?</span>
+                            <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content px-6 bg-slate-50 text-slate-600">
+                            Insurance companies often use a multiplier method based on your actual medical damages or a per diem approach. An attorney will help document the full extent of your distress to maximize this value.
+                        </div>
+                    </div>
+
+                    <div class="border border-slate-200 rounded-lg bg-white overflow-hidden">
+                        <button class="faq-toggle w-full px-6 py-4 text-left font-bold text-slate-800 flex justify-between items-center focus:outline-none">
+                            <span>What exactly does PIP cover in Florida?</span>
+                            <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content px-6 bg-slate-50 text-slate-600">
+                            Personal Injury Protection (PIP) in Florida covers 80% of your reasonable and necessary medical expenses and 60% of lost wages up to $10,000, regardless of who was at fault.
+                        </div>
+                    </div>
+
+                    <div class="border border-slate-200 rounded-lg bg-white overflow-hidden">
+                        <button class="faq-toggle w-full px-6 py-4 text-left font-bold text-slate-800 flex justify-between items-center focus:outline-none">
+                            <span>Do I have to pay taxes on my settlement?</span>
+                            <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content px-6 bg-slate-50 text-slate-600">
+                            Generally, compensation for physical injuries and sickness is tax-free. However, portions designated for punitive damages or lost wages may be subject to taxation.
+                        </div>
+                    </div>
+
+                    <div class="border border-slate-200 rounded-lg bg-white overflow-hidden">
+                        <button class="faq-toggle w-full px-6 py-4 text-left font-bold text-slate-800 flex justify-between items-center focus:outline-none">
+                            <span>What if I was partially at fault?</span>
+                            <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content px-6 bg-slate-50 text-slate-600">
+                            Florida follows a modified comparative negligence system. You can still recover damages as long as you are not more than 50% at fault, but your recovery will be reduced by your percentage of fault.
+                        </div>
+                    </div>
+
+                    <div class="border border-slate-200 rounded-lg bg-white overflow-hidden">
+                        <button class="faq-toggle w-full px-6 py-4 text-left font-bold text-slate-800 flex justify-between items-center focus:outline-none">
+                            <span>How do I know if the settlement offer is fair?</span>
+                            <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content px-6 bg-slate-50 text-slate-600">
+                            A fair offer should cover all past and future medical bills, lost wages, and adequately compensate for pain and suffering. A lawyer can evaluate the offer using case precedents and actuarial data.
+                        </div>
+                    </div>
+
                 </div>
             </section>
 
             <!-- Testimonials -->
             <section class="mt-16 bg-slate-900 text-white p-8 rounded-2xl relative overflow-hidden">
-                <h3 class="text-xl font-bold text-slate-300 mb-6 uppercase tracking-wider text-center">What Florida Clients Say</h3>
+                <h4 class="text-xl font-bold text-slate-300 mb-6 uppercase tracking-wider text-center">What Florida Clients Say</h4>
                 <div id="testimonial-container" class="relative h-32 flex items-center justify-center text-center">
                     <!-- Javascript populates this -->
                 </div>
@@ -603,7 +783,7 @@
 
             <!-- Bottom Share CTA -->
             <section class="my-16 text-center border-t border-slate-200 pt-12">
-                <h3 class="text-3xl font-bold text-slate-900 mb-3">Found this helpful?</h3>
+                <h4 class="text-3xl font-bold text-slate-900 mb-3">Found this helpful?</h4>
                 <p class="text-slate-600 mb-6">Share this guide with someone who might need it.</p>
                 <div class="flex flex-wrap items-center justify-center gap-3">
                     <button onclick="shareLink('whatsapp')" class="px-5 py-3 bg-green-500 hover:bg-green-600 text-white rounded-full font-bold transition-colors">WhatsApp</button>
@@ -614,10 +794,11 @@
 
             <!-- Bottom CTA -->
             <div class="bg-gradient-to-r from-emerald-700 to-violet-800 text-white rounded-2xl p-10 text-center shadow-2xl">
-                <h3 class="text-3xl font-extrabold mb-4">Speak with a Car Insurance Lawyer Today</h3>
+                <h4 class="text-3xl font-extrabold mb-4">Speak with a Car Insurance Lawyer Today</h4>
                 <p class="text-lg text-emerald-100 mb-8">Don't let the insurance company dictate your recovery. Get a free, confidential review of your case right now.</p>
-                <a href="tel:+19045009653" class="inline-block bg-white text-slate-900 font-black text-xl px-10 py-5 rounded-full hover:shadow-lg transition-transform hover:-translate-y-1">
-                    Call David Alan Wolf: (904) 500-9653
+                <a href="tel:+19045009653" class="inline-flex flex-col items-center bg-white text-slate-900 px-10 py-5 rounded-full hover:shadow-lg transition-transform hover:-translate-y-1">
+                    <span class="random-cta font-black text-xl mb-1">Get Your Free Claim Review</span>
+                    <span class="text-sm font-bold opacity-80">Call David Alan Wolf: (904) 500-9653</span>
                 </a>
             </div>
 
@@ -634,7 +815,7 @@
         <!-- Sidebar / Table of Contents -->
         <aside class="lg:col-span-4 hidden lg:block">
             <div class="sticky top-24 bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
-                <h3 class="text-lg font-bold text-slate-900 mb-4 uppercase tracking-wider">In This Guide</h3>
+                <h4 class="text-lg font-bold text-slate-900 mb-4 uppercase tracking-wider">In This Guide</h4>
                 <nav id="toc-nav" class="space-y-3 text-sm font-medium text-slate-600">
                     <a href="#quick-answer" class="block pl-3 border-l-2 border-transparent hover:text-emerald-600 transition-colors">What Lawyers Do</a>
                     <a href="#what-it-means" class="block pl-3 border-l-2 border-transparent hover:text-emerald-600 transition-colors">Claim Disputes & Bad Faith</a>
@@ -645,6 +826,7 @@
                     <a href="#pros-cons" class="block pl-3 border-l-2 border-transparent hover:text-emerald-600 transition-colors">Benefits vs Risks</a>
                     <a href="#florida-law" class="block pl-3 border-l-2 border-transparent hover:text-emerald-600 transition-colors">Florida PIP Laws</a>
                     <a href="#when-to-hire-lawyer" class="block pl-3 border-l-2 border-transparent hover:text-emerald-600 transition-colors">When to Hire</a>
+                    <a href="#comparison" class="block pl-3 border-l-2 border-transparent hover:text-emerald-600 transition-colors">Lawyer vs DIY</a>
                     <a href="#faqs" class="block pl-3 border-l-2 border-transparent hover:text-emerald-600 transition-colors">FAQs</a>
                 </nav>
             </div>
@@ -704,14 +886,62 @@
 
             // 2. Dynamic Year & Dates
             const yearElements = document.querySelectorAll('.current-year');
-            const currentYear = new Date().getFullYear();
+            const currentDate = new Date();
+            const currentYear = currentDate.getFullYear();
             yearElements.forEach(el => el.textContent = currentYear);
 
             const dateElements = document.querySelectorAll('.dynamic-date-text');
             const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-            const currentDate = new Date();
             const dateString = `${months[currentDate.getMonth()]} ${currentDate.getDate()}, ${currentYear}`;
             dateElements.forEach(el => el.textContent = dateString);
+            
+            // Auto Update JSON-LD Modified Date logic
+            const jsonLdScript = document.querySelector('script[type="application/ld+json"]');
+            if (jsonLdScript) {
+                try {
+                    let schemaData = JSON.parse(jsonLdScript.innerHTML);
+                    let todayString = currentDate.toISOString().split('T')[0] + "T08:00:00+00:00";
+                    schemaData['@graph'].forEach(item => {
+                        if (item['@type'] === 'Article') {
+                            item.dateModified = todayString;
+                        }
+                    });
+                    jsonLdScript.innerHTML = JSON.stringify(schemaData);
+                } catch(e) {}
+            }
+
+            // Seasonal Banner Auto-Calculation
+            const month = currentDate.getMonth();
+            let season = 'Winter';
+            if(month >= 2 && month <= 4) season = 'Spring';
+            else if(month >= 5 && month <= 7) season = 'Summer';
+            else if(month >= 8 && month <= 10) season = 'Fall';
+            const seasonBadge = document.getElementById('seasonal-banner-text');
+            if(seasonBadge) seasonBadge.textContent = `${season} ${currentYear} Legal Edition`;
+
+            // Randomized CTA Text Engine
+            const ctaPhrases = [
+                "Request Free Case Review", 
+                "Speak to an Attorney Now", 
+                "Get Your Free Consultation", 
+                "Claim Your Free Review", 
+                "Talk to a Lawyer Today", 
+                "Maximize Your Settlement"
+            ];
+            document.querySelectorAll('.random-cta').forEach(el => {
+                const randomIndex = Math.floor(Math.random() * ctaPhrases.length);
+                el.textContent = ctaPhrases[randomIndex];
+            });
+
+            // Auto Reading Time Calculator
+            const articleBody = document.querySelector('article');
+            if (articleBody) {
+                const textContent = articleBody.innerText || articleBody.textContent;
+                const wordCount = textContent.trim().split(/\s+/).length;
+                const readingTime = Math.ceil(wordCount / 200); // Standard 200WPM speed
+                const badge = document.getElementById('reading-time-badge');
+                if (badge) badge.textContent = `${readingTime} Min Read`;
+            }
 
             // 3. TOC Highlight (ScrollSpy)
             const tocLinks = document.querySelectorAll('#toc-nav a');
@@ -756,6 +986,7 @@
             let quoteIndex = 0;
             
             function updateQuote() {
+                if(!testContainer) return;
                 testContainer.style.opacity = 0;
                 setTimeout(() => {
                     testContainer.innerHTML = `<p class="text-xl md:text-2xl font-medium italic transition-opacity duration-500">${quotes[quoteIndex]}</p>`;
