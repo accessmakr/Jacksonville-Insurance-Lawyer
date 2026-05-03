@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Jacksonville Insurance Lawyer Directory</title>
+    <meta name="description" content="Read our Privacy Policy to understand how we collect, use, and protect your data on the Jacksonville Insurance Lawyer directory.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://jacksonvilleinsurancelawyer.com/privacy-policy.html">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Playfair Display', 'serif'] }, colors: { brand: { slate: '#0f172a', emerald: '#10b981' } } } } }
+    </script>
+</head>
+<body class="flex flex-col min-h-screen text-slate-700">
+
+    <header class="sticky top-0 z-40 bg-white/90 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="/index.html" class="flex items-center gap-2 font-serif font-bold text-xl text-brand-slate">⚖️ Jacksonville Insurance Lawyer</a>
+            <div id="master-nav-dock" class="flex items-center justify-between"></div>
+        </div>
+    </header>
+
+    <main class="w-full flex-grow py-16 bg-slate-50 border-t-2 border-brand-slate">
+        <div class="max-w-3xl mx-auto px-4 bg-white p-8 md:p-12 shadow-sm border border-slate-200">
+            <h1 class="text-3xl font-serif font-bold mb-6 text-brand-slate">Privacy Policy</h1>
+            <p class="text-sm text-slate-500 mb-8">Effective Date: <span id="dynamic-review-date"></span></p>
+
+            <div class="prose prose-slate max-w-none space-y-6">
+                <h2 class="text-xl font-bold text-brand-slate">1. Information We Collect</h2>
+                <p>We do not collect sensitive personal data. We use Plausible Analytics, a lightweight, privacy-focused analytics tool that tracks aggregate website usage without using cookies or collecting personally identifiable information (PII).</p>
+
+                <h2 class="text-xl font-bold text-brand-slate">2. How We Use Your Information</h2>
+                <p>Information submitted voluntarily via our contact forms is used solely to respond to your direct inquiries. Your information is never sold, rented, or shared with third-party marketing agencies.</p>
+
+                <h2 class="text-xl font-bold text-brand-slate">3. Data Security</h2>
+                <p>We implement robust, enterprise-grade security protocols to maintain the safety of your data. However, no data transmission over the Internet can be guaranteed to be 100% secure.</p>
+
+                <h2 class="text-xl font-bold text-brand-slate">4. Third-Party Links</h2>
+                <p>Our directory provides links to independent attorneys and external resources. We are not responsible for the privacy practices or the content of these third-party websites.</p>
+                
+                <h2 class="text-xl font-bold text-brand-slate">5. Changes to This Policy</h2>
+                <p>We may update this Privacy Policy periodically. Continued use of the platform after updates signifies acceptance of the revised terms.</p>
+            </div>
+            
+            <div id="dynamic-internal-links" class="mt-12"></div>
+        </div>
+    </main>
+
+    <footer class="bg-brand-slate text-slate-400 py-8 text-sm mt-auto">
+        <div class="max-w-7xl mx-auto px-4 flex flex-wrap justify-center gap-4">
+            <a href="/privacy-policy.html">Privacy Policy</a> | 
+            <a href="/cookies-policy.html">Cookies Policy</a> | 
+            <a href="/terms-of-use.html">Terms of Use</a> | 
+            <a href="/disclaimer.html">Disclaimer</a> | 
+            <a href="/dmca.html">DMCA</a> | 
+            <a href="/accessibility.html">Accessibility</a> | 
+            <a href="/do-not-sell-my-data.html">Do Not Sell My Data</a> | 
+            <a href="/contact.html">Contact</a> | 
+            <a href="/about.html">About Us</a>
+        </div>
+    </footer>
+
+    <script defer src="../js/registry.js"></script>
+    <script defer src="../js/root-config.js"></script>
+    <script defer src="../js/menu-system.js"></script>
+    <script defer src="../js/search-system.js"></script>
+    <script defer src="../js/schema.js"></script>
+    <script defer src="../js/internal-links.js"></script>
+    <script defer src="../js/legal-engine.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+            document.getElementById('dynamic-review-date').textContent = today;
+        });
+    </script>
+</body>
+</html>
