@@ -41,7 +41,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS (CDN for standalone, inline equivalent) -->
+    <!-- Preconnect for Animations & Analytics -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    
+    <!-- Plausible Analytics -->
+    <script defer data-domain="jacksonvilleinsurancelawyer.com" src="https://plausible.io/js/script.js"></script>
+
+    <!-- Async Animations Scripts -->
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -77,6 +88,8 @@
         .progress-bar { width: 0%; transition: width 0.1s ease; }
         .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
+        /* Scroll-spy highlight */
+        .toc-link.active { color: #10b981; border-left-color: #10b981; font-weight: 600; }
     </style>
 
     <!-- Schema Markup (JSON-LD) -->
@@ -105,6 +118,31 @@
             "@type": "ImageObject",
             "url": "https://jacksonvilleinsurancelawyer.com/assets/logo.webp"
           }
+        },
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://jacksonvilleinsurancelawyer.com/#localbusiness",
+          "name": "Jacksonville Insurance Lawyer Directory",
+          "url": "https://jacksonvilleinsurancelawyer.com",
+          "image": "https://jacksonvilleinsurancelawyer.com/assets/logo.webp",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Jacksonville",
+            "addressRegion": "FL",
+            "addressCountry": "US"
+          },
+          "priceRange": "$$"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://jacksonvilleinsurancelawyer.com/"
+            }
+          ]
         },
         {
           "@type": "FAQPage",
@@ -154,19 +192,19 @@
                         Jacksonville Insurance Lawyer
                     </h1>
                     
-                    <div id="quick-answer" class="text-lg text-slate-600 mb-8 leading-relaxed border-l-4 border-brand-slate pl-4">
+                    <div id="quick-answer" class="text-lg text-slate-600 mb-8 leading-relaxed border-l-4 border-brand-slate pl-4" data-aos="fade-right">
                         <strong>Quick Answer:</strong> A Jacksonville insurance lawyer forces insurance companies to honor their policies. You should hire one immediately if your auto, property, or life insurance claim has been wrongfully denied, unreasonably delayed, or significantly underpaid. They navigate bad faith practices to recover the maximum settlement you are legally owed.
                     </div>
 
                     <!-- HERO SHARE BAR -->
                     <div class="flex flex-wrap items-center gap-2 mb-10 pb-6 border-b border-brand-border">
                         <span class="text-sm font-semibold text-slate-500 uppercase tracking-wider mr-2">Share this directory:</span>
-                        <button onclick="shareSystem.share('whatsapp')" class="px-4 py-1.5 rounded-full border border-slate-300 text-sm font-medium hover:bg-slate-50 transition-colors flex items-center gap-2">WhatsApp</button>
-                        <button onclick="shareSystem.share('facebook')" class="px-4 py-1.5 rounded-full border border-slate-300 text-sm font-medium hover:bg-slate-50 transition-colors flex items-center gap-2">Facebook</button>
-                        <button onclick="shareSystem.share('twitter')" class="px-4 py-1.5 rounded-full border border-slate-300 text-sm font-medium hover:bg-slate-50 transition-colors flex items-center gap-2">X / Twitter</button>
-                        <button onclick="shareSystem.share('linkedin')" class="px-4 py-1.5 rounded-full border border-slate-300 text-sm font-medium hover:bg-slate-50 transition-colors flex items-center gap-2">LinkedIn</button>
-                        <button onclick="shareSystem.share('email')" class="px-4 py-1.5 rounded-full border border-slate-300 text-sm font-medium hover:bg-slate-50 transition-colors flex items-center gap-2">Email</button>
-                        <button onclick="shareSystem.copy()" class="px-4 py-1.5 rounded-full border border-slate-300 text-sm font-medium hover:bg-slate-50 transition-colors flex items-center gap-2">Copy Link</button>
+                        <button onclick="shareSystem.share('whatsapp')" class="px-4 py-1.5 rounded-full border border-slate-300 bg-transparent text-slate-700 text-sm font-medium hover:bg-slate-50 transition-colors flex items-center gap-2">WhatsApp</button>
+                        <button onclick="shareSystem.share('facebook')" class="px-4 py-1.5 rounded-full border border-slate-300 bg-transparent text-slate-700 text-sm font-medium hover:bg-slate-50 transition-colors flex items-center gap-2">Facebook</button>
+                        <button onclick="shareSystem.share('twitter')" class="px-4 py-1.5 rounded-full border border-slate-300 bg-transparent text-slate-700 text-sm font-medium hover:bg-slate-50 transition-colors flex items-center gap-2">X / Twitter</button>
+                        <button onclick="shareSystem.share('linkedin')" class="px-4 py-1.5 rounded-full border border-slate-300 bg-transparent text-slate-700 text-sm font-medium hover:bg-slate-50 transition-colors flex items-center gap-2">LinkedIn</button>
+                        <button onclick="shareSystem.share('email')" class="px-4 py-1.5 rounded-full border border-slate-300 bg-transparent text-slate-700 text-sm font-medium hover:bg-slate-50 transition-colors flex items-center gap-2">Email</button>
+                        <button onclick="shareSystem.copy()" class="px-4 py-1.5 rounded-full border border-slate-300 bg-transparent text-slate-700 text-sm font-medium hover:bg-slate-50 transition-colors flex items-center gap-2">Copy Link</button>
                     </div>
 
                     <!-- PRIMARY CTA BUTTONS -->
@@ -196,7 +234,7 @@
                     <div class="flex items-center gap-6 mt-8 pt-6 border-t border-brand-border">
                         <div class="flex items-center gap-2">
                             <span class="text-yellow-400 text-xl">★★★★★</span>
-                            <span class="text-sm font-semibold">4.9★ Satisfaction</span>
+                            <span class="text-sm font-semibold text-slate-700">4.9★ Satisfaction</span>
                         </div>
                         <div class="h-4 w-px bg-slate-300"></div>
                         <span class="text-sm font-medium text-slate-600">Same-day consultations</span>
@@ -217,7 +255,7 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                     <!-- Lawyer 1 -->
-                    <div class="border border-slate-200 rounded-sm p-6 hover:shadow-lg transition-shadow flex flex-col bg-slate-50">
+                    <div class="border border-slate-200 rounded-sm p-6 hover:shadow-lg transition-shadow flex flex-col bg-slate-50" data-aos="fade-up" data-aos-delay="0">
                         <h3 class="font-bold text-xl text-brand-slate">John Patrick Musca</h3>
                         <p class="text-sm text-brand-violet font-medium mb-2">Musca Law</p>
                         <p class="text-sm text-slate-600 mb-4 flex-grow">Specializes in aggressive defense and high-stakes insurance litigation.</p>
@@ -225,7 +263,7 @@
                         <a href="https://www.muscalaw.com" target="_blank" rel="noopener noreferrer" class="w-full text-center px-4 py-2 border border-brand-slate text-brand-slate hover:bg-brand-slate hover:text-white transition-colors text-sm font-medium">Visit Website</a>
                     </div>
                     <!-- Lawyer 2 -->
-                    <div class="border border-slate-200 rounded-sm p-6 hover:shadow-lg transition-shadow flex flex-col bg-slate-50">
+                    <div class="border border-slate-200 rounded-sm p-6 hover:shadow-lg transition-shadow flex flex-col bg-slate-50" data-aos="fade-up" data-aos-delay="50">
                         <h3 class="font-bold text-xl text-brand-slate">Jason M. Melton</h3>
                         <p class="text-sm text-brand-violet font-medium mb-2">Whittel & Melton</p>
                         <p class="text-sm text-slate-600 mb-4 flex-grow">Comprehensive personal injury and insurance claim negotiation.</p>
@@ -233,7 +271,7 @@
                         <a href="https://www.whittelmelton.com" target="_blank" rel="noopener noreferrer" class="w-full text-center px-4 py-2 border border-brand-slate text-brand-slate hover:bg-brand-slate hover:text-white transition-colors text-sm font-medium">Visit Website</a>
                     </div>
                     <!-- Lawyer 3 -->
-                    <div class="border border-slate-200 rounded-sm p-6 hover:shadow-lg transition-shadow flex flex-col bg-slate-50">
+                    <div class="border border-slate-200 rounded-sm p-6 hover:shadow-lg transition-shadow flex flex-col bg-slate-50" data-aos="fade-up" data-aos-delay="100">
                         <h3 class="font-bold text-xl text-brand-slate">David Alan Wolf</h3>
                         <p class="text-sm text-brand-violet font-medium mb-2">David Alan Wolf Law</p>
                         <p class="text-sm text-slate-600 mb-4 flex-grow">Jacksonville local handling complex bad faith policy disputes.</p>
@@ -241,7 +279,7 @@
                         <a href="https://www.davidalanwolf.com" target="_blank" rel="noopener noreferrer" class="w-full text-center px-4 py-2 border border-brand-slate text-brand-slate hover:bg-brand-slate hover:text-white transition-colors text-sm font-medium">Visit Website</a>
                     </div>
                     <!-- Lawyer 4 -->
-                    <div class="border border-slate-200 rounded-sm p-6 hover:shadow-lg transition-shadow flex flex-col bg-slate-50">
+                    <div class="border border-slate-200 rounded-sm p-6 hover:shadow-lg transition-shadow flex flex-col bg-slate-50" data-aos="fade-up" data-aos-delay="150">
                         <h3 class="font-bold text-xl text-brand-slate">Peter T. Mavrick</h3>
                         <p class="text-sm text-brand-violet font-medium mb-2">Mavrick Law Group</p>
                         <p class="text-sm text-slate-600 mb-4 flex-grow">Corporate, commercial, and major property claim litigation.</p>
@@ -249,7 +287,7 @@
                         <a href="https://www.mavricklaw.com" target="_blank" rel="noopener noreferrer" class="w-full text-center px-4 py-2 border border-brand-slate text-brand-slate hover:bg-brand-slate hover:text-white transition-colors text-sm font-medium">Visit Website</a>
                     </div>
                     <!-- Lawyer 5 -->
-                    <div class="border border-slate-200 rounded-sm p-6 hover:shadow-lg transition-shadow flex flex-col bg-slate-50">
+                    <div class="border border-slate-200 rounded-sm p-6 hover:shadow-lg transition-shadow flex flex-col bg-slate-50" data-aos="fade-up" data-aos-delay="200">
                         <h3 class="font-bold text-xl text-brand-slate">Steven A. Goldstein</h3>
                         <p class="text-sm text-brand-violet font-medium mb-2">Pozo Goldstein</p>
                         <p class="text-sm text-slate-600 mb-4 flex-grow">Robust trial experience against state-wide insurance carriers.</p>
@@ -257,7 +295,7 @@
                         <a href="https://www.pozogoldstein.com" target="_blank" rel="noopener noreferrer" class="w-full text-center px-4 py-2 border border-brand-slate text-brand-slate hover:bg-brand-slate hover:text-white transition-colors text-sm font-medium">Visit Website</a>
                     </div>
                     <!-- Lawyer 6 -->
-                    <div class="border border-slate-200 rounded-sm p-6 hover:shadow-lg transition-shadow flex flex-col bg-slate-50">
+                    <div class="border border-slate-200 rounded-sm p-6 hover:shadow-lg transition-shadow flex flex-col bg-slate-50" data-aos="fade-up" data-aos-delay="250">
                         <h3 class="font-bold text-xl text-brand-slate">Frederick A. Neustein</h3>
                         <p class="text-sm text-brand-violet font-medium mb-2">Neustein Law Group</p>
                         <p class="text-sm text-slate-600 mb-4 flex-grow">Foreclosure defense, property damage, and claim denial resolution.</p>
@@ -265,7 +303,7 @@
                         <a href="https://www.neusteinlawgroup.com" target="_blank" rel="noopener noreferrer" class="w-full text-center px-4 py-2 border border-brand-slate text-brand-slate hover:bg-brand-slate hover:text-white transition-colors text-sm font-medium">Visit Website</a>
                     </div>
                     <!-- Lawyer 7 -->
-                    <div class="border border-slate-200 rounded-sm p-6 hover:shadow-lg transition-shadow flex flex-col bg-slate-50">
+                    <div class="border border-slate-200 rounded-sm p-6 hover:shadow-lg transition-shadow flex flex-col bg-slate-50" data-aos="fade-up" data-aos-delay="300">
                         <h3 class="font-bold text-xl text-brand-slate">Genine Ann Mejia</h3>
                         <p class="text-sm text-brand-violet font-medium mb-2">Defending Daytona</p>
                         <p class="text-sm text-slate-600 mb-4 flex-grow">Tenacious representation for underpaid and undervalued policy claims.</p>
@@ -273,7 +311,7 @@
                         <a href="https://www.defendingdaytona.com" target="_blank" rel="noopener noreferrer" class="w-full text-center px-4 py-2 border border-brand-slate text-brand-slate hover:bg-brand-slate hover:text-white transition-colors text-sm font-medium">Visit Website</a>
                     </div>
                     <!-- Lawyer 8 -->
-                    <div class="border border-slate-200 rounded-sm p-6 hover:shadow-lg transition-shadow flex flex-col bg-slate-50">
+                    <div class="border border-slate-200 rounded-sm p-6 hover:shadow-lg transition-shadow flex flex-col bg-slate-50" data-aos="fade-up" data-aos-delay="350">
                         <h3 class="font-bold text-xl text-brand-slate">Leifer Law Firm</h3>
                         <p class="text-sm text-brand-violet font-medium mb-2">Personal Injury Focus</p>
                         <p class="text-sm text-slate-600 mb-4 flex-grow">Dedicated to maximizing compensation for accident victims.</p>
@@ -281,7 +319,7 @@
                         <a href="https://www.leiferlaw.com" target="_blank" rel="noopener noreferrer" class="w-full text-center px-4 py-2 border border-brand-slate text-brand-slate hover:bg-brand-slate hover:text-white transition-colors text-sm font-medium">Visit Website</a>
                     </div>
                     <!-- Lawyer 9 -->
-                    <div class="border border-slate-200 rounded-sm p-6 hover:shadow-lg transition-shadow flex flex-col bg-slate-50">
+                    <div class="border border-slate-200 rounded-sm p-6 hover:shadow-lg transition-shadow flex flex-col bg-slate-50" data-aos="fade-up" data-aos-delay="400">
                         <h3 class="font-bold text-xl text-brand-slate">Sean Smallwood, P.A.</h3>
                         <p class="text-sm text-brand-violet font-medium mb-2">Family & Civil Claims</p>
                         <p class="text-sm text-slate-600 mb-4 flex-grow">Strategic negotiation ensuring fair settlement dispersal.</p>
@@ -289,7 +327,7 @@
                         <a href="https://www.divalaw.com" target="_blank" rel="noopener noreferrer" class="w-full text-center px-4 py-2 border border-brand-slate text-brand-slate hover:bg-brand-slate hover:text-white transition-colors text-sm font-medium">Visit Website</a>
                     </div>
                     <!-- Lawyer 10 -->
-                    <div class="border border-slate-200 rounded-sm p-6 hover:shadow-lg transition-shadow flex flex-col bg-slate-50">
+                    <div class="border border-slate-200 rounded-sm p-6 hover:shadow-lg transition-shadow flex flex-col bg-slate-50" data-aos="fade-up" data-aos-delay="450">
                         <h3 class="font-bold text-xl text-brand-slate">Stewart Tilghman</h3>
                         <p class="text-sm text-brand-violet font-medium mb-2">Fox Bianchi & Cain</p>
                         <p class="text-sm text-slate-600 mb-4 flex-grow">Elite trial attorneys handling catastrophic insurance failures.</p>
@@ -297,7 +335,7 @@
                         <a href="https://www.stfblaw.com" target="_blank" rel="noopener noreferrer" class="w-full text-center px-4 py-2 border border-brand-slate text-brand-slate hover:bg-brand-slate hover:text-white transition-colors text-sm font-medium">Visit Website</a>
                     </div>
                     <!-- Lawyer 11 -->
-                    <div class="border border-slate-200 rounded-sm p-6 hover:shadow-lg transition-shadow flex flex-col bg-slate-50">
+                    <div class="border border-slate-200 rounded-sm p-6 hover:shadow-lg transition-shadow flex flex-col bg-slate-50" data-aos="fade-up" data-aos-delay="500">
                         <h3 class="font-bold text-xl text-brand-slate">Marc L. Shapiro</h3>
                         <p class="text-sm text-brand-violet font-medium mb-2">Lawyer Shapiro</p>
                         <p class="text-sm text-slate-600 mb-4 flex-grow">Proven track record in overturning bad faith claim denials.</p>
@@ -305,7 +343,7 @@
                         <a href="https://www.lawyer-shapiro.com" target="_blank" rel="noopener noreferrer" class="w-full text-center px-4 py-2 border border-brand-slate text-brand-slate hover:bg-brand-slate hover:text-white transition-colors text-sm font-medium">Visit Website</a>
                     </div>
                     <!-- Lawyer 12 -->
-                    <div class="border border-slate-200 rounded-sm p-6 hover:shadow-lg transition-shadow flex flex-col bg-slate-50">
+                    <div class="border border-slate-200 rounded-sm p-6 hover:shadow-lg transition-shadow flex flex-col bg-slate-50" data-aos="fade-up" data-aos-delay="550">
                         <h3 class="font-bold text-xl text-brand-slate">Nici Law Firm</h3>
                         <p class="text-sm text-brand-violet font-medium mb-2">Asset Protection</p>
                         <p class="text-sm text-slate-600 mb-4 flex-grow">Estate and civil policy litigation securing your rightful assets.</p>
@@ -317,7 +355,7 @@
         </section>
 
         <!-- 4. LAWYER CATEGORY NAVIGATION -->
-        <section class="py-12 bg-slate-50 border-t border-slate-200 fade-in">
+        <section id="categories" class="py-12 bg-slate-50 border-t border-slate-200 fade-in">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-2xl font-serif font-bold text-brand-slate mb-8">Browse Insurance Lawyers by Case Type</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
@@ -346,7 +384,7 @@
         </section>
 
         <!-- 5. GUIDES HUB & TWEETABLE FACT 1 -->
-        <section class="py-16 bg-white mckinsey-border fade-in">
+        <section id="guides" class="py-16 bg-white mckinsey-border fade-in">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
                     <div class="lg:col-span-2">
@@ -360,18 +398,21 @@
                         </ul>
                     </div>
                     
-                    <!-- Tweetable Fact 1 -->
-                    <div class="bg-slate-50 border-l-4 border-brand-emerald p-6 rounded-r-sm">
-                        <span class="text-3xl text-brand-emerald block mb-2">"</span>
-                        <p class="text-lg font-serif italic text-brand-slate mb-4">In Florida, insurance companies have a statutory obligation to settle claims in good faith. Failure to do so can result in punitive damages far exceeding the original policy limit.</p>
-                        <a href="https://twitter.com/intent/tweet?text=In%20Florida%2C%20insurance%20companies%20have%20a%20statutory%20obligation%20to%20settle%20claims%20in%20good%20faith.&url=https://jacksonvilleinsurancelawyer.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-brand-emerald hover:text-brand-violet transition-colors">Tap to share on X →</a>
+                    <!-- Tweetable Fact Card 1 -->
+                    <div class="relative bg-white border border-slate-200 shadow-sm p-8 rounded-sm mt-4 lg:mt-0 group" data-aos="fade-left">
+                        <div class="absolute -top-5 left-6 bg-white px-2 text-5xl text-brand-emerald font-serif">"</div>
+                        <p class="text-lg font-serif italic text-brand-slate mb-6 leading-relaxed">In Florida, insurance companies have a statutory obligation to settle claims in good faith. Failure to do so can result in punitive damages far exceeding the original policy limit.</p>
+                        <a href="https://twitter.com/intent/tweet?text=In%20Florida%2C%20insurance%20companies%20have%20a%20statutory%20obligation%20to%20settle%20claims%20in%20good%20faith.&url=https://jacksonvilleinsurancelawyer.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-brand-emerald transition-colors">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+                            Tap to share this fact on X
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- 6 & 7. QUICK ANSWERS & LOCATION HUB -->
-        <section class="py-16 bg-slate-50 border-t border-slate-200 fade-in">
+        <section id="locations" class="py-16 bg-slate-50 border-t border-slate-200 fade-in">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                     <!-- Quick Answers -->
@@ -398,7 +439,7 @@
         </section>
 
         <!-- 8. LIGHT AUTHORITY CONTENT & TWEETABLE FACT 2 -->
-        <section class="py-16 bg-white mckinsey-border fade-in">
+        <section id="authority" class="py-16 bg-white mckinsey-border fade-in">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
                     <div class="lg:col-span-2">
@@ -419,11 +460,14 @@
                         </div>
                     </div>
                     
-                    <!-- Tweetable Fact 2 -->
-                    <div class="bg-slate-50 border-l-4 border-brand-violet p-6 rounded-r-sm mt-8 lg:mt-0">
-                        <span class="text-3xl text-brand-violet block mb-2">"</span>
-                        <p class="text-lg font-serif italic text-brand-slate mb-4">Accepting the first settlement offer without legal review almost guarantees you are leaving significant policy limits on the table.</p>
-                        <a href="https://twitter.com/intent/tweet?text=Accepting%20the%20first%20settlement%20offer%20without%20legal%20review%20almost%20guarantees%20you%20are%20leaving%20money%20on%20the%20table.&url=https://jacksonvilleinsurancelawyer.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-brand-violet hover:text-brand-emerald transition-colors">Tap to share on X →</a>
+                    <!-- Tweetable Fact Card 2 -->
+                    <div class="relative bg-white border border-slate-200 shadow-sm p-8 rounded-sm mt-8 lg:mt-0 group" data-aos="fade-left">
+                        <div class="absolute -top-5 left-6 bg-white px-2 text-5xl text-brand-violet font-serif">"</div>
+                        <p class="text-lg font-serif italic text-brand-slate mb-6 leading-relaxed">Accepting the first settlement offer without legal review almost guarantees you are leaving significant policy limits on the table.</p>
+                        <a href="https://twitter.com/intent/tweet?text=Accepting%20the%20first%20settlement%20offer%20without%20legal%20review%20almost%20guarantees%20you%20are%20leaving%20money%20on%20the%20table.&url=https://jacksonvilleinsurancelawyer.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-brand-violet transition-colors">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+                            Tap to share this fact on X
+                        </a>
                     </div>
                 </div>
             </div>
@@ -435,7 +479,7 @@
                 <h2 class="text-3xl font-serif font-bold mb-6">Speak with a Jacksonville Insurance Lawyer Today</h2>
                 <p class="text-lg text-slate-300 mb-8">Do not let the statute of limitations expire on your claim. Secure expert legal representation now to maximize your financial recovery.</p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="tel:+18133185700" id="rotating-cta-btn" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-lg font-bold rounded-sm text-brand-slate bg-brand-emerald hover:bg-emerald-400 transition-colors w-full sm:w-auto">
+                    <a href="tel:+18133185700" id="rotating-cta-btn" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-lg font-bold rounded-sm text-brand-slate bg-brand-emerald hover:bg-emerald-400 transition-colors w-full sm:w-auto shadow-md">
                         Call Greenberg Traurig: (813) 318-5700
                     </a>
                 </div>
@@ -477,13 +521,13 @@
         <div id="dynamic-internal-links" class="max-w-7xl mx-auto px-4 py-8"></div>
 
         <!-- 13. FAQ SECTION -->
-        <section class="py-16 bg-slate-50 mckinsey-border fade-in">
+        <section id="faq" class="py-16 bg-slate-50 mckinsey-border fade-in">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-3xl font-serif font-bold text-brand-slate mb-10 text-center">Frequently Asked Questions</h2>
                 
                 <div class="space-y-4" id="faq-accordion">
                     <!-- FAQ 1 -->
-                    <div class="bg-white border border-slate-200 rounded-sm">
+                    <div class="bg-white border border-slate-200 rounded-sm shadow-sm">
                         <button class="w-full text-left px-6 py-4 font-bold text-brand-slate flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
                             What does an insurance lawyer actually do?
                             <span class="transform transition-transform duration-300">▼</span>
@@ -493,7 +537,7 @@
                         </div>
                     </div>
                     <!-- FAQ 2 -->
-                    <div class="bg-white border border-slate-200 rounded-sm">
+                    <div class="bg-white border border-slate-200 rounded-sm shadow-sm">
                         <button class="w-full text-left px-6 py-4 font-bold text-brand-slate flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
                             When should I hire a Jacksonville insurance lawyer?
                             <span class="transform transition-transform duration-300">▼</span>
@@ -503,7 +547,7 @@
                         </div>
                     </div>
                     <!-- FAQ 3 -->
-                    <div class="bg-white border border-slate-200 rounded-sm">
+                    <div class="bg-white border border-slate-200 rounded-sm shadow-sm">
                         <button class="w-full text-left px-6 py-4 font-bold text-brand-slate flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
                             How much does it cost to hire an insurance lawyer in Florida?
                             <span class="transform transition-transform duration-300">▼</span>
@@ -513,7 +557,7 @@
                         </div>
                     </div>
                     <!-- FAQ 4 -->
-                    <div class="bg-white border border-slate-200 rounded-sm">
+                    <div class="bg-white border border-slate-200 rounded-sm shadow-sm">
                         <button class="w-full text-left px-6 py-4 font-bold text-brand-slate flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
                             What is "bad faith" insurance?
                             <span class="transform transition-transform duration-300">▼</span>
@@ -523,7 +567,7 @@
                         </div>
                     </div>
                     <!-- FAQ 5 -->
-                    <div class="bg-white border border-slate-200 rounded-sm">
+                    <div class="bg-white border border-slate-200 rounded-sm shadow-sm">
                         <button class="w-full text-left px-6 py-4 font-bold text-brand-slate flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
                             How long do I have to sue an insurance company in Florida?
                             <span class="transform transition-transform duration-300">▼</span>
@@ -533,7 +577,7 @@
                         </div>
                     </div>
                     <!-- FAQ 6 -->
-                    <div class="bg-white border border-slate-200 rounded-sm">
+                    <div class="bg-white border border-slate-200 rounded-sm shadow-sm">
                         <button class="w-full text-left px-6 py-4 font-bold text-brand-slate flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
                             Can I negotiate directly with the adjuster?
                             <span class="transform transition-transform duration-300">▼</span>
@@ -543,7 +587,7 @@
                         </div>
                     </div>
                     <!-- FAQ 7 -->
-                    <div class="bg-white border border-slate-200 rounded-sm">
+                    <div class="bg-white border border-slate-200 rounded-sm shadow-sm">
                         <button class="w-full text-left px-6 py-4 font-bold text-brand-slate flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
                             What evidence do I need to sue?
                             <span class="transform transition-transform duration-300">▼</span>
@@ -553,7 +597,7 @@
                         </div>
                     </div>
                     <!-- FAQ 8 -->
-                    <div class="bg-white border border-slate-200 rounded-sm">
+                    <div class="bg-white border border-slate-200 rounded-sm shadow-sm">
                         <button class="w-full text-left px-6 py-4 font-bold text-brand-slate flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
                             Will my case go to trial?
                             <span class="transform transition-transform duration-300">▼</span>
@@ -563,7 +607,7 @@
                         </div>
                     </div>
                     <!-- FAQ 9 -->
-                    <div class="bg-white border border-slate-200 rounded-sm">
+                    <div class="bg-white border border-slate-200 rounded-sm shadow-sm">
                         <button class="w-full text-left px-6 py-4 font-bold text-brand-slate flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
                             What is a demand letter?
                             <span class="transform transition-transform duration-300">▼</span>
@@ -573,7 +617,7 @@
                         </div>
                     </div>
                     <!-- FAQ 10 -->
-                    <div class="bg-white border border-slate-200 rounded-sm">
+                    <div class="bg-white border border-slate-200 rounded-sm shadow-sm">
                         <button class="w-full text-left px-6 py-4 font-bold text-brand-slate flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
                             How are attorney fees paid from a settlement?
                             <span class="transform transition-transform duration-300">▼</span>
@@ -583,7 +627,7 @@
                         </div>
                     </div>
                     <!-- FAQ 11 -->
-                    <div class="bg-white border border-slate-200 rounded-sm">
+                    <div class="bg-white border border-slate-200 rounded-sm shadow-sm">
                         <button class="w-full text-left px-6 py-4 font-bold text-brand-slate flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
                             What if the insurer claims I didn't mitigate damages?
                             <span class="transform transition-transform duration-300">▼</span>
@@ -593,7 +637,7 @@
                         </div>
                     </div>
                     <!-- FAQ 12 -->
-                    <div class="bg-white border border-slate-200 rounded-sm">
+                    <div class="bg-white border border-slate-200 rounded-sm shadow-sm">
                         <button class="w-full text-left px-6 py-4 font-bold text-brand-slate flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
                             Can an insurer cancel my policy for suing them?
                             <span class="transform transition-transform duration-300">▼</span>
@@ -626,11 +670,12 @@
                 <h2 class="text-3xl font-serif font-bold text-brand-slate mb-2">Found this helpful?</h2>
                 <p class="text-slate-600 mb-8">Share this directory with someone who might need legal leverage against an insurance company.</p>
                 <div class="flex flex-wrap items-center justify-center gap-3">
-                    <button onclick="shareSystem.share('whatsapp')" class="px-5 py-2 border border-slate-300 rounded-full hover:bg-white transition-colors font-medium shadow-sm">WhatsApp</button>
-                    <button onclick="shareSystem.share('facebook')" class="px-5 py-2 border border-slate-300 rounded-full hover:bg-white transition-colors font-medium shadow-sm">Facebook</button>
-                    <button onclick="shareSystem.share('twitter')" class="px-5 py-2 border border-slate-300 rounded-full hover:bg-white transition-colors font-medium shadow-sm">X / Twitter</button>
-                    <button onclick="shareSystem.share('linkedin')" class="px-5 py-2 border border-slate-300 rounded-full hover:bg-white transition-colors font-medium shadow-sm">LinkedIn</button>
-                    <button onclick="shareSystem.copy()" class="px-5 py-2 border-brand-emerald bg-brand-emerald text-white rounded-full hover:bg-emerald-600 transition-colors font-medium shadow-sm">Copy Link</button>
+                    <button onclick="shareSystem.share('whatsapp')" class="px-5 py-2 border border-slate-300 bg-transparent text-slate-700 rounded-full hover:bg-white transition-colors font-medium shadow-sm">WhatsApp</button>
+                    <button onclick="shareSystem.share('facebook')" class="px-5 py-2 border border-slate-300 bg-transparent text-slate-700 rounded-full hover:bg-white transition-colors font-medium shadow-sm">Facebook</button>
+                    <button onclick="shareSystem.share('twitter')" class="px-5 py-2 border border-slate-300 bg-transparent text-slate-700 rounded-full hover:bg-white transition-colors font-medium shadow-sm">X / Twitter</button>
+                    <button onclick="shareSystem.share('linkedin')" class="px-5 py-2 border border-slate-300 bg-transparent text-slate-700 rounded-full hover:bg-white transition-colors font-medium shadow-sm">LinkedIn</button>
+                    <button onclick="shareSystem.share('email')" class="px-5 py-2 border border-slate-300 bg-transparent text-slate-700 rounded-full hover:bg-white transition-colors font-medium shadow-sm">Email</button>
+                    <button onclick="shareSystem.copy()" class="px-5 py-2 border border-slate-300 bg-transparent text-slate-700 rounded-full hover:bg-white transition-colors font-medium shadow-sm">Copy Link</button>
                 </div>
             </div>
         </section>
@@ -710,6 +755,15 @@
     <!-- INLINE VANILLA JS FOR ENHANCEMENTS -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Initialize AOS Animations
+            if (typeof AOS !== 'undefined') {
+                AOS.init({ once: true, offset: 50, duration: 600 });
+            }
+
+            // Simple GSAP implementation for the Hero Header
+            if (typeof gsap !== 'undefined') {
+                gsap.from("h1", { duration: 1.2, y: 30, opacity: 0, ease: "power3.out" });
+            }
             
             // 1. DYNAMIC DATES & YEAR
             const currentYear = new Date().getFullYear();
@@ -723,7 +777,7 @@
             document.getElementById('freshness-badge').textContent = `Updated ${today}`;
             document.getElementById('dynamic-review-date').textContent = today;
 
-            // Update schema dateModified on Monday logic (simplified to today for frontend render)
+            // Update schema dateModified on Monday logic
             const scriptTag = document.querySelector('script[type="application/ld+json"]');
             if (scriptTag) {
                 try {
@@ -751,7 +805,7 @@
                 const scrolled = (winScroll / height) * 100;
                 progressBar.style.width = scrolled + "%";
 
-                // Fade in
+                // Fade in fallback
                 fadeElements.forEach(el => {
                     const rect = el.getBoundingClientRect();
                     if(rect.top < window.innerHeight - 50) {
@@ -785,7 +839,7 @@
                 testContainer.innerHTML = `
                     <div class="transition-opacity duration-500">
                         <span class="text-4xl text-brand-emerald mb-4 block">"</span>
-                        <p class="text-xl font-serif italic text-brand-slate mb-6">"${t.text}"</p>
+                        <p class="text-xl font-serif italic text-brand-slate mb-6 leading-relaxed">"${t.text}"</p>
                         <p class="font-bold text-slate-900">${t.name} <span class="text-slate-400 font-normal">| ${t.city}, FL</span></p>
                     </div>
                 `;
@@ -815,7 +869,7 @@
             }
         });
 
-        // FAQ Toggle
+        // FAQ Toggle Logic
         window.toggleFaq = function(button) {
             const content = button.nextElementSibling;
             const arrow = button.querySelector('span');
@@ -823,7 +877,7 @@
             arrow.classList.toggle('rotate-180');
         };
 
-        // Helpfulness Widget Logic
+        // Helpfulness Widget Logic Fix
         window.handleHelpful = function(isHelpful) {
             const responseDiv = document.getElementById('helpful-response');
             const buttonsDiv = document.getElementById('helpful-buttons');
@@ -834,14 +888,21 @@
             if(isHelpful) {
                 responseDiv.innerHTML = `
                     <p class="text-brand-emerald font-bold mb-4">Thank you for your feedback!</p>
-                    <p class="text-sm text-slate-600 mb-2">Help others find this resource:</p>
-                    <button onclick="shareSystem.share('whatsapp')" class="px-4 py-1 border border-brand-emerald text-brand-emerald rounded-full hover:bg-emerald-50 text-sm font-medium">Share via WhatsApp</button>
+                    <p class="text-sm text-slate-600 mb-4">Help others find this resource by sharing:</p>
+                    <div class="flex flex-wrap items-center justify-center gap-3">
+                        <button onclick="shareSystem.share('whatsapp')" class="px-5 py-2 border border-slate-300 rounded-full bg-transparent hover:bg-slate-50 transition-colors font-medium text-sm text-slate-700 shadow-sm">WhatsApp</button>
+                        <button onclick="shareSystem.share('facebook')" class="px-5 py-2 border border-slate-300 rounded-full bg-transparent hover:bg-slate-50 transition-colors font-medium text-sm text-slate-700 shadow-sm">Facebook</button>
+                        <button onclick="shareSystem.share('twitter')" class="px-5 py-2 border border-slate-300 rounded-full bg-transparent hover:bg-slate-50 transition-colors font-medium text-sm text-slate-700 shadow-sm">X / Twitter</button>
+                        <button onclick="shareSystem.share('linkedin')" class="px-5 py-2 border border-slate-300 rounded-full bg-transparent hover:bg-slate-50 transition-colors font-medium text-sm text-slate-700 shadow-sm">LinkedIn</button>
+                        <button onclick="shareSystem.share('email')" class="px-5 py-2 border border-slate-300 rounded-full bg-transparent hover:bg-slate-50 transition-colors font-medium text-sm text-slate-700 shadow-sm">Email</button>
+                        <button onclick="shareSystem.copy()" class="px-5 py-2 border border-slate-300 rounded-full bg-transparent hover:bg-slate-50 transition-colors font-medium text-sm text-slate-700 shadow-sm">Copy Link</button>
+                    </div>
                 `;
             } else {
                 responseDiv.innerHTML = `
                     <p class="text-slate-600 mb-4">We're sorry this didn't fully answer your question.</p>
                     <p class="text-brand-slate font-bold mb-3">Speak to an expert for specific guidance:</p>
-                    <a href="tel:+18666085529" class="inline-block px-6 py-2 bg-brand-slate text-white rounded-sm hover:bg-gray-800 font-medium transition-colors">Contact Jason M. Melton Now</a>
+                    <a href="tel:+18666085529" class="inline-block px-6 py-2 bg-brand-slate text-white rounded-sm hover:bg-gray-800 font-medium transition-colors">Contact an Insurance Lawyer now</a>
                 `;
             }
             localStorage.setItem('helpful_answered', 'true');
