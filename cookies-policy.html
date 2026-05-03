@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies Policy | Jacksonville Insurance Lawyer Directory</title>
+    <meta name="description" content="Understand how the Jacksonville Insurance Lawyer directory handles cookies, local storage, and privacy-first tracking.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://jacksonvilleinsurancelawyer.com/cookies-policy.html">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Playfair Display', 'serif'] }, colors: { brand: { slate: '#0f172a', emerald: '#10b981' } } } } }
+    </script>
+</head>
+<body class="flex flex-col min-h-screen text-slate-700">
+
+    <header class="sticky top-0 z-40 bg-white/90 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="/index.html" class="flex items-center gap-2 font-serif font-bold text-xl text-brand-slate">⚖️ Jacksonville Insurance Lawyer</a>
+            <div id="master-nav-dock" class="flex items-center justify-between"></div>
+        </div>
+    </header>
+
+    <main class="w-full flex-grow py-16 bg-slate-50 border-t-2 border-brand-slate">
+        <div class="max-w-3xl mx-auto px-4 bg-white p-8 md:p-12 shadow-sm border border-slate-200">
+            <h1 class="text-3xl font-serif font-bold mb-6 text-brand-slate">Cookies Policy</h1>
+            <p class="text-sm text-slate-500 mb-8">Effective Date: <span class="dynamic-review-date"></span></p>
+
+            <div class="prose prose-slate max-w-none space-y-6">
+                <h2 class="text-xl font-bold text-brand-slate">1. Our Privacy-First Approach</h2>
+                <p>The Jacksonville Insurance Lawyer directory is committed to protecting your privacy. Unlike many web platforms, we utilize Plausible Analytics—a privacy-focused analytics solution that is entirely <strong>cookie-less</strong>. We do not use tracking cookies to monitor your behavior across other websites.</p>
+
+                <h2 class="text-xl font-bold text-brand-slate">2. Essential Local Storage</h2>
+                <p>While we do not use tracking cookies, our platform may utilize basic browser <code>localStorage</code> or <code>sessionStorage</code> strictly for functional purposes. This includes:</p>
+                <ul class="list-disc pl-6">
+                    <li>Saving your UI preferences (e.g., collapsed menus or dismissed notifications).</li>
+                    <li>Ensuring the security of form submissions (such as our contact routing system).</li>
+                </ul>
+
+                <h2 class="text-xl font-bold text-brand-slate">3. Third-Party Links</h2>
+                <p>When you click on a directory listing or an external legal resource, you are navigating away from our platform. Those third-party websites (including individual law firm websites) have their own cookie policies and tracking mechanisms over which we have no control.</p>
+
+                <h2 class="text-xl font-bold text-brand-slate">4. Managing Your Preferences</h2>
+                <p>Since we do not deploy non-essential cookies, there is no requirement for a complex cookie consent banner. However, you maintain full control over your browser's local storage and can clear it at any time through your browser's settings menu.</p>
+            </div>
+            
+            <div id="dynamic-internal-links" class="mt-12"></div>
+        </div>
+    </main>
+
+    <footer class="bg-brand-slate text-slate-400 py-8 text-sm mt-auto">
+        <div class="max-w-7xl mx-auto px-4 flex flex-wrap justify-center gap-4">
+            <a href="/privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a> | 
+            <a href="/cookies-policy.html" class="hover:text-white transition-colors">Cookies Policy</a> | 
+            <a href="/terms-of-use.html" class="hover:text-white transition-colors">Terms of Use</a> | 
+            <a href="/disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a> | 
+            <a href="/dmca.html" class="hover:text-white transition-colors">DMCA</a> | 
+            <a href="/accessibility.html" class="hover:text-white transition-colors">Accessibility</a> | 
+            <a href="/do-not-sell-my-data.html" class="hover:text-white transition-colors">Do Not Sell My Data</a> | 
+            <a href="/contact.html" class="hover:text-white transition-colors">Contact</a> | 
+            <a href="/about.html" class="hover:text-white transition-colors">About Us</a>
+        </div>
+    </footer>
+
+    <script defer src="../js/registry.js"></script>
+    <script defer src="../js/root-config.js"></script>
+    <script defer src="../js/menu-system.js"></script>
+    <script defer src="../js/search-system.js"></script>
+    <script defer src="../js/schema.js"></script>
+    <script defer src="../js/internal-links.js"></script>
+    <script defer src="../js/legal-engine.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+            document.querySelectorAll('.dynamic-review-date').forEach(el => el.textContent = today);
+        });
+    </script>
+</body>
+</html>
