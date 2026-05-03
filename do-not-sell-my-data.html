@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do Not Sell My Data | Jacksonville Insurance Lawyer Directory</title>
+    <meta name="description" content="Information regarding consumer privacy rights and our strict zero-data-sale policy.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://jacksonvilleinsurancelawyer.com/do-not-sell-my-data.html">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Playfair Display', 'serif'] }, colors: { brand: { slate: '#0f172a', emerald: '#10b981', violet: '#8b5cf6' } } } } }
+    </script>
+</head>
+<body class="flex flex-col min-h-screen text-slate-700">
+
+    <header class="sticky top-0 z-40 bg-white/90 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="/index.html" class="flex items-center gap-2 font-serif font-bold text-xl text-brand-slate">⚖️ Jacksonville Insurance Lawyer</a>
+            <div id="master-nav-dock" class="flex items-center justify-between"></div>
+        </div>
+    </header>
+
+    <main class="w-full flex-grow py-16 bg-slate-50 border-t-2 border-brand-slate">
+        <div class="max-w-3xl mx-auto px-4 bg-white p-8 md:p-12 shadow-sm border border-slate-200">
+            <h1 class="text-3xl font-serif font-bold mb-6 text-brand-slate">Notice of Data Privacy</h1>
+            <p class="text-sm text-slate-500 mb-8">Effective Date: <span class="dynamic-review-date"></span></p>
+
+            <div class="bg-violet-50 border-l-4 border-brand-violet p-4 mb-8">
+                <p class="font-bold text-violet-900 mb-1">OUR STANCE ON DATA MONETIZATION</p>
+                <p class="text-sm text-violet-800">The Jacksonville Insurance Lawyer directory has never, does not, and will never sell your personal information to third-party data brokers, marketers, or advertisers.</p>
+            </div>
+
+            <div class="prose prose-slate max-w-none space-y-6">
+                <h2 class="text-xl font-bold text-brand-slate">1. State Consumer Privacy Laws</h2>
+                <p>In accordance with the California Consumer Privacy Act (CCPA), the California Privacy Rights Act (CPRA), the Virginia Consumer Data Protection Act (VCDPA), and other emerging state and federal privacy regulations, residents hold the right to direct a business that sells personal information to stop selling that information.</p>
+                <p>Because we do not engage in the sale of user data, there is no need for you to opt-out of data sales on our platform. We operate a closed directory focused solely on routing legal needs to verified professionals.</p>
+
+                <h2 class="text-xl font-bold text-brand-slate">2. Our Analytics</h2>
+                <p>To measure the performance of our website, we use Plausible Analytics. This service is designed to be fully compliant with GDPR, CCPA, and PECR. It operates without using tracking cookies and does not gather personally identifiable information (PII) or track you across devices or other websites.</p>
+
+                <h2 class="text-xl font-bold text-brand-slate">3. Requesting Data Records</h2>
+                <p>If you have utilized our contact forms and wish to request the deletion of your correspondence records from our encrypted servers, you may submit a verifiable request to our administrative team via the <a href="/contact.html" class="text-brand-emerald hover:underline">Contact Page</a>. We will process data erasure requests within 30 days.</p>
+            </div>
+            
+            <div id="dynamic-internal-links" class="mt-12"></div>
+        </div>
+    </main>
+
+    <footer class="bg-brand-slate text-slate-400 py-8 text-sm mt-auto">
+        <div class="max-w-7xl mx-auto px-4 flex flex-wrap justify-center gap-4">
+            <a href="/privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a> | 
+            <a href="/cookies-policy.html" class="hover:text-white transition-colors">Cookies Policy</a> | 
+            <a href="/terms-of-use.html" class="hover:text-white transition-colors">Terms of Use</a> | 
+            <a href="/disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a> | 
+            <a href="/dmca.html" class="hover:text-white transition-colors">DMCA</a> | 
+            <a href="/accessibility.html" class="hover:text-white transition-colors">Accessibility</a> | 
+            <a href="/do-not-sell-my-data.html" class="hover:text-white transition-colors">Do Not Sell My Data</a> | 
+            <a href="/contact.html" class="hover:text-white transition-colors">Contact</a> | 
+            <a href="/about.html" class="hover:text-white transition-colors">About Us</a>
+        </div>
+    </footer>
+
+    <script defer src="../js/registry.js"></script>
+    <script defer src="../js/root-config.js"></script>
+    <script defer src="../js/menu-system.js"></script>
+    <script defer src="../js/search-system.js"></script>
+    <script defer src="../js/schema.js"></script>
+    <script defer src="../js/internal-links.js"></script>
+    <script defer src="../js/legal-engine.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+            document.querySelectorAll('.dynamic-review-date').forEach(el => el.textContent = today);
+        });
+    </script>
+</body>
+</html>
