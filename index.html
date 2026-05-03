@@ -173,7 +173,17 @@
                     <span class="font-serif font-bold text-xl text-brand-slate group-hover:text-brand-emerald transition-colors">Jacksonville Insurance Lawyer</span>
                 </a>
                 <!-- RIGHT -->
-                <div id="master-nav-dock" class="flex items-center justify-between"></div>
+                <div class="flex items-center gap-4">
+                    <!-- SEARCH SYSTEM TRIGGER -->
+                    <button type="button" class="trigger-search flex items-center text-gray-600 hover:text-emerald-700 transition-colors duration-200 focus:outline-none" aria-label="Open Search">
+                        <span class="mr-2 text-sm font-medium hidden sm:inline">Search</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </button>
+                    <!-- MASTER NAV DOCK -->
+                    <div id="master-nav-dock" class="flex items-center justify-between"></div>
+                </div>
             </div>
         </div>
     </header>
@@ -794,9 +804,11 @@
             const season = monthNames[currentMonth];
             document.getElementById('seasonal-banner').textContent = `${season} ${currentYear} Edition`;
 
-            // 3. SCROLL PROGRESS INDICATOR & FADE-IN ANIMATIONS
+            // 3. SCROLL PROGRESS INDICATOR, FADE-IN ANIMATIONS, TOC SCROLL SPY
             const progressBar = document.getElementById('scroll-progress');
             const fadeElements = document.querySelectorAll('.fade-in');
+            const tocLinks = document.querySelectorAll('.toc-link');
+            const sections = Array.from(document.querySelectorAll('h2[id], section[id]'));
             
             window.addEventListener('scroll', () => {
                 // Progress
@@ -810,6 +822,21 @@
                     const rect = el.getBoundingClientRect();
                     if(rect.top < window.innerHeight - 50) {
                         el.classList.add('visible');
+                    }
+                });
+
+                // Scroll Spy for TOC
+                let currentSection = '';
+                sections.forEach(sec => {
+                    const sectionTop = sec.offsetTop;
+                    if (pageYOffset >= sectionTop - 100) {
+                        currentSection = sec.getAttribute('id');
+                    }
+                });
+                tocLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(currentSection)) {
+                        link.classList.add('active');
                     }
                 });
             }, { passive: true });
