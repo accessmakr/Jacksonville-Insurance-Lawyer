@@ -49,12 +49,11 @@
         }
     </script>
     <style>
-        /* Minimal Inline CSS for McKinsey-style layout & animations */
         body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; color: #1e293b; background-color: #f8fafc; }
         .toc-active { border-left-color: #047857; color: #047857; font-weight: 600; background-color: #ecfdf5; }
         #scroll-progress { width: 0%; height: 4px; background: linear-gradient(to right, #047857, #5b21b6); position: fixed; top: 0; left: 0; z-index: 100; transition: width 0.1s ease-out; }
         .accordion-content { transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out; max-height: 0; opacity: 0; overflow: hidden; }
-        .accordion-content.expanded { max-height: 500px; opacity: 1; }
+        .accordion-content.expanded { max-height: 1000px; opacity: 1; }
         .rotate-180 { transform: rotate(180deg); }
         .fade-in { animation: fadeIn 0.5s ease-in forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -82,7 +81,17 @@
             { "@type": "Question", "name": "What should I do after a work injury?", "acceptedAnswer": { "@type": "Answer", "text": "Report the injury to your employer immediately, seek medical treatment, document the incident, and file a workers' compensation claim." } },
             { "@type": "Question", "name": "Can I sue my employer?", "acceptedAnswer": { "@type": "Answer", "text": "Generally, no. Workers' compensation is a no-fault system that provides benefits regardless of fault, but it usually prevents you from suing your employer directly unless there was gross negligence." } },
             { "@type": "Question", "name": "What benefits do I get?", "acceptedAnswer": { "@type": "Answer", "text": "Benefits typically include coverage for necessary medical care, a portion of your lost wages, and disability benefits if the injury causes long-term impairment." } },
-            { "@type": "Question", "name": "How long do I have to file?", "acceptedAnswer": { "@type": "Answer", "text": "In Florida, you generally have 30 days to report the injury to your employer and up to two years to file a formal workers' compensation petition." } }
+            { "@type": "Question", "name": "How long do I have to file?", "acceptedAnswer": { "@type": "Answer", "text": "In Florida, you generally have 30 days to report the injury to your employer and up to two years to file a formal workers' compensation petition." } },
+            { "@type": "Question", "name": "Can I be fired for filing a claim?", "acceptedAnswer": { "@type": "Answer", "text": "No, it is illegal for an employer to retaliate against or terminate an employee solely for filing a legitimate workers' compensation claim." } },
+            { "@type": "Question", "name": "Can I choose my own doctor?", "acceptedAnswer": { "@type": "Answer", "text": "In Florida, your employer's insurance carrier generally selects the authorized treating physician. If you seek treatment from an unauthorized doctor, you may be responsible for the bills." } },
+            { "@type": "Question", "name": "What if my work injury was my fault?", "acceptedAnswer": { "@type": "Answer", "text": "Workers' compensation is a no-fault system, meaning you are typically covered even if your honest mistake caused the accident, provided you were not intoxicated or engaging in intentional misconduct." } },
+            { "@type": "Question", "name": "Does workers comp cover PTSD or mental health?", "acceptedAnswer": { "@type": "Answer", "text": "Mental health conditions like PTSD are generally only covered in Florida if they are directly accompanied by a severe physical injury, with very specific exceptions for first responders." } },
+            { "@type": "Question", "name": "What is Maximum Medical Improvement (MMI)?", "acceptedAnswer": { "@type": "Answer", "text": "MMI is the point at which your treating physician determines that your condition has stabilized and further medical treatment will not improve your injury." } },
+            { "@type": "Question", "name": "How is my average weekly wage calculated?", "acceptedAnswer": { "@type": "Answer", "text": "Your average weekly wage is typically calculated based on your earnings in the 13 weeks immediately preceding your workplace accident." } },
+            { "@type": "Question", "name": "Can I get a second opinion if I disagree with the company doctor?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, you are entitled to a one-time change of physician during your workers' compensation claim, but the new doctor must still be authorized by the insurance carrier." } },
+            { "@type": "Question", "name": "Is a workers compensation settlement taxable?", "acceptedAnswer": { "@type": "Answer", "text": "Generally, workers' compensation benefits and settlements are exempt from state and federal income taxes." } },
+            { "@type": "Question", "name": "What happens if my employer doesn't have insurance?", "acceptedAnswer": { "@type": "Answer", "text": "If an employer illegally operates without required insurance, you may be able to file a civil lawsuit directly against them or seek compensation through state uninsured employer funds." } },
+            { "@type": "Question", "name": "Can I still get benefits if I failed a drug test?", "acceptedAnswer": { "@type": "Answer", "text": "If a post-accident drug test shows you were intoxicated and the intoxication caused the accident, your workers' compensation benefits will likely be denied." } }
           ]
         },
         {
@@ -100,7 +109,7 @@
 <body class="antialiased font-sans text-slate-800">
     <div id="scroll-progress"></div>
 
-    <!-- HEADER -->
+    <!-- HEADER[cite: 1, 2] -->
     <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <div class="flex items-center">
@@ -120,12 +129,12 @@
         </div>
     </header>
 
-    <!-- SEASONAL BANNER -->
+    <!-- SEASONAL BANNER[cite: 1] -->
     <div id="seasonal-banner" class="bg-violet-50 border-b border-violet-100 py-2 text-center text-sm font-medium text-violet-800">
         <!-- Injected via JS -->
     </div>
 
-    <!-- MAIN LAYOUT -->
+    <!-- MAIN LAYOUT[cite: 2] -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:flex lg:gap-12">
         
         <!-- SIDEBAR (TOC) -->
@@ -150,7 +159,7 @@
             </div>
         </aside>
 
-        <!-- CONTENT AREA -->
+        <!-- CONTENT AREA[cite: 2] -->
         <main class="lg:w-3/4 max-w-3xl">
             
             <!-- HERO SECTION -->
@@ -160,15 +169,15 @@
                 </div>
                 
                 <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-6 leading-tight">
-                    Work Injury Lawyer in Jacksonville
+                    Work Injury Lawyer
                 </h1>
 
-                <!-- QUICK ANSWER (Hero Version) -->
+                <!-- QUICK ANSWER (Hero Version)[cite: 1] -->
                 <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 mb-6 text-lg text-slate-700 leading-relaxed">
-                    <strong>Quick Answer:</strong> A work injury lawyer represents employees hurt on the job, ensuring they receive proper workers' compensation benefits. You should hire one if your claim is denied, benefits are delayed, or your employer disputes the injury. They handle the complex appeals process to recover your lost wages and medical care costs.
+                    <strong>Quick Answer:</strong> A work injury lawyer represents employees hurt on the job, ensuring they receive proper workers' compensation basics like paid medical care and wage replacement. You should hire one immediately if your claim is denied, benefits are unexpectedly stopped, or if your employer disputes the reality of your workplace accidents. They navigate the complex legal labyrinth to protect your rights.
                 </div>
 
-                <!-- HERO SHARE BAR -->
+                <!-- HERO SHARE BAR[cite: 1] -->
                 <div class="flex flex-wrap items-center gap-2 mb-8 py-3 border-y border-slate-100">
                     <span class="text-xs font-bold text-slate-400 uppercase tracking-wider mr-2">Share this guide:</span>
                     <button onclick="shareLink('whatsapp')" class="px-3 py-1.5 rounded-full border border-slate-200 hover:bg-slate-50 text-xs font-medium transition flex items-center gap-1">WhatsApp</button>
@@ -179,17 +188,33 @@
                     <button onclick="shareLink('copy')" class="px-3 py-1.5 rounded-full border border-slate-200 hover:bg-slate-50 text-xs font-medium transition flex items-center gap-1">Copy Link</button>
                 </div>
 
-                <!-- TRUST ROW & BADGES -->
+                <!-- PRIMARY CTA BUTTONS (3 Required)[cite: 1] -->
+                <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                    <a href="tel:+15613911333" class="flex-1 bg-emerald-700 text-white font-bold py-3 px-4 rounded-lg hover:bg-emerald-600 transition shadow-sm text-center flex flex-col items-center justify-center">
+                        <span class="text-lg">Free Consultation</span>
+                        <span class="text-xs font-normal opacity-90 mt-1">Gary Weiner | (561) 391-1333</span>
+                    </a>
+                    <a href="tel:+15616711920" class="flex-1 bg-slate-900 text-white font-bold py-3 px-4 rounded-lg hover:bg-slate-800 transition shadow-sm text-center flex flex-col items-center justify-center">
+                        <span class="text-lg">Call Now</span>
+                        <span class="text-xs font-normal opacity-90 mt-1">Scott Dimond | (561) 671-1920</span>
+                    </a>
+                    <a href="tel:+18884911120" class="flex-1 border-2 border-emerald-700 text-emerald-800 font-bold py-3 px-4 rounded-lg hover:bg-emerald-50 transition shadow-sm text-center flex flex-col items-center justify-center">
+                        <span class="text-lg">Get Claim Review</span>
+                        <span class="text-xs font-normal opacity-90 mt-1">Michael Marder | (888) 491-1120</span>
+                    </a>
+                </div>
+
+                <!-- TRUST ROW & BADGES[cite: 1] -->
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm font-medium text-slate-600 mb-6">
                     <div class="flex items-center gap-2"><svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Free Case Review</div>
                     <div class="flex items-center gap-2"><svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> No Fee Unless We Win</div>
+                    <div class="flex items-center gap-2"><svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Updated <span class="dynamic-year ml-1">2026</span></div>
                     <div class="flex items-center gap-2"><svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Attorney Reviewed</div>
                     <div class="flex items-center gap-2"><svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Jacksonville Focused</div>
                     <div class="flex items-center gap-2"><svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Fast Response</div>
-                    <div class="flex items-center gap-2"><svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Updated <span class="dynamic-year ml-1">2026</span></div>
                 </div>
 
-                <!-- TRUST STRIP -->
+                <!-- TRUST STRIP[cite: 1] -->
                 <div class="flex gap-6 items-center text-xs font-bold text-slate-500 uppercase tracking-widest border-b border-slate-200 pb-8 mb-10">
                     <span>⭐ 4.9★ Satisfaction</span>
                     <span class="w-1 h-1 rounded-full bg-slate-300"></span>
@@ -198,45 +223,36 @@
                     <span>50+ Florida cities served</span>
                 </div>
 
-                <!-- TOP CTA -->
-                <div class="bg-emerald-700 rounded-xl p-8 text-center text-white shadow-lg mb-12">
-                    <h3 class="text-2xl font-bold mb-3 cta-random-text">Free Consultation</h3>
-                    <p class="mb-6 text-emerald-100">Get a free claim review with an experienced Jacksonville work injury attorney.</p>
-                    <a href="tel:+18132228656" class="inline-block bg-white text-emerald-800 font-bold py-3 px-8 rounded hover:bg-emerald-50 transition shadow-sm text-lg">
-                        Call Peter Catania | Catania & Catania | (813) 222-8656
-                    </a>
-                </div>
-
-                <!-- SECTION: QUICK ANSWER DETAILS -->
+                <!-- SECTION: QUICK ANSWER DETAILS[cite: 1] -->
                 <h2 id="quick-answer" class="text-3xl font-bold text-slate-900 mt-12 mb-6 scroll-mt-28 border-b border-slate-200 pb-2">Quick Answer</h2>
                 <h3 class="text-2xl font-semibold text-slate-800 mt-6 mb-4">What Does a Work Injury Lawyer Do?</h3>
                 <p class="text-slate-700 mb-4 leading-relaxed">
-                    A work injury lawyer provides dedicated representation for injured workers, managing the complex process of filing and securing workers' compensation claims. They act as a legal shield against insurance companies and employers who may attempt to minimize, delay, or outright deny rightful benefits.
+                    A work injury lawyer provides dedicated representation for injured workers, relentlessly managing the complex process of filing and securing workers' compensation claims. The legal landscape surrounding workplace injuries is dense with administrative red tape, and an attorney acts as a crucial legal shield against insurance companies and employers who may attempt to minimize, delay, or outright deny rightful benefits. Their core function is to ensure that you are fully compensated under the provisions of the law, allowing you to focus entirely on your physical recovery rather than fighting bureaucratic battles.
                 </p>
                 <p class="text-slate-700 mb-4 leading-relaxed">
-                    If you are facing a <a href="/lawyer/denied-claim-lawyer/" class="text-emerald-700 underline font-medium">denied claim</a> or a <a href="/lawyer/claim-delay-lawyer/" class="text-emerald-700 underline font-medium">delayed insurance payout</a>, an attorney ensures proper medical documentation is gathered and advocates on your behalf during appeals or litigation.
+                    If you are facing a <a href="/lawyer/denied-claim-lawyer/" class="text-emerald-700 underline font-medium">denied claim</a>, unexpected termination of benefits, or a <a href="/lawyer/claim-delay-lawyer/" class="text-emerald-700 underline font-medium">delayed insurance payout</a>, an attorney ensures proper medical documentation is gathered and vigorously advocates on your behalf during appeals or litigation. They cross-examine medical experts, challenge independent medical examinations (IMEs) that are biased toward the insurer, and negotiate maximum settlement values when appropriate.
                 </p>
 
-                <!-- SECTION: WHAT IT MEANS -->
+                <!-- SECTION: WHAT IT MEANS[cite: 1] -->
                 <h2 id="what-it-means" class="text-3xl font-bold text-slate-900 mt-12 mb-6 scroll-mt-28 border-b border-slate-200 pb-2">What It Means</h2>
-                <h3 class="text-2xl font-semibold text-slate-800 mt-6 mb-4">What Is a Work Injury Claim?</h3>
+                <h3 class="text-2xl font-semibold text-slate-800 mt-6 mb-4">What Is a Work Injury Claim</h3>
                 <p class="text-slate-700 mb-4 leading-relaxed">
-                    A work injury claim is a formal request for financial and medical benefits following an accident or illness sustained in the course of employment. It triggers the workers' compensation system, which is designed to protect both the employee and the employer.
+                    A work injury claim is a formal, legally binding request for financial and medical benefits following an accident, repetitive trauma, or illness sustained in the course and scope of employment. It triggers the statutory workers' compensation system, which is a state-mandated safety net designed to protect both the employee from financial ruin and the employer from crippling civil liability. Filing a claim initiates a structured administrative process where medical care is authorized and wage loss benefits are calculated and dispersed.
                 </p>
 
                 <h3 class="text-2xl font-semibold text-slate-800 mt-6 mb-4">Types of Workplace Injuries</h3>
                 <ul class="list-disc pl-6 text-slate-700 mb-6 space-y-2">
-                    <li><strong>Slip and fall:</strong> Occurring on wet floors, uneven surfaces, or poorly lit areas.</li>
-                    <li><strong>Equipment accidents:</strong> Injuries from heavy machinery, defective tools, or lack of safety guards.</li>
-                    <li><strong>Repetitive stress injuries:</strong> Conditions like carpal tunnel syndrome developed over time.</li>
-                    <li><strong>Occupational illness:</strong> Diseases contracted due to exposure to toxins, chemicals, or poor air quality.</li>
-                    <li><strong>Construction injuries:</strong> Falls from heights, scaffolding collapses, or struck-by accidents.</li>
+                    <li><strong>Slip and fall:</strong> Occurring on wet floors, uneven surfaces, or poorly lit areas within the workplace or during work-sanctioned travel.</li>
+                    <li><strong>Equipment accidents:</strong> Catastrophic injuries from heavy machinery, defective tools, lack of safety guards, or improper employer training protocols.</li>
+                    <li><strong>Repetitive stress injuries:</strong> Debilitating conditions like carpal tunnel syndrome, rotator cuff tears, or severe back strain developed over months or years of repetitive motion.</li>
+                    <li><strong>Occupational illness:</strong> Severe diseases contracted due to prolonged exposure to toxins, harsh chemicals, asbestos, or dangerously poor air quality environments.</li>
+                    <li><strong>Construction injuries:</strong> High-impact falls from heights, scaffolding collapses, trench cave-ins, or struck-by accidents involving commercial vehicles and heavy materials.</li>
                 </ul>
 
-                <!-- TWEETABLE FACT 1 -->
+                <!-- TWEETABLE FACT 1[cite: 1] -->
                 <div class="my-8 p-6 bg-violet-50 rounded-xl border border-violet-100 flex flex-col gap-3 relative shadow-sm">
                     <span class="text-violet-300 absolute top-4 left-4 text-4xl leading-none">"</span>
-                    <p class="text-lg font-medium text-violet-900 z-10 relative pl-6 italic">Workers' compensation does not always cover full damages, especially if third-party liability is involved.</p>
+                    <p class="text-lg font-medium text-violet-900 z-10 relative pl-6 italic">Workers' compensation does not always cover full damages.</p>
                     <a href="https://twitter.com/intent/tweet?text=Workers'%20compensation%20does%20not%20always%20cover%20full%20damages.&url=https://jacksonvilleinsurancelawyer.com/lawyer/work-injury-lawyer/" target="_blank" class="text-sm font-bold text-violet-700 hover:text-violet-800 mt-2 z-10 pl-6 flex items-center gap-1">
                         Tap to share on Twitter <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
                     </a>
@@ -244,26 +260,26 @@
 
                 <h3 class="text-2xl font-semibold text-slate-800 mt-6 mb-4">Workers’ Compensation Explained</h3>
                 <p class="text-slate-700 mb-4 leading-relaxed">
-                    Workers' compensation is a no-fault system. This means you do not need to prove your employer was negligent to receive benefits. In exchange for this guaranteed coverage, employees generally waive their right to <a href="/guide/how-to-sue-an-insurance-company/" class="text-emerald-700 underline font-medium">sue their employer</a> for standard negligence. It covers a percentage of lost wages and all necessary medical care related to the injury.
+                    Workers' compensation is fundamentally a no-fault system. This legal structure means you absolutely do not need to prove your employer was negligent, careless, or at fault to receive benefits. In exchange for this expedited, guaranteed coverage regardless of fault, employees generally waive their common-law right to sue their employer for standard negligence. It covers a percentage of lost wages (typically two-thirds of your average weekly wage) and all reasonable, necessary medical care directly related to the workplace injury, provided by authorized treating physicians.
                 </p>
 
-                <!-- SECTION: HOW IT WORKS -->
+                <!-- SECTION: HOW IT WORKS[cite: 1] -->
                 <h2 id="how-it-works" class="text-3xl font-bold text-slate-900 mt-12 mb-6 scroll-mt-28 border-b border-slate-200 pb-2">How It Works</h2>
                 <h3 class="text-2xl font-semibold text-slate-800 mt-6 mb-4">How a Work Injury Lawyer Handles Your Case</h3>
                 <div class="bg-white border border-slate-200 rounded-lg p-6 shadow-sm mb-6">
                     <ol class="list-decimal pl-5 space-y-3 text-slate-700">
-                        <li><strong>Injury evaluation:</strong> Assessing the severity and the circumstances of the incident.</li>
-                        <li><strong>Claim filing:</strong> Ensuring all paperwork is submitted accurately and within strict deadlines.</li>
-                        <li><strong>Medical documentation:</strong> Gathering reports from authorized treating physicians to prove the extent of the disability.</li>
-                        <li><strong>Negotiation:</strong> Dealing directly with the insurance adjuster to maximize settlement offers.</li>
-                        <li><strong>Appeals or litigation:</strong> Filing a Petition for Benefits if the insurance company denies care or underpays wages.</li>
+                        <li><strong>Injury evaluation:</strong> Comprehensively assessing the physical severity, long-term implications, and the exact legal circumstances of the incident.</li>
+                        <li><strong>Claim filing:</strong> Ensuring all complex statutory paperwork is submitted completely, accurately, and within strict, unforgiving state deadlines.</li>
+                        <li><strong>Medical documentation:</strong> Aggressively gathering reports, diagnostic imaging, and opinions from authorized treating physicians to incontrovertibly prove the extent of the disability.</li>
+                        <li><strong>Negotiation:</strong> Dealing directly with the adversarial insurance adjuster to authorize necessary procedures and maximize potential lump-sum settlement offers.</li>
+                        <li><strong>Appeals or litigation:</strong> Filing a formal Petition for Benefits and preparing for a final merits hearing before a Judge of Compensation Claims if the insurance company denies essential care or underpays your rightful wages.</li>
                     </ol>
                 </div>
 
-                <!-- COMPARISON TABLE -->
+                <!-- COMPARISON TABLE[cite: 1] -->
                 <h3 class="text-2xl font-semibold text-slate-800 mt-8 mb-4">Workers’ Compensation vs Personal Injury Claim</h3>
                 <p class="text-slate-700 mb-4 leading-relaxed">
-                    While workers' compensation covers direct employer incidents, third-party personal injury claims apply if an outside entity (like an equipment manufacturer or a negligent driver) caused the injury. A <a href="/lawyer/personal-injury-lawyer/" class="text-emerald-700 underline font-medium">personal injury lawyer</a> can help if both apply.
+                    While workers' compensation explicitly covers direct employer incidents under a no-fault umbrella, third-party personal injury claims apply if an outside entity (like an independent equipment manufacturer, a negligent third-party contractor, or a reckless driver while you are on the clock) caused the injury. A seasoned attorney will deeply analyze your case to determine when both apply to maximize your recovery.
                 </p>
                 <div class="overflow-x-auto mb-8 border border-slate-200 rounded-lg shadow-sm">
                     <table class="w-full text-left text-sm text-slate-600">
@@ -278,33 +294,32 @@
                             <tr>
                                 <td class="p-4 font-medium text-slate-900">Fault requirement</td>
                                 <td class="p-4">No-fault (benefits paid regardless of who caused it)</td>
-                                <td class="p-4">Must prove negligence of a third party</td>
+                                <td class="p-4">Must definitively prove negligence of a third party</td>
                             </tr>
                             <tr class="bg-slate-50">
                                 <td class="p-4 font-medium text-slate-900">Compensation</td>
-                                <td class="p-4">Medical bills, partial lost wages, disability</td>
-                                <td class="p-4">Full lost wages, medicals, pain and suffering</td>
+                                <td class="p-4">Medical bills, partial lost wages, specific disability</td>
+                                <td class="p-4">Full lost wages, medicals, pain and suffering damages</td>
                             </tr>
                             <tr>
                                 <td class="p-4 font-medium text-slate-900">Lawsuit allowed</td>
-                                <td class="p-4">Generally cannot sue employer</td>
-                                <td class="p-4">Can sue the negligent third party</td>
+                                <td class="p-4">Generally cannot sue employer directly</td>
+                                <td class="p-4">Can file a civil lawsuit against the negligent third party</td>
                             </tr>
                             <tr class="bg-slate-50">
                                 <td class="p-4 font-medium text-slate-900">Complexity</td>
-                                <td class="p-4">Administrative process, highly regulated</td>
-                                <td class="p-4">Civil litigation, potential for trial</td>
+                                <td class="p-4">Administrative process, highly regulated by state statutes</td>
+                                <td class="p-4">Civil litigation, extensive discovery, potential for jury trial</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
-                <!-- LAWYER DIRECTORY SECTION -->
+                <!-- LAWYER DIRECTORY SECTION[cite: 2] -->
                 <h2 id="directory" class="text-3xl font-bold text-slate-900 mt-16 mb-8 scroll-mt-28 border-b border-slate-200 pb-2">Top Work Injury Lawyers in Jacksonville</h2>
-                <p class="text-slate-700 mb-6">Browse our verified directory of top-rated professionals handling workers' compensation and injury claims in the Florida area. We have curated these options based on their focus on work injury law and client satisfaction.</p>
+                <p class="text-slate-700 mb-6">Browse our verified directory of top-rated professionals handling workers' compensation and injury claims in the Florida area. We have curated these options based on their specific focus on work injury law, track record of litigation success, and verifiable client satisfaction.</p>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-                    <!-- Card 1 -->
                     <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
                         <div class="text-xs font-bold text-emerald-600 uppercase tracking-wide mb-1">Workers' Comp Focus</div>
                         <h3 class="text-lg font-bold text-slate-900">Randal L. Schecter</h3>
@@ -312,7 +327,6 @@
                         <a href="tel:+13866722550" class="block text-slate-700 font-medium mb-3 hover:text-emerald-700">📞 (386) 672-2550</a>
                         <a href="https://www.rlschecter.com" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-slate-900 text-white font-medium py-2 rounded hover:bg-slate-800 transition">Visit Website</a>
                     </div>
-                    <!-- Card 2 -->
                     <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
                         <div class="text-xs font-bold text-emerald-600 uppercase tracking-wide mb-1">Workers' Comp Focus</div>
                         <h3 class="text-lg font-bold text-slate-900">Joe Bodiford</h3>
@@ -320,7 +334,6 @@
                         <a href="tel:+18132220032" class="block text-slate-700 font-medium mb-3 hover:text-emerald-700">📞 (813) 222-0032</a>
                         <a href="https://www.tallahasseecriminaldefense.com" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-slate-900 text-white font-medium py-2 rounded hover:bg-slate-800 transition">Visit Website</a>
                     </div>
-                    <!-- Card 3 -->
                     <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
                         <div class="text-xs font-bold text-emerald-600 uppercase tracking-wide mb-1">Workers' Comp Focus</div>
                         <h3 class="text-lg font-bold text-slate-900">R. James Robbins Jr.</h3>
@@ -328,7 +341,6 @@
                         <a href="tel:+18132278404" class="block text-slate-700 font-medium mb-3 hover:text-emerald-700">📞 (813) 227-8404</a>
                         <a href="https://www.hwhlaw.com" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-slate-900 text-white font-medium py-2 rounded hover:bg-slate-800 transition">Visit Website</a>
                     </div>
-                    <!-- Card 4 -->
                     <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
                         <div class="text-xs font-bold text-emerald-600 uppercase tracking-wide mb-1">Workers' Comp Focus</div>
                         <h3 class="text-lg font-bold text-slate-900">Grace Anne Glavin</h3>
@@ -336,7 +348,6 @@
                         <a href="tel:+14076991110" class="block text-slate-700 font-medium mb-3 hover:text-emerald-700">📞 (407) 699-1110</a>
                         <a href="https://graceglavinlaw.com" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-slate-900 text-white font-medium py-2 rounded hover:bg-slate-800 transition">Visit Website</a>
                     </div>
-                    <!-- Card 5 -->
                     <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
                         <div class="text-xs font-bold text-emerald-600 uppercase tracking-wide mb-1">Workers' Comp Focus</div>
                         <h3 class="text-lg font-bold text-slate-900">Mark L. Horwitz</h3>
@@ -344,7 +355,6 @@
                         <a href="tel:+14079015852" class="block text-slate-700 font-medium mb-3 hover:text-emerald-700">📞 (407) 901-5852</a>
                         <a href="http://www.mlhorwitzlaw.com" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-slate-900 text-white font-medium py-2 rounded hover:bg-slate-800 transition">Visit Website</a>
                     </div>
-                    <!-- Card 6 -->
                     <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
                         <div class="text-xs font-bold text-emerald-600 uppercase tracking-wide mb-1">Workers' Comp Focus</div>
                         <h3 class="text-lg font-bold text-slate-900">Andrew Moses</h3>
@@ -352,7 +362,6 @@
                         <a href="tel:+14073770150" class="block text-slate-700 font-medium mb-3 hover:text-emerald-700">📞 (407) 377-0150</a>
                         <a href="https://www.mosesandrooth.com" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-slate-900 text-white font-medium py-2 rounded hover:bg-slate-800 transition">Visit Website</a>
                     </div>
-                    <!-- Card 7 -->
                     <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
                         <div class="text-xs font-bold text-emerald-600 uppercase tracking-wide mb-1">Workers' Comp Focus</div>
                         <h3 class="text-lg font-bold text-slate-900">Gary Weiner</h3>
@@ -360,7 +369,6 @@
                         <a href="tel:+15613911333" class="block text-slate-700 font-medium mb-3 hover:text-emerald-700">📞 (561) 391-1333</a>
                         <a href="https://www.weinerweiss.com" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-slate-900 text-white font-medium py-2 rounded hover:bg-slate-800 transition">Visit Website</a>
                     </div>
-                    <!-- Card 8 -->
                     <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
                         <div class="text-xs font-bold text-emerald-600 uppercase tracking-wide mb-1">Workers' Comp Focus</div>
                         <h3 class="text-lg font-bold text-slate-900">Steve Yerrid</h3>
@@ -368,7 +376,6 @@
                         <a href="tel:+18132228222" class="block text-slate-700 font-medium mb-3 hover:text-emerald-700">📞 (813) 222-8222</a>
                         <a href="http://www.yerridlaw.com" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-slate-900 text-white font-medium py-2 rounded hover:bg-slate-800 transition">Visit Website</a>
                     </div>
-                    <!-- Card 9 -->
                     <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
                         <div class="text-xs font-bold text-emerald-600 uppercase tracking-wide mb-1">Workers' Comp Focus</div>
                         <h3 class="text-lg font-bold text-slate-900">Scott Dimond</h3>
@@ -376,7 +383,6 @@
                         <a href="tel:+15616711920" class="block text-slate-700 font-medium mb-3 hover:text-emerald-700">📞 (561) 671-1920</a>
                         <a href="https://www.dkrpa.com" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-slate-900 text-white font-medium py-2 rounded hover:bg-slate-800 transition">Visit Website</a>
                     </div>
-                    <!-- Card 10 -->
                     <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
                         <div class="text-xs font-bold text-emerald-600 uppercase tracking-wide mb-1">Workers' Comp Focus</div>
                         <h3 class="text-lg font-bold text-slate-900">Peter Catania</h3>
@@ -384,7 +390,6 @@
                         <a href="tel:+18132228656" class="block text-slate-700 font-medium mb-3 hover:text-emerald-700">📞 (813) 222-8656</a>
                         <a href="https://www.cataniaandcatania.com" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-slate-900 text-white font-medium py-2 rounded hover:bg-slate-800 transition">Visit Website</a>
                     </div>
-                    <!-- Card 11 -->
                     <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
                         <div class="text-xs font-bold text-emerald-600 uppercase tracking-wide mb-1">Workers' Comp Focus</div>
                         <h3 class="text-lg font-bold text-slate-900">Michael Marder</h3>
@@ -392,7 +397,6 @@
                         <a href="tel:+18884911120" class="block text-slate-700 font-medium mb-3 hover:text-emerald-700">📞 (888) 491-1120</a>
                         <a href="https://www.gmlaw.com" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-slate-900 text-white font-medium py-2 rounded hover:bg-slate-800 transition">Visit Website</a>
                     </div>
-                    <!-- Card 12 -->
                     <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
                         <div class="text-xs font-bold text-emerald-600 uppercase tracking-wide mb-1">Workers' Comp Focus</div>
                         <h3 class="text-lg font-bold text-slate-900">Roger P. Foley</h3>
@@ -402,33 +406,33 @@
                     </div>
                 </div>
 
-                <!-- MIDDLE CTA -->
+                <!-- MIDDLE CTA[cite: 1] -->
                 <div class="bg-slate-900 rounded-xl p-8 text-center text-white shadow-lg mb-12">
-                    <h3 class="text-2xl font-bold mb-3">Need help with this issue in Jacksonville?</h3>
-                    <p class="mb-6 text-slate-300">Don't navigate the workers' compensation system alone. Get expert guidance today.</p>
-                    <a href="tel:+18132220032" class="inline-block bg-emerald-600 text-white font-bold py-3 px-8 rounded hover:bg-emerald-500 transition shadow-sm text-lg">
-                        Call Joe Bodiford | Bodiford Law | (813) 222-0032
+                    <h3 class="text-2xl font-bold mb-3">Need help after a workplace injury in Jacksonville?</h3>
+                    <p class="mb-6 text-slate-300">Don't navigate the complex workers' compensation system alone against powerful insurers.</p>
+                    <a href="tel:+14073770150" class="inline-block bg-emerald-600 text-white font-bold py-3 px-8 rounded hover:bg-emerald-500 transition shadow-sm text-lg">
+                        Call Andrew Moses | Moses and Rooth | (407) 377-0150
                     </a>
                 </div>
 
-                <!-- SECTION: STEPS TO TAKE -->
+                <!-- SECTION: STEPS TO TAKE[cite: 1] -->
                 <h2 id="steps" class="text-3xl font-bold text-slate-900 mt-12 mb-6 scroll-mt-28 border-b border-slate-200 pb-2">Steps to Take</h2>
                 <h3 class="text-2xl font-semibold text-slate-800 mt-6 mb-4">Steps to Take After a Workplace Injury</h3>
                 <ul class="list-disc pl-6 text-slate-700 mb-6 space-y-2">
-                    <li><strong>Report injury to employer:</strong> In Florida, you have 30 days, but reporting immediately is crucial.</li>
-                    <li><strong>Seek medical treatment:</strong> Ask your employer for an authorized workers' comp doctor. Do not wait.</li>
-                    <li><strong>Document incident:</strong> Write down exactly what happened, names of witnesses, and take photos if possible.</li>
-                    <li><strong>File workers' comp claim:</strong> Ensure the formal Notice of Injury is submitted to the insurance carrier.</li>
-                    <li><strong>Follow doctor instructions:</strong> Missing appointments or ignoring restrictions can jeopardize your benefits.</li>
-                    <li><strong>Monitor benefits:</strong> Check that your wage replacement checks are accurate and arrive on time.</li>
-                    <li><strong>Hire lawyer if issues arise:</strong> If care is denied or you feel forced back to work too soon, seek counsel.</li>
-                    <li><strong>Appeal denial or dispute:</strong> Your lawyer will file a Petition for Benefits to fight the insurance company.</li>
-                    <li><strong>Settlement or hearing:</strong> The case resolves via a lump-sum settlement or a ruling by a Judge of Compensation Claims.</li>
+                    <li><strong>Report injury to employer:</strong> Do not wait. In Florida, you technically have 30 days, but reporting immediately is critical to preserve the integrity of your claim.</li>
+                    <li><strong>Seek medical treatment:</strong> Ask your employer or HR department specifically for an authorized workers' comp doctor or clinic.</li>
+                    <li><strong>Document incident:</strong> Write down exactly what happened, the conditions of the workspace, names of witnesses, and take clear photos if physically possible.</li>
+                    <li><strong>File workers' comp claim:</strong> Ensure the formal Notice of Injury is accurately drafted and submitted to the employer's insurance carrier.</li>
+                    <li><strong>Follow doctor instructions:</strong> Missing appointments, refusing physical therapy, or ignoring work restrictions can severely jeopardize or completely terminate your legal benefits.</li>
+                    <li><strong>Monitor benefits:</strong> Relentlessly check that your wage replacement checks are mathematically accurate and arrive on time.</li>
+                    <li><strong>Hire lawyer if issues arise:</strong> If medical care is unfairly denied, treatments are delayed, or you feel forced back to work too soon, seek dedicated legal counsel.</li>
+                    <li><strong>Appeal denial or dispute:</strong> Your lawyer will officially file a Petition for Benefits to fight the insurance company in front of a judge.</li>
+                    <li><strong>Settlement or hearing:</strong> The case resolves via a carefully negotiated lump-sum settlement or a binding legal ruling by a Judge of Compensation Claims.</li>
                 </ul>
 
-                <!-- DYNAMIC INTERNAL LINKS BLOCK -->
+                <!-- DYNAMIC INTERNAL LINKS BLOCK[cite: 1] -->
                 <div id="dynamic-internal-links" class="mb-8">
-                    <h4 class="text-lg font-bold text-slate-800 mb-3">Related Resources</h4>
+                    <h4 class="text-lg font-bold text-slate-800 mb-3">Related Legal Resources</h4>
                     <ul class="list-disc pl-5 space-y-2 text-emerald-700 underline font-medium">
                         <li><a href="/guide/how-to-sue-an-insurance-company/">How to Sue an Insurance Company</a></li>
                         <li><a href="/guide/how-to-sue-a-car-insurance-company-without-lawyer/">How to Sue an Insurance Company Without a Lawyer</a></li>
@@ -438,107 +442,119 @@
                     </ul>
                 </div>
 
-                <!-- SECTION: COSTS -->
+                <!-- SECTION: COSTS[cite: 1] -->
                 <h2 id="costs" class="text-3xl font-bold text-slate-900 mt-12 mb-6 scroll-mt-28 border-b border-slate-200 pb-2">Costs</h2>
                 <h3 class="text-2xl font-semibold text-slate-800 mt-6 mb-4">Cost of Hiring a Work Injury Lawyer</h3>
                 <p class="text-slate-700 mb-4 leading-relaxed">
-                    Most injured workers worry about upfront legal fees. The workers' compensation system in Florida is designed to ensure you can afford representation when your income is already compromised.
+                    Most injured workers understandably worry about paying exorbitant upfront legal fees while they are simultaneously out of work and not drawing a normal paycheck. The workers' compensation legal system is specifically designed to ensure you can afford top-tier representation when your income is already compromised and vulnerable.
                 </p>
                 <h3 class="text-2xl font-semibold text-slate-800 mt-6 mb-4">Contingency Fee Structure</h3>
                 <p class="text-slate-700 mb-4 leading-relaxed">
-                    Work injury lawyers work on a contingency fee basis. This means they only get paid if they successfully recover benefits or secure a settlement for you. Florida law strictly regulates these fees, typically starting at 20% of the first $5,000 of benefits secured, 15% of the next $5,000, and 10% of the remainder.
+                    Work injury lawyers work almost exclusively on a strict contingency fee basis. This means they only get paid if they successfully recover disputed benefits, negotiate a final wash-out settlement, or win your case at a final hearing. Florida law strictly regulates and caps these fees to protect injured workers. The statutory fee is typically structured at 20% of the first $5,000 of benefits secured, 15% of the next $5,000, and 10% of the remainder of benefits secured.
                 </p>
                 <h3 class="text-2xl font-semibold text-slate-800 mt-6 mb-4">Additional Costs</h3>
                 <p class="text-slate-700 mb-6 leading-relaxed">
-                    While the attorney's fee is contingent, there may be out-of-pocket costs for litigation expenses, such as copying medical records, hiring expert witnesses, or court reporter fees for depositions. Your lawyer will explain how these costs are handled—often advanced by the firm and deducted from the final settlement.
+                    While the core attorney's fee is contingent on winning, there may be out-of-pocket administrative costs for litigation expenses. These can include copying voluminous medical records, hiring independent expert medical witnesses to counter the insurance company's doctors, or paying court reporter fees for mandatory depositions. Your lawyer will explicitly outline how these costs are handled—they are often advanced by the law firm and seamlessly deducted from the final settlement without you ever opening your wallet during the case.
                 </p>
 
-                <!-- TWEETABLE FACT 2 -->
+                <!-- TWEETABLE FACT 2[cite: 1] -->
                 <div class="my-8 p-6 bg-emerald-50 rounded-xl border border-emerald-100 flex flex-col gap-3 relative shadow-sm">
                     <span class="text-emerald-300 absolute top-4 left-4 text-4xl leading-none">"</span>
-                    <p class="text-lg font-medium text-emerald-900 z-10 relative pl-6 italic">A lawyer can help recover benefits after a denial or delay, leveling the playing field against insurance adjusters.</p>
-                    <a href="https://twitter.com/intent/tweet?text=A%20lawyer%20can%20help%20recover%20benefits%20after%20a%20denial%20or%20delay.&url=https://jacksonvilleinsurancelawyer.com/lawyer/work-injury-lawyer/" target="_blank" class="text-sm font-bold text-emerald-700 hover:text-emerald-800 mt-2 z-10 pl-6 flex items-center gap-1">
+                    <p class="text-lg font-medium text-emerald-900 z-10 relative pl-6 italic">A lawyer can help recover benefits after denial or delay, leveling the playing field against insurance adjusters.</p>
+                    <a href="https://twitter.com/intent/tweet?text=A%20lawyer%20can%20help%20recover%20benefits%20after%20denial%20or%20delay.&url=https://jacksonvilleinsurancelawyer.com/lawyer/work-injury-lawyer/" target="_blank" class="text-sm font-bold text-emerald-700 hover:text-emerald-800 mt-2 z-10 pl-6 flex items-center gap-1">
                         Tap to share on Twitter <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
                     </a>
                 </div>
 
-                <!-- SECTION: TIMELINE -->
+                <!-- SECTION: TIMELINE[cite: 1] -->
                 <h2 id="timeline" class="text-3xl font-bold text-slate-900 mt-12 mb-6 scroll-mt-28 border-b border-slate-200 pb-2">Timeline</h2>
                 <h3 class="text-2xl font-semibold text-slate-800 mt-6 mb-4">How Long Work Injury Claims Take</h3>
                 <p class="text-slate-700 mb-4 leading-relaxed">
-                    Simple claims where the employer admits fault and injuries heal quickly can resolve in a few months. However, if your injuries are severe or require maximum medical improvement (MMI) before assessing permanent impairment, claims can remain open for over a year.
+                    The duration of a workers' compensation claim varies wildly depending on the medical complexity of the injuries. Simple claims where the employer readily admits fault, and injuries heal rapidly without surgical intervention, can fully resolve and close in just a few months. However, if your injuries are severe, require surgery, or demand you reach maximum medical improvement (MMI) before a doctor can accurately assess any permanent impairment ratings, claims can easily remain open and hotly contested for over a year.
                 </p>
                 <h3 class="text-2xl font-semibold text-slate-800 mt-6 mb-4">What Delays Claims</h3>
                 <p class="text-slate-700 mb-6 leading-relaxed">
-                    Insurance companies often delay claims by disputing the severity of the injury, requesting excessive independent medical examinations (IMEs), or arguing the injury was a pre-existing condition. A proactive attorney can file motions to compel timely compliance and prevent stall tactics.
+                    Corporate insurance companies inherently prioritize profit over your speedy recovery. They frequently and intentionally delay claims by maliciously disputing the severity of the injury, requesting excessive independent medical examinations (IMEs) with biased doctors, or legally arguing the injury was actually a pre-existing condition unrelated to work. A highly proactive, aggressive attorney can swiftly file motions to compel timely compliance with the law and prevent these systemic stall tactics.
                 </p>
 
-                <!-- SECTION: PROS & CONS -->
+                <!-- SECTION: PROS & CONS[cite: 1] -->
                 <h2 id="pros-cons" class="text-3xl font-bold text-slate-900 mt-12 mb-6 scroll-mt-28 border-b border-slate-200 pb-2">Pros & Cons</h2>
                 <h3 class="text-2xl font-semibold text-slate-800 mt-6 mb-4">Benefits of Hiring a Lawyer</h3>
                 <ul class="list-disc pl-6 text-slate-700 mb-4 space-y-2">
-                    <li>Professional navigation of strict deadlines and procedural rules.</li>
-                    <li>Access to trusted medical professionals outside the insurance network's direct influence.</li>
-                    <li>Higher average settlement values due to skilled negotiation.</li>
+                    <li>Professional, error-free navigation of strict statutory deadlines and complex procedural state rules.</li>
+                    <li>Exclusive access to highly trusted, specialized medical professionals outside the insurance network's direct financial influence.</li>
+                    <li>Significantly higher average settlement values due to highly skilled, uncompromising legal negotiation tactics.</li>
                 </ul>
                 <h3 class="text-2xl font-semibold text-slate-800 mt-6 mb-4">Risks of Handling Claim Alone</h3>
                 <ul class="list-disc pl-6 text-slate-700 mb-6 space-y-2">
-                    <li>Accepting lowball settlement offers that fail to cover future medical needs.</li>
-                    <li>Missing the statute of limitations, permanently barring your right to benefits.</li>
-                    <li>Falling victim to insurance adjusters who record statements to use against you.</li>
+                    <li>Naively accepting manipulative lowball settlement offers that fail catastrophically to cover future, life-long medical needs.</li>
+                    <li>Accidentally missing the rigid statute of limitations, permanently and irrevocably barring your legal right to ANY benefits.</li>
+                    <li>Falling victim to highly trained insurance adjusters who legally record your innocent statements specifically to weaponize them against your claim later.</li>
                 </ul>
 
-                <!-- SECTION: FLORIDA LAW -->
+                <!-- SECTION: FLORIDA LAW[cite: 1] -->
                 <h2 id="florida-law" class="text-3xl font-bold text-slate-900 mt-12 mb-6 scroll-mt-28 border-b border-slate-200 pb-2">Florida Law</h2>
                 <h3 class="text-2xl font-semibold text-slate-800 mt-6 mb-4">Florida Workers’ Compensation Laws</h3>
                 <p class="text-slate-700 mb-4 leading-relaxed">
-                    Under Florida law, employers with four or more employees (or just one employee in the construction industry) must carry workers' compensation coverage. This ensures a safety net is in place when accidents happen.
+                    Employers must carry coverage (general rule) (Burnetti, P.A.). Under strict Florida legal statutes, businesses with four or more employees (or just a single employee in the highly dangerous construction industry) are legally mandated to carry active workers' compensation insurance coverage. This legislative mandate ensures an absolute financial safety net is in place when unavoidable accidents happen.
                 </p>
                 <h3 class="text-2xl font-semibold text-slate-800 mt-6 mb-4">Benefits You Can Receive</h3>
                 <ul class="list-disc pl-6 text-slate-700 mb-4 space-y-2">
-                    <li><strong>Medical care:</strong> Authorized doctor visits, hospitalization, physical therapy, and prescriptions.</li>
-                    <li><strong>Lost wages:</strong> Temporary Total Disability (TTD) or Temporary Partial Disability (TPD) if you cannot work normally.</li>
-                    <li><strong>Disability benefits:</strong> Permanent impairment benefits if you never fully recover.</li>
+                    <li><strong>Medical care:</strong> Fully paid authorized doctor visits, emergency hospitalization, specialized physical therapy, necessary medical devices, and vital prescriptions without copays.</li>
+                    <li><strong>Lost wages:</strong> Highly regulated Temporary Total Disability (TTD) or Temporary Partial Disability (TPD) indemnity checks if your injuries prevent you from working your normal, pre-injury hours.</li>
+                    <li><strong>Disability benefits:</strong> Crucial Permanent Impairment Benefits (PIB) or Permanent Total Disability (PTD) compensation if your catastrophic injuries ensure you will never fully recover physically or re-enter the workforce.</li>
                 </ul>
                 <h3 class="text-2xl font-semibold text-slate-800 mt-6 mb-4">Filing Deadlines</h3>
                 <p class="text-slate-700 mb-6 leading-relaxed">
-                    You generally have 30 days to report the injury and two years from the date of the accident (or the last authorized medical treatment) to file a formal claim petition in Florida.
+                    Statutes of limitations are completely unforgiving. You generally have precisely 30 days to officially report the traumatic injury to your direct supervisor or employer. Beyond that, you have a strict two-year window from the exact date of the accident (or the exact date of the last authorized medical treatment provided) to legally file a formal claim petition in the state of Florida.
                 </p>
 
-                <!-- SECTION: WHEN TO HIRE A LAWYER -->
+                <!-- SECTION: WHEN TO HIRE A LAWYER[cite: 1] -->
                 <h2 id="when-to-hire-lawyer" class="text-3xl font-bold text-slate-900 mt-12 mb-6 scroll-mt-28 border-b border-slate-200 pb-2">When to Hire a Lawyer</h2>
                 <h3 class="text-2xl font-semibold text-slate-800 mt-6 mb-4">When You Need a Work Injury Lawyer</h3>
                 <ul class="list-disc pl-6 text-slate-700 mb-4 space-y-2">
-                    <li><strong>Claim denied:</strong> The insurance company refuses to acknowledge the injury is work-related.</li>
-                    <li><strong>Benefits stopped:</strong> Your wage checks suddenly cease without justification.</li>
-                    <li><strong>Serious injury:</strong> Injuries requiring surgery or causing permanent disability.</li>
-                    <li><strong>Employer dispute:</strong> Retaliation or disputes over how the accident occurred.</li>
+                    <li><strong>Claim denied:</strong> The corporate insurance company outright refuses to acknowledge the injury is legally work-related.</li>
+                    <li><strong>Benefits stopped:</strong> Your critical wage replacement checks suddenly cease without any valid medical or legal justification.</li>
+                    <li><strong>Serious injury:</strong> Catastrophic injuries requiring immediate surgery, extensive rehabilitation, or causing permanent, life-altering disability.</li>
+                    <li><strong>Employer dispute:</strong> Unlawful retaliation, threats of termination, or fierce disputes over the factual reality of how the accident occurred.</li>
                 </ul>
                 <h3 class="text-2xl font-semibold text-slate-800 mt-6 mb-4">When You May Not Need One</h3>
                 <p class="text-slate-700 mb-6 leading-relaxed">
-                    If your injury is minor (like a small cut requiring a single clinic visit), you missed no work, and the employer's insurance paid the bill promptly without issue, legal representation may not be necessary.
+                    If your workplace injury is genuinely minor (such as a small cut requiring a single walk-in clinic visit), you missed absolutely zero hours of work, and the employer's insurance carrier paid the singular medical bill promptly without any bureaucratic resistance, retaining legal representation may not be practically necessary.
                 </p>
 
-                <!-- TESTIMONIALS (Rotating) -->
+                <!-- BOTTOM CTA[cite: 1] -->
+                <div class="bg-emerald-700 rounded-xl p-8 text-center text-white shadow-lg mb-12">
+                    <h3 class="text-2xl font-bold mb-3">Speak with a Work Injury Lawyer Today</h3>
+                    <p class="mb-6 text-emerald-100">Ensure your rights are protected. Contact a verified Jacksonville specialist now.</p>
+                    <a href="tel:+18132228222" class="inline-block bg-white text-emerald-800 font-bold py-3 px-8 rounded hover:bg-emerald-50 transition shadow-sm text-lg">
+                        Call Steve Yerrid | The Yerrid Law Firm | (813) 222-8222
+                    </a>
+                </div>
+
+                <!-- TESTIMONIALS (Rotating)[cite: 1] -->
                 <div class="bg-slate-50 rounded-xl p-8 border border-slate-200 mb-12 shadow-sm text-center min-h-[150px] flex items-center justify-center relative">
                     <span class="text-4xl absolute top-4 left-4 text-emerald-200 opacity-50">"</span>
-                    <div id="testimonial-container" class="text-lg italic text-slate-700 font-medium">
+                    <div id="testimonial-container" class="text-lg italic text-slate-700 font-medium transition-opacity duration-300">
                         <!-- JS injects testimonials here -->
                     </div>
                 </div>
 
-                <!-- EEAT REVIEWER SECTION -->
+                <!-- EEAT REVIEWER SECTION[cite: 1] -->
                 <div class="bg-white border-l-4 border-emerald-600 p-6 rounded-r-lg shadow-sm mb-12 mt-8">
                     <div class="flex items-start gap-4">
                         <div class="text-4xl">🧑‍💼</div>
                         <div>
                             <h4 class="text-sm font-bold text-slate-500 uppercase tracking-wide mb-1">Reviewed by Legal Professionals</h4>
+                            <p class="text-md font-semibold text-slate-700 mb-1">Author: Jacksonville Insurance Lawyer Editorial Team</p>
                             <p class="text-lg font-bold text-slate-900">Reviewed by Gregory L. Sutton, Esq.</p>
                             <p class="text-sm font-medium text-emerald-700 mb-2">Work Injury Claims Reviewer</p>
                             <ul class="text-sm text-slate-600 list-disc pl-4 space-y-1">
-                                <li>J.D. with 16+ years workplace injury claims experience</li>
+                                <li>J.D.</li>
+                                <li>16+ years workplace injury claims experience</li>
                                 <li>Former employer risk management advisor</li>
                                 <li>Focus: work injuries, disability claims, wage loss disputes</li>
+                                <li>Reviewed injury claim content since 2015</li>
                             </ul>
                             <p class="text-xs text-slate-400 mt-3 flex items-center gap-1">
                                 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 
@@ -548,7 +564,7 @@
                     </div>
                 </div>
 
-                <!-- SECTION: FAQS (Accordion) -->
+                <!-- SECTION: FAQS (Accordion)[cite: 1] -->
                 <h2 id="faqs" class="text-3xl font-bold text-slate-900 mt-12 mb-6 scroll-mt-28 border-b border-slate-200 pb-2">Frequently Asked Questions</h2>
                 <div class="space-y-3 mb-10" id="faq-accordion-container">
                     
@@ -558,7 +574,7 @@
                             <svg class="w-5 h-5 text-emerald-600 transform transition-transform duration-300 chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
                         <div class="accordion-content bg-slate-50 px-6 py-0 text-slate-700 text-sm">
-                            <div class="pb-4">Report the injury to your employer immediately, seek authorized medical treatment, document the incident, and file a formal workers' compensation claim.</div>
+                            <div class="pb-4 pt-2">Report the injury to your employer immediately, seek medical treatment, document the incident, and file a workers' compensation claim.</div>
                         </div>
                     </div>
 
@@ -568,7 +584,7 @@
                             <svg class="w-5 h-5 text-emerald-600 transform transition-transform duration-300 chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
                         <div class="accordion-content bg-slate-50 px-6 py-0 text-slate-700 text-sm">
-                            <div class="pb-4">Generally, no. Workers' compensation is an exclusive remedy, protecting employers from direct lawsuits. However, exceptions exist for gross negligence or third-party involvement.</div>
+                            <div class="pb-4 pt-2">Generally, no. Workers' compensation is an exclusive remedy, protecting employers from direct lawsuits, but exceptions exist for severe, gross negligence or if a third party was involved.</div>
                         </div>
                     </div>
 
@@ -578,7 +594,7 @@
                             <svg class="w-5 h-5 text-emerald-600 transform transition-transform duration-300 chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
                         <div class="accordion-content bg-slate-50 px-6 py-0 text-slate-700 text-sm">
-                            <div class="pb-4">You are entitled to necessary medical care, prescription coverage, mileage reimbursement for doctor visits, a percentage of lost wages, and potential disability payouts.</div>
+                            <div class="pb-4 pt-2">You are entitled to necessary medical care, prescription coverage, mileage reimbursement for doctor visits, a percentage of lost wages, and potential disability payouts.</div>
                         </div>
                     </div>
 
@@ -588,100 +604,220 @@
                             <svg class="w-5 h-5 text-emerald-600 transform transition-transform duration-300 chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
                         <div class="accordion-content bg-slate-50 px-6 py-0 text-slate-700 text-sm">
-                            <div class="pb-4">In Florida, you typically have 30 days to report the accident to your employer, and up to two years to file a formal claim petition for benefits.</div>
+                            <div class="pb-4 pt-2">In Florida, you generally have 30 days to report the injury to your employer and up to two years to file a formal workers' compensation petition.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="border border-slate-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-emerald-300 transition-colors">
+                        <button class="faq-btn w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none" aria-expanded="false">
+                            <span class="font-bold text-slate-800">Can I be fired for filing a claim?</span>
+                            <svg class="w-5 h-5 text-emerald-600 transform transition-transform duration-300 chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content bg-slate-50 px-6 py-0 text-slate-700 text-sm">
+                            <div class="pb-4 pt-2">No, it is strictly illegal in Florida for an employer to retaliate against or terminate an employee solely for exercising their right to file a legitimate workers' compensation claim.</div>
+                        </div>
+                    </div>
+
+                    <div class="border border-slate-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-emerald-300 transition-colors">
+                        <button class="faq-btn w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none" aria-expanded="false">
+                            <span class="font-bold text-slate-800">Can I choose my own doctor?</span>
+                            <svg class="w-5 h-5 text-emerald-600 transform transition-transform duration-300 chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content bg-slate-50 px-6 py-0 text-slate-700 text-sm">
+                            <div class="pb-4 pt-2">Generally, no. Under Florida law, your employer's insurance carrier has the right to select the authorized treating physician. Seeking outside care may leave you responsible for the bills.</div>
+                        </div>
+                    </div>
+
+                    <div class="border border-slate-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-emerald-300 transition-colors">
+                        <button class="faq-btn w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none" aria-expanded="false">
+                            <span class="font-bold text-slate-800">What if my work injury was my fault?</span>
+                            <svg class="w-5 h-5 text-emerald-600 transform transition-transform duration-300 chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content bg-slate-50 px-6 py-0 text-slate-700 text-sm">
+                            <div class="pb-4 pt-2">Because workers' compensation is a no-fault system, you are typically covered even if your honest mistake caused the accident, as long as you were not intoxicated or acting intentionally.</div>
+                        </div>
+                    </div>
+
+                    <div class="border border-slate-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-emerald-300 transition-colors">
+                        <button class="faq-btn w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none" aria-expanded="false">
+                            <span class="font-bold text-slate-800">Does workers comp cover PTSD or mental health?</span>
+                            <svg class="w-5 h-5 text-emerald-600 transform transition-transform duration-300 chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content bg-slate-50 px-6 py-0 text-slate-700 text-sm">
+                            <div class="pb-4 pt-2">In Florida, mental and nervous injuries like PTSD are generally only compensable if they are accompanied by a physical injury requiring medical treatment, with special exceptions made for first responders.</div>
+                        </div>
+                    </div>
+
+                    <div class="border border-slate-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-emerald-300 transition-colors">
+                        <button class="faq-btn w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none" aria-expanded="false">
+                            <span class="font-bold text-slate-800">What is Maximum Medical Improvement (MMI)?</span>
+                            <svg class="w-5 h-5 text-emerald-600 transform transition-transform duration-300 chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content bg-slate-50 px-6 py-0 text-slate-700 text-sm">
+                            <div class="pb-4 pt-2">MMI is the medical baseline where your treating physician determines that your condition has stabilized and further medical treatment will likely not improve your underlying injury.</div>
+                        </div>
+                    </div>
+
+                    <div class="border border-slate-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-emerald-300 transition-colors">
+                        <button class="faq-btn w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none" aria-expanded="false">
+                            <span class="font-bold text-slate-800">How is my average weekly wage calculated?</span>
+                            <svg class="w-5 h-5 text-emerald-600 transform transition-transform duration-300 chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content bg-slate-50 px-6 py-0 text-slate-700 text-sm">
+                            <div class="pb-4 pt-2">Your average weekly wage, which dictates your compensation rate, is mathematically calculated based on your gross earnings in the 13 consecutive weeks immediately preceding your workplace accident.</div>
+                        </div>
+                    </div>
+
+                    <div class="border border-slate-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-emerald-300 transition-colors">
+                        <button class="faq-btn w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none" aria-expanded="false">
+                            <span class="font-bold text-slate-800">Can I get a second opinion if I disagree with the doctor?</span>
+                            <svg class="w-5 h-5 text-emerald-600 transform transition-transform duration-300 chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content bg-slate-50 px-6 py-0 text-slate-700 text-sm">
+                            <div class="pb-4 pt-2">Yes, under Florida statutes, you are legally entitled to request a one-time change of physician during your claim, but the insurance carrier still chooses the new doctor.</div>
+                        </div>
+                    </div>
+
+                    <div class="border border-slate-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-emerald-300 transition-colors">
+                        <button class="faq-btn w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none" aria-expanded="false">
+                            <span class="font-bold text-slate-800">Is a workers compensation settlement taxable?</span>
+                            <svg class="w-5 h-5 text-emerald-600 transform transition-transform duration-300 chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content bg-slate-50 px-6 py-0 text-slate-700 text-sm">
+                            <div class="pb-4 pt-2">Generally, workers' compensation weekly benefits and final lump-sum settlements are fully exempt from state and federal income taxes.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="border border-slate-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-emerald-300 transition-colors">
+                        <button class="faq-btn w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none" aria-expanded="false">
+                            <span class="font-bold text-slate-800">What happens if my employer doesn't have insurance?</span>
+                            <svg class="w-5 h-5 text-emerald-600 transform transition-transform duration-300 chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content bg-slate-50 px-6 py-0 text-slate-700 text-sm">
+                            <div class="pb-4 pt-2">If an employer illegally operates without required insurance, you may be able to file a civil lawsuit directly against them or seek compensation through state uninsured employer funds.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="border border-slate-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-emerald-300 transition-colors">
+                        <button class="faq-btn w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none" aria-expanded="false">
+                            <span class="font-bold text-slate-800">Can I still get benefits if I failed a drug test?</span>
+                            <svg class="w-5 h-5 text-emerald-600 transform transition-transform duration-300 chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content bg-slate-50 px-6 py-0 text-slate-700 text-sm">
+                            <div class="pb-4 pt-2">In Florida, if a mandatory post-accident drug test shows you were intoxicated and the intoxication directly caused the accident, your workers' compensation benefits will likely be completely denied.</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- HELPFULNESS WIDGET[cite: 1] -->
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center mb-10 shadow-sm transition-all" id="helpful-widget">
+                    <h3 class="text-xl font-bold text-slate-800 mb-4">Was this article helpful?</h3>
+                    <div id="helpful-buttons" class="flex justify-center gap-4">
+                        <button id="helpful-yes" class="px-6 py-2 bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-emerald-50 hover:border-emerald-500 hover:text-emerald-700 font-medium transition shadow-sm flex items-center gap-2">
+                            <span class="text-xl">👍</span> Yes
+                        </button>
+                        <button id="helpful-no" class="px-6 py-2 bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-rose-50 hover:border-rose-500 hover:text-rose-700 font-medium transition shadow-sm flex items-center gap-2">
+                            <span class="text-xl">👎</span> No
+                        </button>
+                    </div>
+                    <!-- Hidden Response Containers -->
+                    <div id="helpful-response" class="hidden mt-4"></div>
+                    <div id="helpful-share-reveal" class="hidden mt-6 pt-6 border-t border-slate-200">
+                        <p class="text-sm font-bold text-slate-500 uppercase mb-3">Found this helpful? Share this guide with someone who might need it.</p>
+                        <div class="flex flex-wrap justify-center gap-2">
+                            <button onclick="shareLink('whatsapp')" class="px-4 py-2 bg-emerald-600 text-white rounded-lg text-sm font-medium hover:bg-emerald-700 transition">WhatsApp</button>
+                            <button onclick="shareLink('facebook')" class="px-4 py-2 bg-[#1877F2] text-white rounded-lg text-sm font-medium hover:bg-[#166FE5] transition">Facebook</button>
+                            <button onclick="shareLink('twitter')" class="px-4 py-2 bg-black text-white rounded-lg text-sm font-medium hover:bg-gray-800 transition">X / Twitter</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- HELPFULNESS WIDGET -->
-                <div class="bg-white border border-slate-200 p-6 rounded-xl text-center shadow-sm mb-12" id="helpful-widget">
-                    <h4 class="text-lg font-bold text-slate-800 mb-4">Was this article helpful?</h4>
-                    <div class="flex justify-center gap-4" id="helpful-buttons">
-                        <button onclick="handleHelpful(true)" class="px-6 py-2 bg-slate-100 hover:bg-emerald-100 hover:text-emerald-800 text-slate-700 font-medium rounded-full transition border border-slate-200">👍 Yes</button>
-                        <button onclick="handleHelpful(false)" class="px-6 py-2 bg-slate-100 hover:bg-red-100 hover:text-red-800 text-slate-700 font-medium rounded-full transition border border-slate-200">👎 No</button>
-                    </div>
-                    <div id="helpful-response" class="hidden mt-4 text-emerald-700 font-medium fade-in"></div>
-                </div>
-
-                <!-- BOTTOM SHARE SECTION -->
-                <div class="bg-violet-50 rounded-xl p-8 text-center border border-violet-100 mb-12">
-                    <h3 class="text-2xl font-bold text-violet-900 mb-2">Found this helpful?</h3>
-                    <p class="text-violet-700 mb-6">Share this guide with someone who might need it.</p>
-                    <div class="flex justify-center flex-wrap gap-3">
-                        <button onclick="shareLink('whatsapp')" class="px-4 py-2 bg-white rounded-full border border-violet-200 hover:bg-violet-100 text-sm font-medium transition text-violet-800">WhatsApp</button>
-                        <button onclick="shareLink('facebook')" class="px-4 py-2 bg-white rounded-full border border-violet-200 hover:bg-violet-100 text-sm font-medium transition text-violet-800">Facebook</button>
-                        <button onclick="shareLink('twitter')" class="px-4 py-2 bg-white rounded-full border border-violet-200 hover:bg-violet-100 text-sm font-medium transition text-violet-800">Twitter/X</button>
-                        <button onclick="shareLink('email')" class="px-4 py-2 bg-white rounded-full border border-violet-200 hover:bg-violet-100 text-sm font-medium transition text-violet-800">Email</button>
+                <!-- END SHARE SECTION[cite: 1] -->
+                <div class="text-center py-10 border-t border-slate-200 mb-8">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-2">Found this helpful?</h3>
+                    <p class="text-slate-600 mb-6">Share this guide with someone who might need it.</p>
+                    <div class="flex flex-wrap items-center justify-center gap-3">
+                        <button onclick="shareLink('whatsapp')" class="px-5 py-2.5 rounded-full border border-slate-200 hover:bg-slate-50 text-sm font-medium transition flex items-center gap-2 shadow-sm">WhatsApp</button>
+                        <button onclick="shareLink('facebook')" class="px-5 py-2.5 rounded-full border border-slate-200 hover:bg-slate-50 text-sm font-medium transition flex items-center gap-2 shadow-sm">Facebook</button>
+                        <button onclick="shareLink('twitter')" class="px-5 py-2.5 rounded-full border border-slate-200 hover:bg-slate-50 text-sm font-medium transition flex items-center gap-2 shadow-sm">Twitter/X</button>
+                        <button onclick="shareLink('linkedin')" class="px-5 py-2.5 rounded-full border border-slate-200 hover:bg-slate-50 text-sm font-medium transition flex items-center gap-2 shadow-sm">LinkedIn</button>
+                        <button onclick="shareLink('email')" class="px-5 py-2.5 rounded-full border border-slate-200 hover:bg-slate-50 text-sm font-medium transition flex items-center gap-2 shadow-sm">Email</button>
                     </div>
                 </div>
 
-                <!-- BOTTOM CTA -->
-                <div class="bg-slate-900 rounded-xl p-8 text-center text-white shadow-lg mb-12">
-                    <h3 class="text-2xl font-bold mb-3">Speak with a Work Injury Lawyer Today</h3>
-                    <p class="mb-6 text-slate-300">Don't risk your health and financial stability. Let professionals handle your claim.</p>
-                    <a href="tel:+13866722550" class="inline-block bg-emerald-600 text-white font-bold py-3 px-8 rounded hover:bg-emerald-500 transition shadow-sm text-lg">
-                        Call Randal L. Schecter | (386) 672-2550
-                    </a>
+                <!-- LOGIC & METHODOLOGY[cite: 1] -->
+                <div class="bg-slate-50 p-6 rounded-lg text-sm text-slate-600 mb-6 border border-slate-200">
+                    <p class="mb-2"><strong>Logic:</strong> Our legal directory rigorously filters attorneys based strictly on their dedicated focus on workers' compensation claims and verifiable regional litigation success.</p>
+                    <p><strong>Methodology:</strong> Legal procedures and procedural timelines were verified using current Florida statutes and meticulously cross-referenced with established workers' compensation case law.</p>
                 </div>
 
-                <!-- LEGAL, LOGIC, METHODOLOGY & CITATIONS -->
-                <div class="border-t border-slate-200 pt-8 mt-12 text-sm text-slate-500 space-y-4">
-                    <p><strong>Logic:</strong> This guide outlines the workers' compensation claims process to help injured workers understand their rights and the timeline for securing benefits.</p>
-                    <p><strong>Methodology:</strong> Legal procedures were verified using current Florida statutes and cross-referenced with established workers' compensation legal practices.</p>
-                    <p><strong>Citations:</strong> References utilized include <a href="http://www.leg.state.fl.us/Statutes/index.cfm" target="_blank" rel="nofollow" class="text-emerald-700 underline">Florida Statutes</a>, the <a href="https://www.myfloridacfo.com/division/wc" target="_blank" rel="nofollow" class="text-emerald-700 underline">Florida Department of Financial Services</a>, and <a href="https://www.law.cornell.edu/" target="_blank" rel="nofollow" class="text-emerald-700 underline">Cornell Legal Information Institute</a>.</p>
-                    <p class="italic"><strong>Disclaimer:</strong> Informational only. Not legal advice. Always Consult a legal professional.</p>
+                <!-- CITATIONS[cite: 1] -->
+                <div class="text-sm text-slate-500 mb-6 pl-4 border-l-2 border-slate-300">
+                    <h4 class="font-bold text-slate-700 mb-2">Citations & Authority Sources:</h4>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Florida Statutes - Chapter 440 (Workers' Compensation)</li>
+                        <li>National Association of Insurance Commissioners (NAIC)</li>
+                        <li>Consumer Financial Protection Bureau (CFPB)</li>
+                        <li>Nolo Legal Encyclopedia (Work Injury)</li>
+                        <li>Cornell Law School Legal Information Institute (LII)</li>
+                    </ul>
+                </div>
+
+                <!-- DISCLAIMER[cite: 1] -->
+                <div class="text-xs text-slate-400 border-t border-slate-200 pt-4 mb-10">
+                    <strong>Disclaimer:</strong> Informational only. Not legal advice.
                 </div>
 
             </article>
         </main>
     </div>
 
-    <!-- FOOTER -->
-    <footer class="bg-slate-900 text-slate-400 py-12 mt-12 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 text-sm">
-                <div>
-                    <h5 class="text-white font-bold mb-4">Jacksonville Insurance Lawyer</h5>
-                    <p class="mb-4">Providing expert legal connections and comprehensive guides for insurance and injury claims in Florida.</p>
-                </div>
-                <div>
-                    <h5 class="text-white font-bold mb-4">Legal</h5>
-                    <ul class="space-y-2">
-                        <li><a href="/privacy-policy.html" class="hover:text-white transition">Privacy Policy</a></li>
-                        <li><a href="/terms-of-use.html" class="hover:text-white transition">Terms of Use</a></li>
-                        <li><a href="/disclaimer.html" class="hover:text-white transition">Disclaimer</a></li>
-                        <li><a href="/dmca.html" class="hover:text-white transition">DMCA</a></li>
-                        <li><a href="/do-not-sell-my-data.html" class="hover:text-white transition">Do Not Sell My Data</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h5 class="text-white font-bold mb-4">Company</h5>
-                    <ul class="space-y-2">
-                        <li><a href="/about.html" class="hover:text-white transition">About Us</a></li>
-                        <li><a href="/contact.html" class="hover:text-white transition">Contact</a></li>
-                        <li><a href="/accessibility.html" class="hover:text-white transition">Accessibility</a></li>
-                        <li><a href="/cookies-policy.html" class="hover:text-white transition">Cookies Policy</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h5 class="text-white font-bold mb-4">Connect</h5>
-                    <ul class="space-y-2">
-                        <li><a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Facebook</a></li>
-                        <li><a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Twitter / X</a></li>
-                        <li><a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">LinkedIn</a></li>
-                    </ul>
-                </div>
+    <!-- FOOTER[cite: 1] -->
+    <footer class="bg-slate-900 text-slate-300 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <a href="/" class="flex items-center gap-2 text-xl font-bold text-white mb-4">
+                    <span class="text-2xl">⚖️</span> Jacksonville Insurance Lawyer
+                </a>
+                <p class="text-sm text-slate-400 mb-4 leading-relaxed">
+                    A curated directory and authoritative guide connecting injured workers with elite legal representation across the Florida area.
+                </p>
+                <p class="text-sm text-slate-500">© <span class="dynamic-year">2026</span> Jacksonville Insurance Lawyer. All rights reserved.</p>
             </div>
-            <div class="border-t border-slate-800 pt-8 text-center text-xs">
-                <p>&copy; <span class="dynamic-year">2026</span> Jacksonville Insurance Lawyer. All rights reserved.</p>
+            
+            <div>
+                <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Legal & Policies</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="/privacy-policy.html" class="hover:text-emerald-400 transition">Privacy Policy</a></li>
+                    <li><a href="/cookies-policy.html" class="hover:text-emerald-400 transition">Cookies Policy</a></li>
+                    <li><a href="/terms-of-use.html" class="hover:text-emerald-400 transition">Terms of Use</a></li>
+                    <li><a href="/disclaimer.html" class="hover:text-emerald-400 transition">Disclaimer</a></li>
+                    <li><a href="/dmca.html" class="hover:text-emerald-400 transition">DMCA</a></li>
+                    <li><a href="/accessibility.html" class="hover:text-emerald-400 transition">Accessibility</a></li>
+                    <li><a href="/do-not-sell-my-data.html" class="hover:text-emerald-400 transition">Do Not Sell My Data</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Company & Social</h4>
+                <ul class="space-y-2 text-sm mb-6">
+                    <li><a href="/contact.html" class="hover:text-emerald-400 transition">Contact Us</a></li>
+                    <li><a href="/about.html" class="hover:text-emerald-400 transition">About Us</a></li>
+                </ul>
+                <div class="flex flex-col space-y-2 text-sm">
+                    <a href="https://twitter.com" target="_blank" rel="noopener" class="hover:text-emerald-400 transition">Twitter/X</a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener" class="hover:text-emerald-400 transition">Facebook</a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener" class="hover:text-emerald-400 transition">LinkedIn</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- TOAST CONTAINER -->
-    <div id="toast-container" class="fixed bottom-4 right-4 z-50 flex flex-col gap-2"></div>
+    <!-- REQUIRED TOAST CONTAINER[cite: 1] -->
+    <div id="toast-container" class="fixed bottom-4 right-4 z-50 flex flex-col items-end"></div> 
 
-    <!-- EXTERNAL JS REPO SCRIPTS -->
+    <!-- GLOBAL SHARED SCRIPTS[cite: 1] -->
     <script defer src="../js/registry.js"></script>
     <script defer src="../js/root-config.js"></script>
     <script defer src="../js/menu-system.js"></script>
@@ -690,168 +826,188 @@
     <script defer src="../js/internal-links.js"></script>
     <script defer src="../js/legal-engine.js"></script>
 
-    <!-- INLINE VANILLA JS (UIX Upgrades) -->
+    <!-- INLINE VANILLA JS ENHANCEMENTS[cite: 1] -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // 1. Dynamic Year & Dates
-            const currentYear = new Date().getFullYear();
-            document.querySelectorAll('.dynamic-year').forEach(el => el.textContent = currentYear);
-            
-            const dateOptions = { month: 'long', day: 'numeric', year: 'numeric' };
-            const todayStr = new Date().toLocaleDateString('en-US', dateOptions);
-            document.querySelectorAll('.dynamic-date-today').forEach(el => el.textContent = todayStr);
-            document.querySelectorAll('.dynamic-date-badge').forEach(el => el.textContent = `Updated: ${todayStr}`);
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Dynamic Dates & Years
+        const currentYear = new Date().getFullYear();
+        document.querySelectorAll('.dynamic-year').forEach(el => el.textContent = currentYear);
+        
+        const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+        const formattedDate = new Date().toLocaleDateString('en-US', dateOptions);
+        document.querySelectorAll('.dynamic-date-today').forEach(el => el.textContent = formattedDate);
+        document.querySelectorAll('.dynamic-date-badge').forEach(el => el.textContent = 'Updated: ' + formattedDate);
 
-            // Seasonal Greeting
-            const month = new Date().getMonth();
-            let season = "Winter";
-            if(month >= 2 && month <= 4) season = "Spring";
-            else if(month >= 5 && month <= 7) season = "Summer";
-            else if(month >= 8 && month <= 10) season = "Fall";
-            const bannerEl = document.getElementById('seasonal-banner');
-            if(bannerEl) bannerEl.textContent = `${season} ${currentYear} Edition - Verified Legal Directory`;
+        // Seasonal Banner Logic
+        const month = new Date().getMonth();
+        let season = "Winter";
+        if(month >= 2 && month <= 4) season = "Spring";
+        else if(month >= 5 && month <= 7) season = "Summer";
+        else if(month >= 8 && month <= 10) season = "Fall";
+        const banner = document.getElementById('seasonal-banner');
+        if(banner) banner.textContent = `${season} ${currentYear} Legal Edition`;
 
-            // 2. Reading Time
-            const textContent = document.querySelector('main').innerText;
-            const wordCount = textContent.split(/\s+/).length;
-            const readingTime = Math.ceil(wordCount / 200);
-            const rtEl = document.getElementById('reading-time');
-            if(rtEl) rtEl.textContent = `Estimated reading time: ${readingTime} mins`;
+        // 2. Scroll Progress Bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            const progress = document.getElementById('scroll-progress');
+            if(progress) progress.style.width = scrolled + '%';
+        }, { passive: true });
 
-            // 3. Scroll Progress Bar
-            const scrollBar = document.getElementById('scroll-progress');
-            window.addEventListener('scroll', () => {
-                const scrollTop = document.documentElement.scrollTop;
-                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const scrollPercent = (scrollTop / scrollHeight) * 100;
-                if(scrollBar) scrollBar.style.width = scrollPercent + '%';
+        // 3. TOC Scroll Spy
+        const sections = document.querySelectorAll('h2[id]');
+        const navLinks = document.querySelectorAll('#toc-nav a');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 150) current = section.getAttribute('id');
             });
-
-            // 4. Scroll Spy (Active TOC Highlight)
-            const sections = document.querySelectorAll('h2[id]');
-            const navLinks = document.querySelectorAll('#toc-nav a');
-            window.addEventListener('scroll', () => {
-                let current = '';
-                sections.forEach(sec => {
-                    const secTop = sec.offsetTop;
-                    if(window.scrollY >= secTop - 150) {
-                        current = sec.getAttribute('id');
-                    }
-                });
-                navLinks.forEach(link => {
-                    link.classList.remove('toc-active');
-                    if(link.getAttribute('href') === `#${current}`) {
-                        link.classList.add('toc-active');
-                    }
-                });
-            }, { passive: true });
-
-            // 5. Accordion (Vanilla JS)
-            const faqs = document.querySelectorAll('.faq-btn');
-            faqs.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const content = btn.nextElementSibling;
-                    const icon = btn.querySelector('.chevron');
-                    const isExpanded = btn.getAttribute('aria-expanded') === 'true';
-                    
-                    // Close all
-                    document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('expanded'));
-                    document.querySelectorAll('.faq-btn').forEach(b => {
-                        b.setAttribute('aria-expanded', 'false');
-                        b.querySelector('.chevron').classList.remove('rotate-180');
-                    });
-                    
-                    // Toggle current
-                    if (!isExpanded) {
-                        btn.setAttribute('aria-expanded', 'true');
-                        content.classList.add('expanded');
-                        icon.classList.add('rotate-180');
-                    }
-                });
+            navLinks.forEach(link => {
+                link.classList.remove('toc-active', 'border-emerald-600', 'text-emerald-700');
+                link.classList.add('border-transparent');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('toc-active', 'border-emerald-600', 'text-emerald-700');
+                    link.classList.remove('border-transparent');
+                }
             });
+        }, { passive: true });
 
-            // 6. Testimonial Rotation
-            const testimonials = [
-                "\"My wage checks stopped abruptly. My attorney stepped in and had them reinstated within a week. Highly recommend.\" - David S., Jacksonville",
-                "\"I was worried about the cost of a lawyer, but the free consultation clarified everything. They won my appeal!\" - Maria L., Orange Park",
-                "\"The insurance company tried to say my back injury wasn't work-related. We fought back and got a great settlement.\" - John T., St. Augustine",
-                "\"Don't try to handle workers' comp alone. The system is rigged. Getting an attorney was the best decision I made.\" - Angela B., Neptune Beach"
-            ];
-            let testIndex = 0;
-            const testEl = document.getElementById('testimonial-container');
-            if(testEl) {
-                testEl.textContent = testimonials[0];
-                setInterval(() => {
-                    testIndex = (testIndex + 1) % testimonials.length;
-                    testEl.style.opacity = 0;
-                    setTimeout(() => {
-                        testEl.textContent = testimonials[testIndex];
-                        testEl.style.opacity = 1;
-                        testEl.classList.add('fade-in');
-                    }, 300);
-                }, 5000);
-            }
+        // 4. Reading Time Calculator
+        const mainText = document.querySelector('main').innerText;
+        const wpm = 225;
+        const words = mainText.trim().split(/\s+/).length;
+        const time = Math.ceil(words / wpm);
+        const readingTimeEl = document.getElementById('reading-time');
+        if(readingTimeEl) readingTimeEl.innerText = `Estimated reading time: ${time} min`;
 
-            // 7. CTA Rotation
-            const ctaPhrases = ["Get Claim Review", "Free Consultation", "Speak With a Lawyer", "Evaluate Your Case", "Secure Your Benefits"];
-            const randomCTA = ctaPhrases[Math.floor(Math.random() * ctaPhrases.length)];
-            document.querySelectorAll('.cta-random-text').forEach(el => el.textContent = randomCTA);
-
-            // 8. Helpfulness Widget check localStorage
-            if(localStorage.getItem('helpful_voted_work_injury')) {
-                const widget = document.getElementById('helpful-widget');
-                if(widget) widget.style.display = 'none';
-            }
-        });
-
-        // Share System Global Logic
-        window.shareLink = function(platform) {
-            const url = encodeURIComponent(window.location.href);
-            const title = encodeURIComponent(document.title);
-            let shareUrl = '';
-
-            switch(platform) {
-                case 'whatsapp': shareUrl = `https://wa.me/?text=${title}%20${url}`; break;
-                case 'twitter': shareUrl = `https://twitter.com/intent/tweet?text=${title}&url=${url}`; break;
-                case 'facebook': shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`; break;
-                case 'linkedin': shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`; break;
-                case 'email': window.location.href = `mailto:?subject=${title}&body=${url}`; return;
-                case 'copy':
-                    navigator.clipboard.writeText(window.location.href).then(() => showToast('Link copied to clipboard!'));
-                    return;
-            }
-            if(shareUrl) window.open(shareUrl, '_blank', 'width=600,height=400');
-        };
-
-        // Toast Notification System
-        function showToast(message) {
-            const container = document.getElementById('toast-container');
-            if(!container) return;
-            const toast = document.createElement('div');
-            toast.className = 'bg-slate-900 text-white px-4 py-2 rounded shadow-lg text-sm fade-in';
-            toast.textContent = message;
-            container.appendChild(toast);
-            setTimeout(() => {
-                toast.style.opacity = '0';
-                setTimeout(() => toast.remove(), 300);
-            }, 3000);
+        // 5. Testimonial Rotation
+        const quotes = [
+            "\"My claim was initially denied, but hiring a Jacksonville lawyer turned everything around. I got my wages back.\"",
+            "\"The insurance adjuster stopped taking my calls. My attorney stepped in and secured a settlement that covered all my surgeries.\"",
+            "\"I didn't realize how incredibly complex Florida workers' comp was until I tried doing it alone. Best decision was getting legal help.\"",
+            "\"Fast, deeply professional, and they truly cared about my physical recovery after my brutal construction accident.\""
+        ];
+        let qIdx = 0;
+        const tContainer = document.getElementById('testimonial-container');
+        if(tContainer) {
+            tContainer.innerText = quotes[qIdx];
+            setInterval(() => {
+                tContainer.style.opacity = 0;
+                setTimeout(() => {
+                    qIdx = (qIdx + 1) % quotes.length;
+                    tContainer.innerText = quotes[qIdx];
+                    tContainer.style.opacity = 1;
+                }, 300);
+            }, 5000);
         }
 
-        // Helpfulness Widget Logic
-        window.handleHelpful = function(isHelpful) {
-            const btns = document.getElementById('helpful-buttons');
-            const response = document.getElementById('helpful-response');
-            btns.classList.add('hidden');
-            response.classList.remove('hidden');
-            
-            if(isHelpful) {
-                response.innerHTML = 'Thank you for your feedback! <br><span class="text-sm text-slate-500 mt-2 block border-t pt-2 border-emerald-100">Please consider sharing this guide below.</span>';
-            } else {
-                response.innerHTML = 'Sorry we missed the mark. <br><a href="tel:+18132228656" class="inline-block mt-3 bg-slate-900 text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-slate-800 transition">Contact Peter Catania | (813) 222-8656</a>';
-                response.classList.replace('text-emerald-700', 'text-slate-800');
-            }
-            localStorage.setItem('helpful_voted_work_injury', 'true');
-        };
+        // 6. Randomized CTA text
+        const ctaPhrases = ["Free Consultation", "Get Your Claim Reviewed", "Speak With an Attorney", "Claim Your Free Review", "Talk to a Lawyer Today"];
+        document.querySelectorAll('.cta-random-text').forEach(el => {
+            el.innerText = ctaPhrases[Math.floor(Math.random() * ctaPhrases.length)];
+        });
+
+        // 7. FAQ Accordion Logic
+        document.querySelectorAll('.faq-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                const icon = btn.querySelector('.chevron');
+                const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+                
+                // Close all others
+                document.querySelectorAll('.faq-btn').forEach(otherBtn => {
+                    if (otherBtn !== btn) {
+                        otherBtn.setAttribute('aria-expanded', 'false');
+                        otherBtn.nextElementSibling.classList.remove('expanded');
+                        otherBtn.querySelector('.chevron').classList.remove('rotate-180');
+                    }
+                });
+
+                // Toggle current
+                btn.setAttribute('aria-expanded', !isExpanded);
+                if (!isExpanded) {
+                    content.classList.add('expanded');
+                    icon.classList.add('rotate-180');
+                } else {
+                    content.classList.remove('expanded');
+                    icon.classList.remove('rotate-180');
+                }
+            });
+        });
+
+        // 8. Helpfulness Widget Logic
+        const helpfulYes = document.getElementById('helpful-yes');
+        const helpfulNo = document.getElementById('helpful-no');
+        const helpfulResponse = document.getElementById('helpful-response');
+        const helpfulShare = document.getElementById('helpful-share-reveal');
+        
+        if (localStorage.getItem('helpful_voted') && helpfulResponse) {
+            document.getElementById('helpful-buttons').style.display = 'none';
+            helpfulResponse.innerHTML = '<p class="text-emerald-700 font-medium">Thank you for your feedback!</p>';
+            helpfulResponse.classList.remove('hidden');
+        }
+
+        if(helpfulYes && helpfulNo) {
+            helpfulYes.addEventListener('click', () => {
+                localStorage.setItem('helpful_voted', 'true');
+                document.getElementById('helpful-buttons').style.display = 'none';
+                helpfulResponse.innerHTML = '<p class="text-emerald-700 font-medium mb-4">Thank you! We are glad this guide was helpful.</p>';
+                helpfulResponse.classList.remove('hidden');
+                helpfulShare.classList.remove('hidden');
+            });
+
+            helpfulNo.addEventListener('click', () => {
+                localStorage.setItem('helpful_voted', 'true');
+                document.getElementById('helpful-buttons').style.display = 'none';
+                helpfulResponse.innerHTML = `
+                    <p class="text-slate-700 mb-4">We're sorry this didn't answer your questions. Contact an Insurance Lawyer now for direct help.</p>
+                    <a href="tel:+18132228656" class="inline-block bg-slate-900 text-white font-bold py-3 px-6 rounded-lg hover:bg-slate-800 transition shadow-sm text-center">
+                        Contact Peter Catania | (813) 222-8656
+                    </a>
+                `;
+                helpfulResponse.classList.remove('hidden');
+            });
+        }
+    });
+
+    // 9. Share Function with Toast notification
+    function shareLink(platform) {
+        const url = encodeURIComponent(window.location.href);
+        const title = encodeURIComponent(document.title);
+        let shareUrl = '';
+        
+        if(platform === 'whatsapp') shareUrl = `https://wa.me/?text=${title}%20${url}`;
+        if(platform === 'facebook') shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+        if(platform === 'twitter') shareUrl = `https://twitter.com/intent/tweet?text=${title}&url=${url}`;
+        if(platform === 'linkedin') shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+        if(platform === 'email') shareUrl = `mailto:?subject=${title}&body=${url}`;
+        
+        if(platform === 'copy') {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                showToast('Link copied to clipboard!');
+            });
+            return;
+        }
+        window.open(shareUrl, '_blank');
+    }
+
+    // 10. Lightweight Toast System
+    function showToast(message) {
+        const container = document.getElementById('toast-container');
+        if(!container) return;
+        const toast = document.createElement('div');
+        toast.className = 'bg-emerald-800 text-white px-4 py-3 rounded shadow-lg text-sm font-medium mb-2 fade-in';
+        toast.innerText = message;
+        container.appendChild(toast);
+        setTimeout(() => {
+            toast.style.opacity = '0';
+            toast.style.transition = 'opacity 0.3s ease';
+            setTimeout(() => toast.remove(), 300);
+        }, 3000);
+    }
     </script>
 </body>
 </html>
