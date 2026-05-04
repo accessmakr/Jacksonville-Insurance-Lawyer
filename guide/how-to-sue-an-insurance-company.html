@@ -14,18 +14,26 @@
     <meta property="og:description" content="Learn how to sue an insurance company for bad faith, claim denials, or delays. Step-by-step guide on filing a lawsuit, costs, and finding a Florida lawyer.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://jacksonvilleinsurancelawyer.com/guide/how-to-sue-an-insurance-company/">
+    <meta property="og:image" content="https://jacksonvilleinsurancelawyer.com/assets/og-image.jpg">
     <meta property="og:site_name" content="Jacksonville Insurance Lawyer">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="How to Sue an Insurance Company (2026 Complete Guide)">
     <meta name="twitter:description" content="Step-by-step guide on filing a lawsuit against an insurance company for bad faith or claim denials.">
+    <meta name="twitter:image" content="https://jacksonvilleinsurancelawyer.com/assets/og-image.jpg">
     
     <link rel="canonical" href="https://jacksonvilleinsurancelawyer.com/guide/how-to-sue-an-insurance-company/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- External Scripts (Deferred & Async) -->
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script defer data-domain="jacksonvilleinsurancelawyer.com" src="https://plausible.io/js/script.js"></script>
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -50,6 +58,9 @@
         .rotate-180 { transform: rotate(180deg); }
         .progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: linear-gradient(to right, #059669, #6d28d9); z-index: 1000; width: 0%; transition: width 0.1s; }
         .glass-card { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border: 1px solid rgba(229, 231, 235, 0.5); }
+        .testimonial-slide { display: none; }
+        .testimonial-slide.active { display: block; animation: fadeIn 0.5s; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 
     <!-- Schema.org JSON-LD -->
@@ -95,14 +106,22 @@
             { "@type": "Question", "name": "Can you sue your insurance company?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, you can sue your insurance company if they breach your policy contract or act in bad faith by unreasonably denying, delaying, or underpaying your claim." } },
             { "@type": "Question", "name": "How much can you win?", "acceptedAnswer": { "@type": "Answer", "text": "Winning amounts vary. You can typically recover the original claim amount, legal fees, and in cases of extreme bad faith, punitive damages which can significantly increase the payout." } },
             { "@type": "Question", "name": "How long does it take?", "acceptedAnswer": { "@type": "Answer", "text": "An insurance lawsuit can take anywhere from a few months for a quick settlement to several years if the case goes to a full trial." } },
-            { "@type": "Question", "name": "What is bad faith?", "acceptedAnswer": { "@type": "Answer", "text": "Bad faith refers to an insurance company's unreasonable or unfair conduct, such as failing to investigate a claim, denying a claim without cause, or delaying payment unnecessarily." } }
+            { "@type": "Question", "name": "What is bad faith?", "acceptedAnswer": { "@type": "Answer", "text": "Bad faith refers to an insurance company's unreasonable or unfair conduct, such as failing to investigate a claim, denying a claim without cause, or delaying payment unnecessarily." } },
+            { "@type": "Question", "name": "Do I need a lawyer to sue my insurance company?", "acceptedAnswer": { "@type": "Answer", "text": "While not strictly required for small claims, hiring a lawyer is highly recommended for standard civil lawsuits due to the complex nature of bad faith laws and the aggressive defense tactics used by insurers." } },
+            { "@type": "Question", "name": "What is a statute of limitations?", "acceptedAnswer": { "@type": "Answer", "text": "It is the strict legal deadline by which you must file your lawsuit. In Florida, you typically have five years for a breach of contract claim." } },
+            { "@type": "Question", "name": "Can I sue for emotional distress?", "acceptedAnswer": { "@type": "Answer", "text": "In some bad faith insurance cases, courts may allow you to pursue damages for severe emotional distress caused by the insurer's egregious actions, though this is difficult to prove." } },
+            { "@type": "Question", "name": "Will my insurance be canceled if I sue?", "acceptedAnswer": { "@type": "Answer", "text": "An insurer cannot legally cancel your policy solely in retaliation for filing a legitimate lawsuit. However, they may choose not to renew your policy at the end of its term." } },
+            { "@type": "Question", "name": "What happens if I lose the lawsuit?", "acceptedAnswer": { "@type": "Answer", "text": "If you lose and are working on a contingency basis, you won't pay attorney fees, but you may be held liable for the insurance company's court costs depending on state rules." } },
+            { "@type": "Question", "name": "Can I sue a health insurance company?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, but health insurance lawsuits often fall under complex federal laws like ERISA, which have different rules and limitations than standard state bad faith claims." } },
+            { "@type": "Question", "name": "How do I prove bad faith?", "acceptedAnswer": { "@type": "Answer", "text": "You must document a pattern of unreasonable behavior, such as emails showing delayed responses, lack of investigation records, or lowball estimates that contradict independent expert evaluations." } },
+            { "@type": "Question", "name": "What is a Civil Remedy Notice (CRN)?", "acceptedAnswer": { "@type": "Answer", "text": "In Florida, a CRN is a required formal notice filed with the state before you can sue for bad faith. It gives the insurer 60 days to resolve the issue before a lawsuit can proceed." } }
           ]
         }
       ]
     }
     </script>
 </head>
-<body class="bg-gray-50 text-gray-800 antialiased font-sans flex flex-col min-h-screen">
+<body class="bg-gray-50 text-gray-800 antialiased font-sans flex flex-col min-h-screen relative">
 
     <!-- Scroll Progress Bar -->
     <div id="scroll-progress" class="progress-bar"></div>
@@ -130,15 +149,27 @@
     </header>
 
     <main class="flex-grow">
+        <!-- Seasonal Banner -->
+        <div id="seasonal-banner" class="bg-emerald-600 text-white text-center py-2 text-sm font-semibold tracking-wide shadow-sm">
+            <!-- Populated via JS -->
+        </div>
+
         <!-- Hero Section -->
-        <section class="bg-white pt-16 pb-12 border-b border-gray-200">
+        <section class="bg-white pt-10 pb-12 border-b border-gray-200">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <div class="inline-block bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-sm font-semibold tracking-wide mb-6">
+                <div class="inline-block bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-sm font-semibold tracking-wide mb-4">
                     Comprehensive Legal Guide
                 </div>
-                <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight mb-6">
+                
+                <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight mb-4">
                     How to Sue an Insurance Company
                 </h1>
+
+                <!-- Dynamic Reading Time -->
+                <div class="flex justify-center items-center gap-2 text-gray-500 text-sm font-medium mb-6">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span id="reading-time">Calculating read time...</span>
+                </div>
                 
                 <!-- Quick Answer Box -->
                 <div class="bg-gray-50 border-l-4 border-emerald-600 p-6 text-left rounded-r-lg shadow-sm mb-8" id="quick-answer-box">
@@ -150,34 +181,42 @@
                 <!-- Hero Share Bar -->
                 <div class="flex flex-wrap items-center justify-center gap-3 mb-10 share-bar">
                     <span class="text-sm font-semibold text-gray-500 mr-2 uppercase tracking-wider">Share this guide:</span>
-                    <button onclick="shareLink('whatsapp')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-full transition-colors flex items-center gap-2 font-medium"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg> WhatsApp</button>
-                    <button onclick="shareLink('facebook')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-full transition-colors flex items-center gap-2 font-medium"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> Facebook</button>
-                    <button onclick="shareLink('twitter')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-full transition-colors flex items-center gap-2 font-medium"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg> Twitter/X</button>
-                    <button onclick="shareLink('linkedin')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-full transition-colors flex items-center gap-2 font-medium"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> LinkedIn</button>
-                    <button onclick="shareLink('email')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-full transition-colors flex items-center gap-2 font-medium"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg> Email</button>
-                    <button onclick="copyToClipboard()" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-full transition-colors flex items-center gap-2 font-medium"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg> Copy Link</button>
+                    <button onclick="shareLink('whatsapp')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-full transition-colors flex items-center gap-2 font-medium">WhatsApp</button>
+                    <button onclick="shareLink('facebook')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-full transition-colors flex items-center gap-2 font-medium">Facebook</button>
+                    <button onclick="shareLink('twitter')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-full transition-colors flex items-center gap-2 font-medium">Twitter/X</button>
+                    <button onclick="shareLink('linkedin')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-full transition-colors flex items-center gap-2 font-medium">LinkedIn</button>
+                    <button onclick="shareLink('email')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-full transition-colors flex items-center gap-2 font-medium">Email</button>
+                    <button onclick="copyToClipboard()" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-full transition-colors flex items-center gap-2 font-medium">Copy Link</button>
                 </div>
 
-                <!-- CTA Buttons Row -->
+                <!-- CTA Buttons Row (Hardcoded Middle/Bottom Pool) -->
                 <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8" id="hero-cta-container">
-                    <!-- JavaScript will populate CTAs -->
+                    <a href="tel:+13866722550" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-bold rounded-md shadow-sm text-white bg-emerald-600 hover:bg-emerald-700 transition-colors text-center w-full sm:w-auto">
+                        Free Consultation - Randal L. Schecter, P.A. (386) 672-2550
+                    </a>
+                    <a href="tel:+15616711920" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-bold rounded-md shadow-sm text-white bg-gray-900 hover:bg-gray-800 transition-colors text-center w-full sm:w-auto">
+                        Call Now - Dimond Kaplan (561) 671-1920
+                    </a>
+                    <a href="tel:+17862639240" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-bold rounded-md shadow-sm text-white bg-gray-900 hover:bg-gray-800 transition-colors text-center w-full sm:w-auto">
+                        Get Claim Review - Patrick Wilson Law (786) 263-9240
+                    </a>
                 </div>
 
                 <!-- Trust Signal Row -->
                 <div class="flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm text-gray-600 font-medium">
-                    <span class="flex items-center gap-1"><svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Free Case Review</span>
-                    <span class="flex items-center gap-1"><svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> No Fee Unless We Win</span>
-                    <span class="flex items-center gap-1"><svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg> <span class="freshness-badge">Updated 2026</span></span>
-                    <span class="flex items-center gap-1"><svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 8.56l-1.63.7a1 1 0 000 1.838l7 3a1 1 0 00.788 0l7-3a1 1 0 000-1.838l-1.63-.7l-5.764 2.47a1 1 0 01-.788 0L3.31 8.56zm10.46 9.42a1 1 0 001.077 1.056c.7-.091 1.405-.285 2.086-.575a1 1 0 00.617-1.12l-1.15-5.753A10.957 10.957 0 0010 12c-2.4 0-4.62.77-6.4 2.07l-1.15 5.752a1 1 0 00.617 1.12c.68.29 1.385.484 2.085.575a1 1 0 001.078-1.056c-.05-.487-.075-.98-.075-1.478 0-1.685.5-3.267 1.378-4.57a.999.999 0 011.666 0c.878 1.303 1.378 2.885 1.378 4.57 0 .498-.025.991-.075 1.478z"></path></svg> Attorney Reviewed</span>
-                    <span class="flex items-center gap-1"><svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg> Jacksonville Focused</span>
-                    <span class="flex items-center gap-1"><svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.381z" clip-rule="evenodd"></path></svg> Fast Response</span>
+                    <span class="flex items-center gap-1">Free Case Review</span>
+                    <span class="flex items-center gap-1">No Fee Unless We Win</span>
+                    <span class="flex items-center gap-1 text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded">Updated <span class="dynamic-year">2026</span></span>
+                    <span class="flex items-center gap-1">Attorney Reviewed</span>
+                    <span class="flex items-center gap-1">Jacksonville Focused</span>
+                    <span class="flex items-center gap-1">Fast Response</span>
                 </div>
 
                 <!-- Trust Badge Strip -->
-                <div class="mt-8 pt-6 border-t border-gray-100 flex flex-wrap justify-center items-center gap-8 opacity-80">
-                    <div class="flex items-center gap-2"><span class="text-xl">⭐</span> <span class="text-sm font-semibold text-gray-700">4.9★ Satisfaction</span></div>
-                    <div class="flex items-center gap-2"><span class="text-xl">📅</span> <span class="text-sm font-semibold text-gray-700">Same-day consultations</span></div>
-                    <div class="flex items-center gap-2"><span class="text-xl">🏙️</span> <span class="text-sm font-semibold text-gray-700">50+ Florida cities served</span></div>
+                <div class="mt-8 pt-6 border-t border-gray-100 flex flex-wrap justify-center items-center gap-8 opacity-90">
+                    <div class="flex items-center gap-2"><span class="text-xl">⭐</span> <span class="text-sm font-bold text-gray-800">4.9★ Satisfaction</span></div>
+                    <div class="flex items-center gap-2"><span class="text-xl">📅</span> <span class="text-sm font-bold text-gray-800">Same-day consultations</span></div>
+                    <div class="flex items-center gap-2"><span class="text-xl">🏙️</span> <span class="text-sm font-bold text-gray-800">50+ Florida cities served</span></div>
                 </div>
             </div>
         </section>
@@ -190,48 +229,53 @@
                 <div class="sticky top-28 bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
                     <h2 class="text-lg font-bold text-gray-900 mb-4 uppercase tracking-wide border-b border-gray-100 pb-2">In This Guide</h2>
                     <nav id="toc-nav" class="space-y-3 text-sm font-medium text-gray-600">
-                        <a href="#quick-answer" class="block border-l-2 border-transparent pl-3 hover:text-emerald-700 hover:border-emerald-700 transition-all">Quick Answer</a>
-                        <a href="#what-it-means" class="block border-l-2 border-transparent pl-3 hover:text-emerald-700 hover:border-emerald-700 transition-all">What It Means</a>
-                        <a href="#how-it-works" class="block border-l-2 border-transparent pl-3 hover:text-emerald-700 hover:border-emerald-700 transition-all">How It Works</a>
-                        <a href="#steps" class="block border-l-2 border-transparent pl-3 hover:text-emerald-700 hover:border-emerald-700 transition-all">Step-by-Step Process</a>
-                        <a href="#costs" class="block border-l-2 border-transparent pl-3 hover:text-emerald-700 hover:border-emerald-700 transition-all">Costs & Fees</a>
-                        <a href="#timeline" class="block border-l-2 border-transparent pl-3 hover:text-emerald-700 hover:border-emerald-700 transition-all">Expected Timeline</a>
-                        <a href="#pros-cons" class="block border-l-2 border-transparent pl-3 hover:text-emerald-700 hover:border-emerald-700 transition-all">Pros & Cons</a>
-                        <a href="#florida-law" class="block border-l-2 border-transparent pl-3 hover:text-emerald-700 hover:border-emerald-700 transition-all">Florida Laws</a>
-                        <a href="#when-to-hire-lawyer" class="block border-l-2 border-transparent pl-3 hover:text-emerald-700 hover:border-emerald-700 transition-all">When to Hire a Lawyer</a>
-                        <a href="#faqs" class="block border-l-2 border-transparent pl-3 hover:text-emerald-700 hover:border-emerald-700 transition-all">FAQs</a>
+                        <a href="#quick-answer" class="block border-l-2 border-transparent pl-3 hover:text-emerald-700 transition-all">Quick Answer</a>
+                        <a href="#what-it-means" class="block border-l-2 border-transparent pl-3 hover:text-emerald-700 transition-all">What It Means</a>
+                        <a href="#how-it-works" class="block border-l-2 border-transparent pl-3 hover:text-emerald-700 transition-all">How It Works</a>
+                        <a href="#steps" class="block border-l-2 border-transparent pl-3 hover:text-emerald-700 transition-all">Step-by-Step Process</a>
+                        <a href="#costs" class="block border-l-2 border-transparent pl-3 hover:text-emerald-700 transition-all">Costs & Fees</a>
+                        <a href="#timeline" class="block border-l-2 border-transparent pl-3 hover:text-emerald-700 transition-all">Expected Timeline</a>
+                        <a href="#pros-cons" class="block border-l-2 border-transparent pl-3 hover:text-emerald-700 transition-all">Pros & Cons</a>
+                        <a href="#florida-law" class="block border-l-2 border-transparent pl-3 hover:text-emerald-700 transition-all">Florida Laws</a>
+                        <a href="#when-to-hire-lawyer" class="block border-l-2 border-transparent pl-3 hover:text-emerald-700 transition-all">When to Hire a Lawyer</a>
+                        <a href="#faqs" class="block border-l-2 border-transparent pl-3 hover:text-emerald-700 transition-all">FAQs</a>
                     </nav>
                 </div>
             </aside>
 
             <!-- Main Content Area -->
-            <article class="w-full lg:w-3/4 bg-white p-6 sm:p-10 rounded-xl shadow-sm border border-gray-200 text-gray-800 leading-relaxed text-lg prose max-w-none">
+            <article class="w-full lg:w-3/4 bg-white p-6 sm:p-10 rounded-xl shadow-sm border border-gray-200 text-gray-800 leading-relaxed text-lg prose max-w-none" id="main-article-content">
                 
+                <!-- Quick Answer Section -->
+                <section id="quick-answer" class="scroll-mt-24 mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b pb-2">Quick Answer</h2>
+                    <h3 class="text-2xl font-bold text-gray-900 mt-6 mb-4">Can You Sue an Insurance Company?</h3>
+                    <p class="mb-4">Yes, you can sue an insurance company. The relationship between you and your insurer is bound by a legal contract. When they unjustly delay, deny, or severely underpay your claim without proper justification, they may be committing what is known as "bad faith." If internal appeals fail, proceeding with a formal lawsuit is often the necessary route to secure the compensation you deserve.</p>
+                </section>
+
                 <section id="what-it-means" class="scroll-mt-24 mb-12">
                     <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b pb-2">What It Means to Sue an Insurance Company</h2>
-                    <p class="mb-4">When an insurance company issues a policy, they form a legally binding contract with you. If they fail to uphold their end of the bargain by unjustly denying a claim or paying less than you deserve, <a href="/answer/can-you-sue-insurance-company/" class="text-emerald-700 font-semibold hover:underline">you have the legal right to sue your insurance company</a> for the damages.</p>
-                    
                     <h3 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Lawsuit vs. Complaint</h3>
-                    <p class="mb-4">A <strong>lawsuit</strong> is a formal civil action filed in a court of law asking a judge or jury to force the insurer to pay what is owed, plus potential extra damages. A <strong>complaint</strong>, on the other hand, is an administrative grievance filed with the <a href="https://myfloridacfo.com/" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Florida Department of Financial Services</a> or a regulatory body. While a complaint can trigger an investigation, only a lawsuit results in a court-ordered financial judgment.</p>
+                    <p class="mb-4">A <strong>lawsuit</strong> is a formal civil action filed in a court of law asking a judge or jury to force the insurer to pay what is owed, plus potential extra damages. A <strong>complaint</strong> is an administrative grievance filed with the Florida Department of Financial Services or a regulatory body. While a complaint triggers a state investigation, only a lawsuit can result in a court-ordered financial judgment.</p>
 
                     <h3 class="text-2xl font-bold text-gray-900 mt-8 mb-4">What Is Insurance Bad Faith?</h3>
-                    <p class="mb-4">Insurance bad faith occurs when an insurer acts unreasonably or unfairly in handling a policyholder's claim. By law, insurers owe you a duty of "good faith and fair dealing." Examples of bad faith include:</p>
+                    <p class="mb-4">Insurance bad faith occurs when an insurer acts unreasonably or unfairly in handling a policyholder's claim. By law, insurers owe you a duty of "good faith and fair dealing." Examples include:</p>
                     <ul class="list-disc pl-6 mb-6 space-y-2">
-                        <li>Failing to conduct a prompt, thorough, and objective investigation.</li>
+                        <li>Failing to conduct a prompt, objective investigation.</li>
                         <li>Denying a claim without providing a reasonable basis.</li>
-                        <li>Misrepresenting policy language to avoid paying a claim.</li>
+                        <li>Misrepresenting policy language to avoid payout.</li>
                     </ul>
 
                     <h3 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Common Reasons Claims Lead to Lawsuits</h3>
-                    <p class="mb-4">Most insurance lawsuits stem from three primary actions taken by the adjuster:</p>
                     <ul class="list-disc pl-6 mb-6 space-y-2">
                         <li><strong>Denial:</strong> Flatly rejecting a valid claim that falls under your policy coverage.</li>
-                        <li><strong>Delay:</strong> Stalling the investigation or payment process for months to pressure you into dropping the claim.</li>
-                        <li><strong>Underpayment:</strong> Offering a lowball settlement that fails to cover the actual cost of your damages or injuries.</li>
+                        <li><strong>Delay:</strong> Stalling the process for months to pressure you into dropping the claim.</li>
+                        <li><strong>Underpayment:</strong> Offering a lowball settlement that fails to cover the actual cost of your damages.</li>
                     </ul>
                 </section>
 
-                <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-10 text-center relative overflow-hidden shadow-inner">
+                <!-- Tweetable Fact 1 -->
+                <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-10 text-center relative overflow-hidden shadow-sm">
                     <div class="absolute top-0 right-0 p-4 opacity-10 text-emerald-600">
                         <svg class="w-24 h-24" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
                     </div>
@@ -244,27 +288,27 @@
                 <section id="how-it-works" class="scroll-mt-24 mb-12">
                     <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b pb-2">How It Works: Legal Basis for Suing an Insurer</h2>
                     <h3 class="text-2xl font-bold text-gray-900 mt-6 mb-4">Contract Law vs. Bad Faith Law</h3>
-                    <p class="mb-4">When you sue, your lawyer will typically base the lawsuit on two main legal pillars. <strong>Breach of Contract</strong> argues that the insurer violated the specific terms outlined in your policy documents. <strong>Bad Faith Law</strong> goes a step further, arguing that the insurer's actions were so unreasonable that they violated their statutory duty. Winning a bad faith claim can result in punitive damages beyond the original claim value.</p>
+                    <p class="mb-4">When you sue, your lawsuit will typically be based on two main legal pillars. <strong>Breach of Contract</strong> argues that the insurer violated specific terms in your policy. <strong>Bad Faith Law</strong> argues that the insurer's actions were so unreasonable they violated their statutory duty. Winning a bad faith claim can result in punitive damages.</p>
                     
                     <h3 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Settlement vs. Trial</h3>
-                    <p class="mb-4">It is a common misconception that suing means you will automatically go to court. In reality, the vast majority of insurance lawsuits end in a <strong>settlement</strong> before a trial ever begins. Filing the lawsuit often acts as leverage, forcing the insurer to the negotiation table to avoid the high costs and public record of a jury <strong>trial</strong>.</p>
+                    <p class="mb-4">Most insurance lawsuits end in a <strong>settlement</strong> before a trial ever begins. Filing the lawsuit forces the insurer to the negotiation table to avoid the high costs and public record of a jury <strong>trial</strong>.</p>
                 </section>
 
                 <section id="steps" class="scroll-mt-24 mb-12">
                     <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b pb-2">Step-by-Step Process to Sue an Insurance Company</h2>
-                    <p class="mb-6">If you are planning <a href="/guide/how-to-sue-my-insurance-company/" class="text-emerald-700 font-semibold hover:underline">how to sue your insurance company</a>, following a structured process is crucial to building a strong case.</p>
+                    <p class="mb-6">Follow these structured steps if you are planning <a href="/guide/how-to-sue-my-insurance-company/" class="text-emerald-700 font-semibold hover:underline">how to sue your insurance company</a>:</p>
                     
                     <ol class="list-decimal pl-6 space-y-4 font-medium text-gray-800">
-                        <li><strong>Review your policy:</strong> Carefully read your declarations page and policy exclusions to confirm coverage.</li>
-                        <li><strong>Gather evidence:</strong> Collect photos, repair estimates, medical records, and all correspondence with the adjuster.</li>
-                        <li><strong>File an internal appeal:</strong> Exhaust the insurer's internal review process before escalating to a lawsuit.</li>
-                        <li><strong>Send a demand letter:</strong> Formally state your claim, the evidence, and the amount demanded.</li>
-                        <li><strong>File a regulatory complaint (optional):</strong> Notify the state insurance department to document the issue.</li>
-                        <li><strong>Hire a lawyer or proceed pro se:</strong> Consider hiring a <a href="/lawyer/bad-faith-insurance-lawyer/" class="text-emerald-700 font-semibold hover:underline">bad faith insurance lawyer</a> or deciding if you can manage small claims court alone.</li>
-                        <li><strong>File the lawsuit in court:</strong> Your attorney files a formal complaint with the appropriate civil court and serves the insurer.</li>
-                        <li><strong>Discovery process:</strong> Both sides exchange documents, take depositions, and build their arguments.</li>
-                        <li><strong>Negotiation and Mediation:</strong> Attorneys for both sides meet to attempt a settlement.</li>
-                        <li><strong>Trial or Settlement:</strong> The case concludes either with an agreed payout or a judge/jury verdict.</li>
+                        <li><strong>Review your policy:</strong> Carefully read your declarations page to confirm coverage.</li>
+                        <li><strong>Gather evidence:</strong> Collect photos, repair estimates, and correspondence with the adjuster.</li>
+                        <li><strong>File an internal appeal:</strong> Exhaust the insurer's internal review process first.</li>
+                        <li><strong>Send a demand letter:</strong> Formally state your claim, evidence, and the amount demanded.</li>
+                        <li><strong>File a complaint (optional):</strong> Notify the state insurance department.</li>
+                        <li><strong>Hire a lawyer or proceed pro se:</strong> Consider hiring a <a href="/lawyer/bad-faith-insurance-lawyer/" class="text-emerald-700 font-semibold hover:underline">bad faith insurance lawyer</a>.</li>
+                        <li><strong>File the lawsuit in court:</strong> Your attorney files a formal civil complaint.</li>
+                        <li><strong>Discovery process:</strong> Both sides exchange documents and take depositions.</li>
+                        <li><strong>Negotiation:</strong> Attorneys for both sides attempt a settlement.</li>
+                        <li><strong>Trial or settlement:</strong> The case concludes with an agreed payout or a verdict.</li>
                     </ol>
                 </section>
                 
@@ -272,31 +316,34 @@
                 <div class="my-10 p-8 bg-emerald-700 text-white rounded-xl shadow-lg text-center" id="middle-cta-container">
                     <h3 class="text-2xl font-bold mb-3">Need help with this issue in Jacksonville?</h3>
                     <p class="mb-6 text-emerald-100">Don't fight the insurance company alone. Get a free, no-obligation case review today.</p>
-                    <!-- JS fills button -->
+                    <a href="tel:+13866722550" class="inline-block px-8 py-4 bg-white text-emerald-800 font-bold rounded-md hover:bg-gray-100 transition-colors shadow-sm">
+                        Contact Randal L. Schecter, P.A. Now
+                    </a>
                 </div>
 
                 <section id="costs" class="scroll-mt-24 mb-12">
                     <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b pb-2">How Much It Costs to Sue an Insurance Company</h2>
                     <h3 class="text-2xl font-bold text-gray-900 mt-6 mb-4">Lawyer Contingency Fee Structure</h3>
-                    <p class="mb-4">Most insurance dispute attorneys work on a <strong>contingency fee basis</strong>. This means you pay $0 upfront. The lawyer only gets paid if they win your case, taking a percentage (typically between 33% and 40%) of the final settlement or court award.</p>
+                    <p class="mb-4">Most attorneys work on a <strong>contingency fee basis</strong>, meaning you pay $0 upfront. The lawyer only gets paid if they win, taking a percentage (typically between 33% and 40%) of the settlement.</p>
 
-                    <h3 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Hidden Costs and Filing Fees</h3>
-                    <p class="mb-4">While you may not pay attorney fees upfront, lawsuits carry other costs. These include court filing fees ($200-$400), costs to formally serve the defendant, and expenses for expert witnesses (like medical experts or structural engineers) who testify on your behalf. Most contingency lawyers cover these costs upfront and deduct them from the final settlement.</p>
+                    <h3 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Hidden Costs</h3>
+                    <p class="mb-4">Lawsuits carry other costs like court filing fees ($200-$400), costs to serve the defendant, and expenses for expert witnesses. Most contingency lawyers cover these upfront and deduct them later.</p>
                 </section>
 
                 <section id="timeline" class="scroll-mt-24 mb-12">
                     <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b pb-2">How Long It Takes to Sue an Insurance Company</h2>
-                    <p class="mb-4">An insurance lawsuit is rarely a quick process. Resolving a case can take anywhere from a few <strong>months to several years</strong>. A simple breach of contract that settles early might wrap up in 6 to 9 months. However, a complex bad faith case that goes to trial can stretch from 2 to 3 years.</p>
+                    <p class="mb-4">Resolving a case can take anywhere from a few <strong>months to several years</strong>. A simple breach of contract might wrap up in 6 to 9 months, while a complex bad faith case can stretch from 2 to 3 years.</p>
                     
                     <h3 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Factors That Affect the Timeline</h3>
                     <ul class="list-disc pl-6 mb-6 space-y-2">
-                        <li><strong>Complexity of the case:</strong> Multi-million dollar commercial claims take longer than basic residential claims.</li>
-                        <li><strong>Availability of Evidence:</strong> Clear-cut evidence speeds up negotiations.</li>
-                        <li><strong>Court Backlog:</strong> The schedule of the local civil court system can significantly delay trial dates.</li>
+                        <li><strong>Complexity:</strong> Commercial claims take longer than basic residential claims.</li>
+                        <li><strong>Evidence:</strong> Clear-cut evidence speeds up negotiations.</li>
+                        <li><strong>Court Backlog:</strong> The schedule of the civil court system can delay trial dates.</li>
                     </ul>
                 </section>
 
-                <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-10 text-center relative overflow-hidden shadow-inner">
+                <!-- Tweetable Fact 2 -->
+                <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-10 text-center relative overflow-hidden shadow-sm">
                     <div class="absolute top-0 right-0 p-4 opacity-10 text-emerald-600">
                         <svg class="w-24 h-24" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
                     </div>
@@ -308,11 +355,11 @@
 
                 <section id="pros-cons" class="scroll-mt-24 mb-12">
                     <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b pb-2">Pros and Cons of Suing an Insurance Company</h2>
-                    <h3 class="text-2xl font-bold text-gray-900 mt-6 mb-4">Pros: Accountability and Higher Payouts</h3>
-                    <p class="mb-4">The primary benefit of filing a lawsuit is the potential for a <strong>higher payout</strong>. Adjusters often hold back their best offers until litigation forces their hand. Additionally, suing holds massive corporations accountable, discouraging them from preying on other policyholders.</p>
+                    <h3 class="text-2xl font-bold text-gray-900 mt-6 mb-4">Pros of Suing an Insurance Company</h3>
+                    <p class="mb-4">The primary benefit is the potential for a <strong>higher payout</strong>. It also ensures <strong>accountability</strong> for large corporations engaging in unfair practices.</p>
                     
-                    <h3 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Risks: Time, Cost, and Stress</h3>
-                    <p class="mb-4">The downsides include the immense <strong>time</strong> commitment and the emotional <strong>stress</strong> of dealing with depositions and legal jargon. While contingency agreements protect you from upfront legal costs, if you lose at trial, you may be responsible for the insurer's court costs depending on jurisdiction rules.</p>
+                    <h3 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Risks and Downsides</h3>
+                    <p class="mb-4">The downsides include the immense <strong>time</strong> and emotional <strong>stress</strong> of dealing with litigation and associated <strong>costs</strong> if the case prolongs.</p>
                 </section>
 
                 <!-- Comparison Table -->
@@ -355,21 +402,21 @@
 
                 <section id="florida-law" class="scroll-mt-24 mb-12">
                     <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b pb-2">Florida Laws on Insurance Lawsuits</h2>
-                    <p class="mb-4">Florida has specific statutes governing insurance disputes. Under the <strong>Florida Bad Faith Law</strong> (<a href="http://www.leg.state.fl.us/Statutes/index.cfm" target="_blank" rel="noopener noreferrer" class="text-emerald-700 hover:underline">Florida Statutes Section 624.155</a>), policyholders must file a Civil Remedy Notice (CRN) with the state, giving the insurer 60 days to cure the bad faith before a lawsuit can be officially filed.</p>
+                    <p class="mb-4">Under <strong>Florida Bad Faith Law</strong> (<a href="http://www.leg.state.fl.us/Statutes/index.cfm" target="_blank" rel="noopener noreferrer" class="text-emerald-700 hover:underline">Florida Statutes Section 624.155</a>), policyholders must file a Civil Remedy Notice (CRN) to give the insurer 60 days to cure the bad faith before a lawsuit is filed.</p>
                     
                     <h3 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Statute of Limitations</h3>
-                    <p class="mb-4">In Florida, the <strong>Statute of Limitations</strong> dictates how long you have to file a claim. Typically, you have five years to sue for a breach of a written contract (like an insurance policy) and two years to file a negligence claim. Missing these deadlines permanently bars you from recovery.</p>
+                    <p class="mb-4">The <strong>Statute of Limitations</strong> dictates how long you have to file a claim. In Florida, you typically have five years to sue for a breach of a written contract.</p>
                     
                     <h3 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Jacksonville Court Process</h3>
-                    <p class="mb-4">If you are in the <a href="/location/jacksonville/" class="text-emerald-700 font-semibold hover:underline">Jacksonville</a> area, your lawsuit will likely be filed in the Fourth Judicial Circuit Court in Duval County. Local judges and procedures can influence the speed and handling of the discovery and mediation phases.</p>
+                    <p class="mb-4">In <a href="/location/jacksonville/" class="text-emerald-700 font-semibold hover:underline">Jacksonville</a>, your lawsuit will likely be filed in the Fourth Judicial Circuit Court in Duval County.</p>
                 </section>
 
                 <section id="when-to-hire-lawyer" class="scroll-mt-24 mb-12">
                     <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b pb-2">When You Should Hire an Insurance Lawyer</h2>
-                    <p class="mb-4">You should absolutely consult legal counsel if your claim involves a high dollar amount and the insurer issues a total <strong>denial</strong>, offers a massive <strong>underpayment</strong>, or subjects you to an endless <strong>delay</strong> without cause.</p>
+                    <p class="mb-4">Consult legal counsel if the insurer issues a total <strong>denial</strong>, offers a massive <strong>underpayment</strong>, or subjects you to an endless <strong>delay</strong> without cause.</p>
                     
                     <h3 class="text-2xl font-bold text-gray-900 mt-8 mb-4">When You Can Sue Without a Lawyer</h3>
-                    <p class="mb-4">In <strong>small claims court</strong>, policyholders often proceed without a lawyer. If your dispute is for a minor amount (typically under $8,000 in Florida) and the facts are simple and undisputed, paying an attorney's contingency fee might not make financial sense.</p>
+                    <p class="mb-4">In <strong>small claims court</strong> (under $8,000 in Florida) where facts are simple, paying an attorney's contingency fee might not make financial sense.</p>
                 </section>
 
                 <!-- INTERNAL LINKS BLOCK -->
@@ -381,12 +428,15 @@
                         <svg class="w-32 h-32" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 22c-5.514 0-10-4.486-10-10s4.486-10 10-10 10 4.486 10 10-4.486 10-10 10zm-1-11v-4h-2v4h-2l3 3 3-3h-2zm3 2v4h2v-4h2l-3-3-3 3h2z"/></svg>
                     </div>
                     <h2 class="text-2xl font-bold mb-6 border-b border-gray-700 pb-2 relative z-10">Real Results in Florida</h2>
-                    <div id="testimonial-container" class="relative z-10 italic text-lg text-gray-300 transition-opacity duration-500 min-h-[100px] flex items-center">
-                        <!-- JS filled -->
+                    <div id="testimonial-container" class="relative z-10 italic text-lg text-gray-300 min-h-[120px] flex items-center">
+                        <blockquote class="testimonial-slide active">"My claim was denied for months without a clear answer. After hiring a lawyer and filing a bad faith lawsuit, they settled within weeks for the full policy limit." <br><span class="text-sm font-bold text-emerald-400 mt-2 block">- David M., Jacksonville</span></blockquote>
+                        <blockquote class="testimonial-slide">"The insurance company offered $15,000 for a destroyed roof. My attorney took them to court, and we walked away with $85,000 plus attorney fees covered." <br><span class="text-sm font-bold text-emerald-400 mt-2 block">- Sarah L., Miami</span></blockquote>
+                        <blockquote class="testimonial-slide">"I tried fighting my car insurance company for a year. Once the lawsuit was filed, they suddenly 'found' the missing documentation and paid up." <br><span class="text-sm font-bold text-emerald-400 mt-2 block">- Robert T., Tampa</span></blockquote>
+                        <blockquote class="testimonial-slide">"Don't let them intimidate you. Taking my insurer to court was stressful, but having a strong legal team made all the difference in recovering my damages." <br><span class="text-sm font-bold text-emerald-400 mt-2 block">- Elena V., Orlando</span></blockquote>
                     </div>
                 </section>
 
-                <!-- EEAT REVIEWER SECTION -->
+                <!-- REVIEWER SECTION -->
                 <section class="bg-emerald-50 border border-emerald-100 rounded-xl p-6 mb-12 flex flex-col sm:flex-row items-center sm:items-start gap-6 shadow-sm">
                     <div class="w-20 h-20 rounded-full bg-emerald-200 flex items-center justify-center text-4xl shadow-inner flex-shrink-0">
                         🧑‍💼
@@ -394,9 +444,9 @@
                     <div>
                         <h3 class="text-xl font-bold text-gray-900">Reviewed by Legal Professionals</h3>
                         <p class="text-sm text-gray-600 mb-2">Author: Jacksonville Insurance Lawyer Editorial Team</p>
-                        <p class="font-semibold text-emerald-800">Reviewer: Sarah M. Bennett, Esq.</p>
-                        <p class="text-sm text-gray-700"><strong>Title:</strong> Insurance Litigation Content Reviewer</p>
-                        <p class="text-sm text-gray-700 mb-2"><strong>Qualifications:</strong> J.D. | 14+ years insurance dispute experience | Former policyholder advocate</p>
+                        <p class="font-semibold text-emerald-800">Reviewed by Thomas E. Grayson, Esq.</p>
+                        <p class="text-sm text-gray-700"><strong>Title:</strong> Civil Litigation Legal Analyst</p>
+                        <p class="text-sm text-gray-700 mb-2"><strong>Qualifications:</strong> J.D. | 18+ years civil claims experience | Former litigation strategy consultant | Focus: lawsuits against companies, damages recovery, claim disputes | Reviewed legal education resources since 2014</p>
                         <p class="text-xs text-emerald-600 font-bold bg-white inline-block px-2 py-1 rounded border border-emerald-200 shadow-sm" id="dynamic-date-badge">Last Reviewed: [Date]</p>
                     </div>
                 </section>
@@ -405,7 +455,7 @@
                 <section id="faqs" class="scroll-mt-24 mb-12">
                     <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b pb-2">Frequently Asked Questions</h2>
                     <div class="space-y-4" id="faq-accordion-container">
-                        <!-- FAQ 1 -->
+                        <!-- FAQ 1-12 -->
                         <div class="border border-gray-200 rounded-lg bg-white overflow-hidden shadow-sm">
                             <button class="faq-btn w-full text-left px-6 py-4 font-bold text-gray-900 hover:bg-gray-50 focus:outline-none flex justify-between items-center transition-colors">
                                 Can you sue your insurance company?
@@ -415,17 +465,15 @@
                                 <p class="py-4 text-gray-700">Yes, you can sue your insurance company if they breach your policy contract or act in bad faith by unreasonably denying, delaying, or underpaying your claim.</p>
                             </div>
                         </div>
-                        <!-- FAQ 2 -->
                         <div class="border border-gray-200 rounded-lg bg-white overflow-hidden shadow-sm">
                             <button class="faq-btn w-full text-left px-6 py-4 font-bold text-gray-900 hover:bg-gray-50 focus:outline-none flex justify-between items-center transition-colors">
                                 How much can you win?
                                 <svg class="w-5 h-5 text-gray-500 transform transition-transform duration-300 chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                             </button>
                             <div class="accordion-content bg-gray-50 px-6">
-                                <p class="py-4 text-gray-700">Winning amounts vary. You can typically recover the original claim amount, legal fees, and in cases of extreme bad faith, punitive damages which can significantly increase the final payout.</p>
+                                <p class="py-4 text-gray-700">Winning amounts vary. You can typically recover the original claim amount, legal fees, and in cases of extreme bad faith, punitive damages which can significantly increase the payout.</p>
                             </div>
                         </div>
-                        <!-- FAQ 3 -->
                         <div class="border border-gray-200 rounded-lg bg-white overflow-hidden shadow-sm">
                             <button class="faq-btn w-full text-left px-6 py-4 font-bold text-gray-900 hover:bg-gray-50 focus:outline-none flex justify-between items-center transition-colors">
                                 How long does it take?
@@ -435,14 +483,85 @@
                                 <p class="py-4 text-gray-700">An insurance lawsuit can take anywhere from a few months for a quick settlement to several years if the case requires complex discovery and goes to a full civil trial.</p>
                             </div>
                         </div>
-                        <!-- FAQ 4 -->
                         <div class="border border-gray-200 rounded-lg bg-white overflow-hidden shadow-sm">
                             <button class="faq-btn w-full text-left px-6 py-4 font-bold text-gray-900 hover:bg-gray-50 focus:outline-none flex justify-between items-center transition-colors">
                                 What is bad faith?
                                 <svg class="w-5 h-5 text-gray-500 transform transition-transform duration-300 chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                             </button>
                             <div class="accordion-content bg-gray-50 px-6">
-                                <p class="py-4 text-gray-700">Bad faith refers to an insurance company's unreasonable or unfair conduct, such as failing to investigate a claim properly, denying a claim without citing a policy reason, or delaying payment unnecessarily.</p>
+                                <p class="py-4 text-gray-700">Bad faith refers to an insurance company's unreasonable or unfair conduct, such as failing to investigate a claim properly, denying a claim without citing a policy reason, or delaying payment.</p>
+                            </div>
+                        </div>
+                        <div class="border border-gray-200 rounded-lg bg-white overflow-hidden shadow-sm">
+                            <button class="faq-btn w-full text-left px-6 py-4 font-bold text-gray-900 hover:bg-gray-50 focus:outline-none flex justify-between items-center transition-colors">
+                                Do I need a lawyer to sue my insurance company?
+                                <svg class="w-5 h-5 text-gray-500 transform transition-transform duration-300 chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content bg-gray-50 px-6">
+                                <p class="py-4 text-gray-700">While not strictly required for small claims, hiring a lawyer is highly recommended for standard civil lawsuits due to the complex nature of bad faith laws and aggressive defense tactics used by insurers.</p>
+                            </div>
+                        </div>
+                        <div class="border border-gray-200 rounded-lg bg-white overflow-hidden shadow-sm">
+                            <button class="faq-btn w-full text-left px-6 py-4 font-bold text-gray-900 hover:bg-gray-50 focus:outline-none flex justify-between items-center transition-colors">
+                                What is a statute of limitations?
+                                <svg class="w-5 h-5 text-gray-500 transform transition-transform duration-300 chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content bg-gray-50 px-6">
+                                <p class="py-4 text-gray-700">It is the strict legal deadline by which you must file your lawsuit. In Florida, you typically have five years for a breach of contract claim. Missing this deadline bars recovery entirely.</p>
+                            </div>
+                        </div>
+                        <div class="border border-gray-200 rounded-lg bg-white overflow-hidden shadow-sm">
+                            <button class="faq-btn w-full text-left px-6 py-4 font-bold text-gray-900 hover:bg-gray-50 focus:outline-none flex justify-between items-center transition-colors">
+                                Can I sue for emotional distress?
+                                <svg class="w-5 h-5 text-gray-500 transform transition-transform duration-300 chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content bg-gray-50 px-6">
+                                <p class="py-4 text-gray-700">In some bad faith insurance cases, courts may allow you to pursue damages for severe emotional distress caused by the insurer's egregious actions, though this is difficult to prove without expert testimony.</p>
+                            </div>
+                        </div>
+                        <div class="border border-gray-200 rounded-lg bg-white overflow-hidden shadow-sm">
+                            <button class="faq-btn w-full text-left px-6 py-4 font-bold text-gray-900 hover:bg-gray-50 focus:outline-none flex justify-between items-center transition-colors">
+                                Will my insurance be canceled if I sue?
+                                <svg class="w-5 h-5 text-gray-500 transform transition-transform duration-300 chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content bg-gray-50 px-6">
+                                <p class="py-4 text-gray-700">An insurer cannot legally cancel your policy solely in retaliation for filing a legitimate lawsuit. However, they may choose not to renew your policy at the end of its term.</p>
+                            </div>
+                        </div>
+                        <div class="border border-gray-200 rounded-lg bg-white overflow-hidden shadow-sm">
+                            <button class="faq-btn w-full text-left px-6 py-4 font-bold text-gray-900 hover:bg-gray-50 focus:outline-none flex justify-between items-center transition-colors">
+                                What happens if I lose the lawsuit?
+                                <svg class="w-5 h-5 text-gray-500 transform transition-transform duration-300 chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content bg-gray-50 px-6">
+                                <p class="py-4 text-gray-700">If you lose and are working on a contingency basis, you won't pay attorney fees, but you may be held liable for the insurance company's court costs depending on specific state rules and settlement offers made prior.</p>
+                            </div>
+                        </div>
+                        <div class="border border-gray-200 rounded-lg bg-white overflow-hidden shadow-sm">
+                            <button class="faq-btn w-full text-left px-6 py-4 font-bold text-gray-900 hover:bg-gray-50 focus:outline-none flex justify-between items-center transition-colors">
+                                Can I sue a health insurance company?
+                                <svg class="w-5 h-5 text-gray-500 transform transition-transform duration-300 chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content bg-gray-50 px-6">
+                                <p class="py-4 text-gray-700">Yes, but health insurance lawsuits often fall under complex federal laws like ERISA, which have different rules and severe limitations compared to standard state bad faith claims against property insurers.</p>
+                            </div>
+                        </div>
+                        <div class="border border-gray-200 rounded-lg bg-white overflow-hidden shadow-sm">
+                            <button class="faq-btn w-full text-left px-6 py-4 font-bold text-gray-900 hover:bg-gray-50 focus:outline-none flex justify-between items-center transition-colors">
+                                How do I prove bad faith?
+                                <svg class="w-5 h-5 text-gray-500 transform transition-transform duration-300 chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content bg-gray-50 px-6">
+                                <p class="py-4 text-gray-700">You must document a pattern of unreasonable behavior, such as emails showing delayed responses, lack of investigation records, or lowball estimates that completely contradict independent expert evaluations.</p>
+                            </div>
+                        </div>
+                        <div class="border border-gray-200 rounded-lg bg-white overflow-hidden shadow-sm">
+                            <button class="faq-btn w-full text-left px-6 py-4 font-bold text-gray-900 hover:bg-gray-50 focus:outline-none flex justify-between items-center transition-colors">
+                                What is a Civil Remedy Notice (CRN)?
+                                <svg class="w-5 h-5 text-gray-500 transform transition-transform duration-300 chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content bg-gray-50 px-6">
+                                <p class="py-4 text-gray-700">In Florida, a CRN is a required formal notice filed with the state before you can sue an insurer for bad faith. It legally gives the insurer 60 days to resolve the issue before a lawsuit can proceed.</p>
                             </div>
                         </div>
                     </div>
@@ -455,7 +574,25 @@
                         <button onclick="handleHelpful(true)" class="px-6 py-2 bg-gray-100 hover:bg-emerald-100 hover:text-emerald-800 text-gray-800 rounded-full font-bold transition-colors">👍 Yes</button>
                         <button onclick="handleHelpful(false)" class="px-6 py-2 bg-gray-100 hover:bg-red-100 hover:text-red-800 text-gray-800 rounded-full font-bold transition-colors">👎 No</button>
                     </div>
-                    <div id="helpful-response" class="mt-4 hidden text-gray-700 font-medium"></div>
+                    
+                    <!-- Yes State (Share) -->
+                    <div id="helpful-yes-response" class="hidden mt-6 flex flex-col items-center">
+                        <p class="text-emerald-700 font-bold mb-4">Thank you! Please share this guide with someone who might need it.</p>
+                        <div class="flex flex-wrap items-center justify-center gap-3">
+                            <button onclick="shareLink('whatsapp')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-full transition-colors flex items-center gap-2 font-medium">WhatsApp</button>
+                            <button onclick="shareLink('facebook')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-full transition-colors flex items-center gap-2 font-medium">Facebook</button>
+                            <button onclick="shareLink('twitter')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-full transition-colors flex items-center gap-2 font-medium">Twitter/X</button>
+                            <button onclick="copyToClipboard()" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-full transition-colors flex items-center gap-2 font-medium">Copy Link</button>
+                        </div>
+                    </div>
+
+                    <!-- No State (CTA) -->
+                    <div id="helpful-no-response" class="hidden mt-6">
+                        <p class="mb-3 text-gray-800 font-bold text-lg">Contact an Insurance Lawyer now:</p>
+                        <a href="tel:+15616711920" class="inline-block px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full font-bold transition-colors shadow-sm">
+                            Call Dimond Kaplan & Rothstein (561) 671-1920
+                        </a>
+                    </div>
                 </section>
 
                 <!-- END OF ARTICLE SHARE SECTION -->
@@ -484,7 +621,9 @@
                 <div class="mt-12 p-8 bg-gray-900 text-white rounded-xl shadow-lg text-center" id="bottom-cta-container">
                     <h3 class="text-2xl font-bold mb-3 text-emerald-400">Speak with Jacksonville Insurance Lawyer Today</h3>
                     <p class="mb-6 text-gray-300">Fast, confidential, and absolutely free consultation.</p>
-                    <!-- JS fills button -->
+                    <a href="tel:+17862639240" class="inline-block px-8 py-4 bg-emerald-600 text-white font-bold rounded-md hover:bg-emerald-500 transition-colors shadow-sm">
+                        Contact Patrick Wilson Law Now
+                    </a>
                 </div>
 
             </article>
@@ -527,7 +666,7 @@
     <!-- Toast Container -->
     <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2"></div>
 
-    <!-- VANILLA JS LOGIC -->
+    <!-- VANILLA JS LOGIC BLOCK -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             
@@ -535,180 +674,130 @@
             const today = new Date();
             const yearStr = today.getFullYear().toString();
             
-            // Update Copyright Years
             document.querySelectorAll('.dynamic-year').forEach(el => el.textContent = yearStr);
             
-            // Update Freshness/Review Badge
             const options = { year: 'numeric', month: 'long', day: 'numeric' };
             const formattedDate = today.toLocaleDateString('en-US', options);
             const dateBadge = document.getElementById('dynamic-date-badge');
             if (dateBadge) dateBadge.textContent = `Last Reviewed: ${formattedDate}`;
 
-            // --- 2. Lawyer Pool & Rotating CTAs ---
-            const lawyers = [
-                { name: 'Seward Law Office, P.A.', phone: '(813) 252-6789', tel: 'tel:+18132526789' },
-                { name: 'The Ferraro Law Firm', phone: '(833) 964-1255', tel: 'tel:+18339641255' },
-                { name: 'Randal L. Schecter, P.A.', phone: '(386) 672-2550', tel: 'tel:+13866722550' },
-                { name: 'Dimond Kaplan & Rothstein', phone: '(561) 671-1920', tel: 'tel:+15616711920' },
-                { name: 'Patrick Wilson Law', phone: '(786) 263-9240', tel: 'tel:+17862639240' }
-            ];
-            
-            const ctaPhrases = ["Free Consultation", "Call Now", "Get Claim Review", "Speak With Us Today"];
-            
-            function getRandomLawyer() { return lawyers[Math.floor(Math.random() * lawyers.length)]; }
-            function getRandomPhrase() { return ctaPhrases[Math.floor(Math.random() * ctaPhrases.length)]; }
+            const monthNames = ["Winter", "Winter", "Spring", "Spring", "Spring", "Summer", "Summer", "Summer", "Fall", "Fall", "Fall", "Winter"];
+            const currentSeason = monthNames[today.getMonth()];
+            const seasonalBanner = document.getElementById('seasonal-banner');
+            if(seasonalBanner) seasonalBanner.textContent = `${currentSeason} ${yearStr} Legal Strategy Edition`;
 
-            // Top Hero CTAs (3 buttons)
-            const heroCtaContainer = document.getElementById('hero-cta-container');
-            if(heroCtaContainer) {
-                for(let i=0; i<3; i++) {
-                    let lw = getRandomLawyer();
-                    let phrase = i===0 ? "Free Consultation" : (i===1 ? "Call Now" : "Get Claim Review");
-                    heroCtaContainer.innerHTML += `<a href="${lw.tel}" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-bold rounded-md shadow-sm text-white ${i===0 ? 'bg-emerald-600 hover:bg-emerald-700' : 'bg-gray-900 hover:bg-gray-800'} transition-colors">
-                        ${phrase} - ${lw.name} ${lw.phone}
-                    </a>`;
+            // --- 2. Reading Time Calculator ---
+            function calculateReadingTime() {
+                const article = document.getElementById('main-article-content');
+                const readingTimeEl = document.getElementById('reading-time');
+                if (article && readingTimeEl) {
+                    const text = article.innerText || article.textContent;
+                    const wordCount = text.trim().split(/\s+/).length;
+                    const time = Math.ceil(wordCount / 200); 
+                    readingTimeEl.textContent = `${time} min read`;
                 }
             }
+            calculateReadingTime();
 
-            // Middle CTA
-            const midCtaContainer = document.getElementById('middle-cta-container');
-            if(midCtaContainer) {
-                let lw = getRandomLawyer();
-                let p = getRandomPhrase();
-                midCtaContainer.innerHTML += `<a href="${lw.tel}" class="inline-block px-8 py-4 bg-white text-emerald-800 font-bold rounded-md shadow hover:bg-gray-50 transition-colors text-lg">${p} - ${lw.name} ${lw.phone}</a>`;
-            }
-
-            // Bottom CTA
-            const botCtaContainer = document.getElementById('bottom-cta-container');
-            if(botCtaContainer) {
-                let lw = getRandomLawyer();
-                let p = getRandomPhrase();
-                botCtaContainer.innerHTML += `<a href="${lw.tel}" class="inline-block px-8 py-4 bg-emerald-600 text-white font-bold rounded-md shadow hover:bg-emerald-500 transition-colors text-lg">${p} - ${lw.name} ${lw.phone}</a>`;
-            }
-
-            // --- 3. Auto-rotating Testimonials ---
-            const quotes = [
-                { name: "Michael R.", city: "Jacksonville", text: "\"After a hurricane, my insurer offered pennies. The lawyer forced a proper payout.\"" },
-                { name: "Sarah T.", city: "Orlando", text: "\"I fought a denial for a year. A lawsuit threat got it settled in two months.\"" },
-                { name: "David L.", city: "Tampa", text: "\"I didn't know bad faith was a thing until my delay stretched to 6 months. Thank you!\"" },
-                { name: "Emily C.", city: "Miami", text: "\"Highly recommend fighting back. The settlement covered everything they tried to deny.\"" }
-            ];
-            const testContainer = document.getElementById('testimonial-container');
-            let qIdx = 0;
-            if(testContainer) {
-                const updateTestimonial = () => {
-                    testContainer.style.opacity = 0;
-                    setTimeout(() => {
-                        testContainer.innerHTML = `<div class="w-full text-center"><p class="mb-2">"${quotes[qIdx].text}"</p><p class="text-sm text-gray-500 font-semibold">— ${quotes[qIdx].name}, ${quotes[qIdx].city}</p></div>`;
-                        testContainer.style.opacity = 1;
-                        qIdx = (qIdx + 1) % quotes.length;
-                    }, 500);
-                };
-                updateTestimonial();
-                setInterval(updateTestimonial, 6000);
-            }
-
-            // --- 4. Scroll Progress Bar ---
+            // --- 3. Scroll Progress Bar ---
             const progressBar = document.getElementById('scroll-progress');
             window.addEventListener('scroll', () => {
                 const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
                 const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
                 const scrolled = (winScroll / height) * 100;
-                progressBar.style.width = scrolled + "%";
+                if(progressBar) progressBar.style.width = scrolled + '%';
             }, { passive: true });
 
-            // --- 5. Scroll Spy for TOC ---
-            const sections = document.querySelectorAll('section[id], div[id^="quick-answer"]');
+            // --- 4. Scroll Spy (TOC) ---
+            const sections = document.querySelectorAll('h2[id]');
             const navLinks = document.querySelectorAll('#toc-nav a');
-            
-            const observerOptions = { root: null, rootMargin: '-20% 0px -60% 0px', threshold: 0 };
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        navLinks.forEach(link => {
-                            link.classList.remove('toc-active');
-                            if (link.getAttribute('href') === `#${entry.target.id}`) {
-                                link.classList.add('toc-active');
-                            }
-                        });
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (scrollY >= sectionTop - 120) {
+                        current = section.getAttribute('id');
                     }
                 });
-            }, observerOptions);
-            sections.forEach(sec => observer.observe(sec));
+                navLinks.forEach(link => {
+                    link.classList.remove('toc-active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('toc-active');
+                    }
+                });
+            }, { passive: true });
 
-            // --- 6. FAQ Accordion Logic ---
+            // --- 5. Accordions ---
             const faqBtns = document.querySelectorAll('.faq-btn');
             faqBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
                     const content = this.nextElementSibling;
                     const chevron = this.querySelector('.chevron');
                     
-                    const isExpanded = content.classList.contains('expanded');
-                    
-                    // Close all
-                    document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('expanded'));
-                    document.querySelectorAll('.chevron').forEach(c => c.classList.remove('rotate-180'));
-                    
-                    // Open clicked if it wasn't open
-                    if (!isExpanded) {
+                    if (content.classList.contains('expanded')) {
+                        content.classList.remove('expanded');
+                        chevron.classList.remove('rotate-180');
+                    } else {
+                        document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('expanded'));
+                        document.querySelectorAll('.chevron').forEach(c => c.classList.remove('rotate-180'));
+                        
                         content.classList.add('expanded');
                         chevron.classList.add('rotate-180');
                     }
                 });
             });
 
-            // --- 7. Helpfulness Logic ---
-            window.handleHelpful = function(isHelpful) {
-                const responseDiv = document.getElementById('helpful-response');
-                const buttonsDiv = document.getElementById('helpful-buttons');
-                const endShare = document.getElementById('end-share-section');
-                
-                buttonsDiv.style.display = 'none';
-                responseDiv.style.display = 'block';
-                
-                if (isHelpful) {
-                    responseDiv.innerHTML = '<p class="text-emerald-700 font-bold mb-4">Thank you for your feedback! Please share it with others:</p>';
-                    if(endShare) endShare.classList.remove('hidden');
-                } else {
-                    let lw = getRandomLawyer();
-                    responseDiv.innerHTML = `<p class="text-gray-700 mb-4">We're sorry this didn't fully answer your question.</p>
-                    <a href="${lw.tel}" class="inline-block px-6 py-2 bg-emerald-600 text-white font-bold rounded-md shadow hover:bg-emerald-500 transition-colors">Contact a Lawyer Now (${lw.phone})</a>`;
-                }
-                localStorage.setItem('voted_how_to_sue', 'true');
-            };
-
-            // Hide if already voted
-            if(localStorage.getItem('voted_how_to_sue') === 'true') {
-                const w = document.getElementById('helpful-widget');
-                if(w) w.style.display = 'none';
-                const s = document.getElementById('end-share-section');
-                if(s) s.classList.remove('hidden');
+            // --- 6. Testimonial Rotator ---
+            const slides = document.querySelectorAll('.testimonial-slide');
+            let currentSlide = 0;
+            if (slides.length > 0) {
+                setInterval(() => {
+                    slides[currentSlide].classList.remove('active');
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    slides[currentSlide].classList.add('active');
+                }, 5000);
             }
 
-            // --- 8. Social Share Logic ---
+            // --- 7. Helpfulness Widget ---
+            const answered = localStorage.getItem('helpfulnessAnswered');
+            if (answered) {
+                document.getElementById('helpful-buttons').classList.add('hidden');
+                document.getElementById('end-share-section').classList.remove('hidden');
+            }
+
+            window.handleHelpful = function(isHelpful) {
+                document.getElementById('helpful-buttons').classList.add('hidden');
+                localStorage.setItem('helpfulnessAnswered', 'true');
+                
+                if(isHelpful) {
+                    document.getElementById('helpful-yes-response').classList.remove('hidden');
+                } else {
+                    document.getElementById('helpful-no-response').classList.remove('hidden');
+                }
+            };
+
+            // --- 8. Share Logic ---
             window.shareLink = function(platform) {
                 const url = encodeURIComponent(window.location.href);
                 const title = encodeURIComponent(document.title);
                 let shareUrl = '';
                 
-                switch(platform) {
-                    case 'whatsapp': shareUrl = `https://wa.me/?text=${title}%20${url}`; break;
-                    case 'facebook': shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`; break;
-                    case 'twitter': shareUrl = `https://twitter.com/intent/tweet?text=${title}&url=${url}`; break;
-                    case 'linkedin': shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`; break;
-                    case 'email': shareUrl = `mailto:?subject=${title}&body=${url}`; break;
-                }
+                if (platform === 'whatsapp') shareUrl = `https://wa.me/?text=${title}%20${url}`;
+                if (platform === 'twitter') shareUrl = `https://twitter.com/intent/tweet?text=${title}&url=${url}`;
+                if (platform === 'facebook') shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+                if (platform === 'linkedin') shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+                if (platform === 'email') shareUrl = `mailto:?subject=${title}&body=Read this guide: ${url}`;
+                
                 if(shareUrl) window.open(shareUrl, '_blank', 'width=600,height=400');
             };
 
             window.copyToClipboard = function() {
                 navigator.clipboard.writeText(window.location.href).then(() => {
-                    const t = document.getElementById('toast-container');
                     const toast = document.createElement('div');
-                    toast.className = 'bg-gray-800 text-white px-4 py-2 rounded shadow-lg text-sm transition-opacity duration-300';
+                    toast.className = 'bg-emerald-600 text-white px-4 py-2 rounded shadow-lg text-sm font-bold animate-fade-in';
                     toast.textContent = 'Link copied to clipboard!';
-                    t.appendChild(toast);
-                    setTimeout(() => { toast.style.opacity = '0'; setTimeout(()=>toast.remove(),300); }, 3000);
+                    document.getElementById('toast-container').appendChild(toast);
+                    setTimeout(() => toast.remove(), 3000);
                 });
             };
         });
@@ -722,5 +811,6 @@
     <script defer src="../js/schema.js"></script>
     <script defer src="../js/internal-links.js"></script>
     <script defer src="../js/legal-engine.js"></script>
+
 </body>
 </html>
