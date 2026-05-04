@@ -33,11 +33,19 @@
     <meta name="geo.position" content="30.3322;-81.6557">
     <meta name="ICBM" content="30.3322, -81.6557">
     
-    <!-- Performance & Fonts -->
+    <!-- Performance, Scripts & Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Animation & Analytics (Hardware Accelerated) -->
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <script defer src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script defer data-domain="jacksonvilleinsurancelawyer.com" src="https://plausible.io/js/script.js"></script>
+
     <script>
         tailwind.config = {
             theme: {
@@ -49,12 +57,15 @@
         }
     </script>
     <style>
-        .toc-active { border-left-color: #059669 !important; color: #059669 !important; font-weight: 600; }
-        .accordion-content { transition: max-height 0.3s ease-out, opacity 0.3s ease-out; max-height: 0; opacity: 0; overflow: hidden; }
-        .accordion-content.open { max-height: 500px; opacity: 1; }
+        h1, h2, h3 { font-weight: 800; letter-spacing: -0.025em; color: #111827; }
+        .toc-active { border-left-color: #059669 !important; color: #059669 !important; font-weight: 700; }
+        .accordion-content { transition: max-height 0.4s ease-out, opacity 0.4s ease-out; max-height: 0; opacity: 0; overflow: hidden; }
+        .accordion-content.open { max-height: 1000px; opacity: 1; }
         .chevron { transition: transform 0.3s ease; }
         .chevron.rotate { transform: rotate(180deg); }
-        .progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: linear-gradient(to right, #059669, #7c3aed); z-index: 100; width: 0%; transition: width 0.1s; }
+        .progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: linear-gradient(to right, #059669, #7c3aed); z-index: 9999; width: 0%; transition: width 0.1s; }
+        .toast-msg { animation: slideIn 0.3s ease forwards; }
+        @keyframes slideIn { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
     </style>
 
     <!-- JSON-LD Schema -->
@@ -72,6 +83,28 @@
             "target": "https://jacksonvilleinsurancelawyer.com/search?q={search_term_string}",
             "query-input": "required name=search_term_string"
           }
+        },
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://jacksonvilleinsurancelawyer.com/#localbusiness",
+          "name": "Jacksonville Insurance Lawyer Directory",
+          "image": "https://jacksonvilleinsurancelawyer.com/assets/logo.webp",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Downtown Core",
+            "addressLocality": "Jacksonville",
+            "addressRegion": "FL",
+            "postalCode": "32202",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 30.3322,
+            "longitude": -81.6557
+          },
+          "url": "https://jacksonvilleinsurancelawyer.com",
+          "telephone": "+18005551234",
+          "priceRange": "$$"
         },
         {
           "@type": "Article",
@@ -98,7 +131,15 @@
             { "@type": "Question", "name": "Why was my claim denied?", "acceptedAnswer": { "@type": "Answer", "text": "Insurance claims are often denied due to lack of documentation, policy exclusions, missed filing deadlines, or disputes over who is liable." } },
             { "@type": "Question", "name": "Can I appeal a denied claim?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Most insurance policies have an internal appeals process. A lawyer can help you gather necessary evidence and submit a formal appeal letter." } },
             { "@type": "Question", "name": "Can I sue my insurance company?", "acceptedAnswer": { "@type": "Answer", "text": "If an appeal fails and the insurance company acted in bad faith or breached the contract, you have the right to file a lawsuit against them." } },
-            { "@type": "Question", "name": "How long do I have?", "acceptedAnswer": { "@type": "Answer", "text": "In Florida, the statute of limitations to sue for breach of an insurance contract is generally five years, but specific policy terms may require earlier action." } }
+            { "@type": "Question", "name": "How long do I have to file a lawsuit?", "acceptedAnswer": { "@type": "Answer", "text": "In Florida, the statute of limitations to sue for breach of an insurance contract is generally five years, but specific policy terms may require earlier action." } },
+            { "@type": "Question", "name": "What evidence do I need to overturn a denial?", "acceptedAnswer": { "@type": "Answer", "text": "You will need the original policy documents, correspondence with the insurer, independent repair estimates, medical records, and expert testimonies demonstrating the validity of your claim." } },
+            { "@type": "Question", "name": "Is it worth fighting a denied claim?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, especially if the financial loss is significant. Insurance companies frequently deny valid claims hoping policyholders will simply give up. An attorney can assess if you have a strong case." } },
+            { "@type": "Question", "name": "How much does a denied claim lawyer cost?", "acceptedAnswer": { "@type": "Answer", "text": "Most denied claim lawyers operate on a contingency fee basis, meaning they take a percentage (usually 33% to 40%) of the settlement only if they win your case." } },
+            { "@type": "Question", "name": "Will my case go to trial?", "acceptedAnswer": { "@type": "Answer", "text": "Most denied insurance claim cases are settled out of court through negotiation or mediation. However, if the insurer refuses to offer a fair settlement, your lawyer may take the case to trial." } },
+            { "@type": "Question", "name": "What is 'bad faith' in insurance?", "acceptedAnswer": { "@type": "Answer", "text": "Bad faith refers to an insurance company's unreasonable refusal to pay a valid claim, failure to investigate promptly, or use of deceptive practices. You can sue for additional damages if bad faith is proven." } },
+            { "@type": "Question", "name": "Can my insurer drop me if I appeal?", "acceptedAnswer": { "@type": "Answer", "text": "Insurers generally cannot cancel your policy simply for filing an appeal or lawsuit. However, they may choose not to renew your policy at the end of its term depending on the circumstances." } },
+            { "@type": "Question", "name": "How does Florida law protect policyholders?", "acceptedAnswer": { "@type": "Answer", "text": "Florida law outlines specific timeframes insurers must follow to acknowledge, investigate, and decide on claims, protecting consumers from unreasonable delays." } },
+            { "@type": "Question", "name": "When should I hire a lawyer for a denied claim?", "acceptedAnswer": { "@type": "Answer", "text": "You should consult a lawyer immediately after receiving a denial letter, especially if the claim involves significant damages, complex liability, or if you suspect bad faith tactics." } }
           ]
         }
       ]
@@ -115,13 +156,13 @@
             <div class="flex justify-between items-center h-full">
                 <a href="/" class="flex items-center gap-2 group">
                     <span class="text-2xl">⚖️</span>
-                    <span class="text-xl font-bold text-gray-900 group-hover:text-emerald-700 transition-colors">Jacksonville Insurance Lawyer</span>
+                    <span class="text-xl font-extrabold text-gray-900 group-hover:text-emerald-700 transition-colors">Jacksonville Insurance Lawyer</span>
                 </a>
                 
                 <div class="flex items-center gap-4">
                     <!-- SEARCH SYSTEM TRIGGER -->
                     <button type="button" class="trigger-search flex items-center text-gray-600 hover:text-emerald-700 transition-colors duration-200 focus:outline-none" aria-label="Open Search">
-                        <span class="mr-2 text-sm font-medium hidden sm:inline">Search</span>
+                        <span class="mr-2 text-sm font-bold hidden sm:inline">Search</span>
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                         </svg>
@@ -134,8 +175,8 @@
     </header>
 
     <!-- Seasonal Banner -->
-    <div class="bg-violet-600 text-white text-center py-2 text-sm font-medium" id="seasonal-banner">
-        Evaluating Claims — Summer 2026 Edition
+    <div class="bg-violet-600 text-white text-center py-2 text-sm font-bold tracking-wide" id="seasonal-banner">
+        Evaluating Claims — Summer Edition
     </div>
 
     <!-- Main Container -->
@@ -143,13 +184,13 @@
         
         <!-- Breadcrumbs -->
         <nav class="text-sm text-gray-500 mb-8" aria-label="Breadcrumb">
-            <ol class="list-none p-0 inline-flex">
+            <ol class="list-none p-0 inline-flex font-medium">
                 <li class="flex items-center">
                     <a href="/" class="hover:text-emerald-600">Home</a>
                     <svg class="w-3 h-3 mx-2" fill="currentColor" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg>
                 </li>
                 <li class="flex items-center">
-                    <span class="text-gray-800 font-medium">Denied Claim Lawyer</span>
+                    <span class="text-gray-800 font-bold">Denied Claim Lawyer</span>
                 </li>
             </ol>
         </nav>
@@ -160,9 +201,10 @@
             <!-- Left Sidebar (TOC) -->
             <aside class="hidden lg:block lg:col-span-3">
                 <div class="sticky top-28 bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                    <h3 class="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4">In This Guide</h3>
-                    <ul class="space-y-3 text-sm text-gray-600" id="toc-menu">
+                    <h3 class="text-sm font-extrabold text-gray-900 uppercase tracking-wider mb-4">In This Guide</h3>
+                    <ul class="space-y-3 text-sm text-gray-600 font-medium" id="toc-menu">
                         <li><a href="#quick-answer" class="block border-l-2 border-transparent pl-3 hover:text-emerald-700 transition-colors">Quick Answer</a></li>
+                        <li><a href="#directory" class="block border-l-2 border-transparent pl-3 hover:text-emerald-700 transition-colors">Top Lawyers Directory</a></li>
                         <li><a href="#what-it-means" class="block border-l-2 border-transparent pl-3 hover:text-emerald-700 transition-colors">What It Means</a></li>
                         <li><a href="#how-it-works" class="block border-l-2 border-transparent pl-3 hover:text-emerald-700 transition-colors">How It Works</a></li>
                         <li><a href="#steps" class="block border-l-2 border-transparent pl-3 hover:text-emerald-700 transition-colors">Steps to Take</a></li>
@@ -174,8 +216,8 @@
                         <li><a href="#faqs" class="block border-l-2 border-transparent pl-3 hover:text-emerald-700 transition-colors">FAQs</a></li>
                     </ul>
                     <div class="mt-6 pt-6 border-t border-gray-100">
-                        <p class="text-xs text-gray-400 mb-2">Reading Time: <span id="reading-time">12</span> min</p>
-                        <p class="text-xs text-gray-400 freshness-badge">Updated: May 2026</p>
+                        <p class="text-xs font-semibold text-gray-400 mb-2">Reading Time: <span id="reading-time">12</span> min</p>
+                        <p class="text-xs font-semibold text-gray-400 freshness-badge">Updated: Today</p>
                     </div>
                 </div>
             </aside>
@@ -187,576 +229,647 @@
                 <header class="mb-10">
                     <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight mb-6 tracking-tight">Denied Claim Lawyer</h1>
                     
-                    <div id="quick-answer" class="bg-emerald-50 border-l-4 border-emerald-600 p-6 rounded-r-lg mb-8">
-                        <p class="text-lg text-gray-800 leading-relaxed font-medium">
+                    <div id="quick-answer" class="bg-emerald-50 border-l-4 border-emerald-600 p-6 rounded-r-lg mb-8 scroll-mt-24">
+                        <p class="text-lg text-gray-800 leading-relaxed font-semibold">
                             A denied claim lawyer represents policyholders whose legitimate insurance claims have been rejected. When an insurer unfairly denies payout for property damage, auto accidents, or health coverage, these attorneys analyze your policy, gather evidence, file appeals, and, if necessary, sue the insurance company for breach of contract and bad faith to recover your funds.
                         </p>
                     </div>
 
                     <!-- HERO SHARE BAR -->
                     <div class="flex flex-wrap items-center gap-3 mb-8 pb-8 border-b border-gray-100">
-                        <span class="text-sm font-semibold text-gray-500 mr-2">Share this guide:</span>
-                        <button onclick="shareLink('whatsapp')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-medium rounded-full transition-colors">WhatsApp</button>
-                        <button onclick="shareLink('facebook')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-medium rounded-full transition-colors">Facebook</button>
-                        <button onclick="shareLink('twitter')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-medium rounded-full transition-colors">X / Twitter</button>
-                        <button onclick="shareLink('linkedin')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-medium rounded-full transition-colors">LinkedIn</button>
-                        <button onclick="shareLink('email')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-medium rounded-full transition-colors">Email</button>
-                        <button onclick="copyToClipboard()" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-medium rounded-full transition-colors">Copy Link</button>
+                        <span class="text-sm font-bold text-gray-600 mr-2">Share this guide:</span>
+                        <button onclick="shareLink('whatsapp')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-bold rounded-full transition-colors border border-gray-200">WhatsApp</button>
+                        <button onclick="shareLink('facebook')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-bold rounded-full transition-colors border border-gray-200">Facebook</button>
+                        <button onclick="shareLink('twitter')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-bold rounded-full transition-colors border border-gray-200">X / Twitter</button>
+                        <button onclick="shareLink('linkedin')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-bold rounded-full transition-colors border border-gray-200">LinkedIn</button>
+                        <button onclick="shareLink('email')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-bold rounded-full transition-colors border border-gray-200">Email</button>
+                        <button onclick="copyToClipboard()" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-bold rounded-full transition-colors border border-gray-200">Copy Link</button>
                     </div>
 
-                    <!-- CTA Hero -->
-                    <div class="flex flex-col sm:flex-row gap-4 mb-6">
-                        <a href="tel:+17278224929" class="inline-flex justify-center items-center px-6 py-4 border border-transparent text-base font-bold rounded-lg shadow-sm text-white bg-emerald-600 hover:bg-emerald-700 transition-colors cta-button-dynamic">
-                            Free Consultation: Meros, Smith, Lazzara & Brennan (727) 822-4929
+                    <!-- CTA Hero (3 Buttons Required) -->
+                    <div class="flex flex-col sm:flex-row flex-wrap gap-4 mb-6">
+                        <a href="tel:+17278224929" class="inline-flex justify-center items-center px-6 py-4 border border-transparent text-sm font-extrabold rounded-lg shadow-sm text-white bg-emerald-600 hover:bg-emerald-700 transition-colors w-full sm:w-auto">
+                            Free Consultation: Meros, Smith (727) 822-4929
+                        </a>
+                        <a href="tel:+15613919943" class="inline-flex justify-center items-center px-6 py-4 border border-gray-300 text-sm font-extrabold rounded-lg shadow-sm text-gray-800 bg-white hover:bg-gray-50 transition-colors w-full sm:w-auto">
+                            Call Now: Schwartz White (561) 391-9943
+                        </a>
+                        <a href="tel:+18132222222" class="inline-flex justify-center items-center px-6 py-4 border border-gray-300 text-sm font-extrabold rounded-lg shadow-sm text-gray-800 bg-white hover:bg-gray-50 transition-colors w-full sm:w-auto">
+                            Get Claim Review: Matt Powell (813) 222-2222
                         </a>
                     </div>
                     
                     <!-- Trust Signals -->
-                    <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-600 font-medium mb-4">
-                        <span class="flex items-center gap-1"><svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Free Case Review</span>
-                        <span class="flex items-center gap-1"><svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> No Fee Unless We Win</span>
-                        <span class="flex items-center gap-1"><svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Attorney Reviewed</span>
-                        <span class="flex items-center gap-1"><svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Jacksonville Focused</span>
+                    <div class="flex flex-wrap gap-x-6 gap-y-3 text-sm text-gray-700 font-bold mb-4">
+                        <span class="flex items-center gap-1"><svg class="w-5 h-5 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Free Case Review</span>
+                        <span class="flex items-center gap-1"><svg class="w-5 h-5 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> No Fee Unless We Win</span>
+                        <span class="flex items-center gap-1"><svg class="w-5 h-5 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> <span class="freshness-year">Updated 2026</span></span>
+                        <span class="flex items-center gap-1"><svg class="w-5 h-5 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Attorney Reviewed</span>
+                        <span class="flex items-center gap-1"><svg class="w-5 h-5 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Jacksonville Focused</span>
+                        <span class="flex items-center gap-1"><svg class="w-5 h-5 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Fast Response</span>
                     </div>
 
                     <!-- Trust Badge Strip -->
-                    <div class="bg-gray-50 rounded-lg p-4 flex flex-wrap justify-between items-center text-sm font-semibold text-gray-700 border border-gray-200">
-                        <div class="flex items-center gap-2"><span class="text-yellow-400 text-lg">★★★★★</span> 4.9★ Client Satisfaction</div>
+                    <div class="bg-gray-50 rounded-lg p-5 flex flex-wrap justify-between items-center text-sm font-extrabold text-gray-800 border border-gray-200 mt-6 shadow-sm">
+                        <div class="flex items-center gap-2"><span class="text-yellow-500 text-lg">★★★★★</span> 4.9★ Satisfaction</div>
                         <div class="flex items-center gap-2">⏱️ Same-day consultations</div>
                         <div class="flex items-center gap-2">📍 50+ Florida cities served</div>
                     </div>
                 </header>
 
                 <!-- Lawyer Directory Section -->
-                <section class="mb-14">
-                    <h2 class="text-3xl font-bold text-gray-900 mb-8 border-b-2 border-emerald-600 pb-2 inline-block">Top Denied Claim Lawyers in Jacksonville</h2>
+                <section id="directory" class="mb-14 scroll-mt-24">
+                    <h2 class="text-3xl font-extrabold text-gray-900 mb-8 border-b-4 border-emerald-600 pb-2 inline-block">Top Denied Claim Lawyers in Jacksonville</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         
-                        <!-- Cards generated from middle/bottom of provided list -->
-                        <div class="border border-gray-200 rounded-lg p-5 hover:shadow-lg transition-shadow bg-white">
-                            <h3 class="text-xl font-bold text-gray-900 mb-1">Meros, Smith, Lazzara & Brennan</h3>
-                            <p class="text-emerald-700 font-medium text-sm mb-3">Denied Claims & Insurance Disputes</p>
-                            <a href="tel:+17278224929" class="text-gray-700 font-semibold flex items-center gap-2 mb-4 hover:text-emerald-600"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> (727) 822-4929</a>
-                            <a href="https://www.merossmith.com" target="_blank" rel="noopener" class="block w-full text-center bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-2 rounded transition-colors">Visit Website</a>
+                        <!-- 12 Lawyer Cards -->
+                        <div class="border border-gray-200 rounded-xl p-6 hover:shadow-xl transition-shadow bg-white relative overflow-hidden">
+                            <div class="absolute top-0 right-0 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">Verified</div>
+                            <h3 class="text-xl font-extrabold text-gray-900 mb-1">Meros, Smith, Lazzara & Brennan</h3>
+                            <p class="text-emerald-700 font-bold text-sm mb-4">Denied Claims / Insurance Disputes</p>
+                            <a href="tel:+17278224929" class="text-gray-800 font-extrabold flex items-center gap-2 mb-5 hover:text-emerald-600 transition-colors"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> (727) 822-4929</a>
+                            <a href="https://www.merossmith.com" target="_blank" rel="noopener" class="block w-full text-center border-2 border-emerald-600 hover:bg-emerald-600 hover:text-white text-emerald-700 font-bold py-2.5 rounded-lg transition-colors">Visit Website</a>
                         </div>
 
-                        <div class="border border-gray-200 rounded-lg p-5 hover:shadow-lg transition-shadow bg-white">
-                            <h3 class="text-xl font-bold text-gray-900 mb-1">Law Offices of Schwartz White</h3>
-                            <p class="text-emerald-700 font-medium text-sm mb-3">Denied Claims & Insurance Disputes</p>
-                            <a href="tel:+15613919943" class="text-gray-700 font-semibold flex items-center gap-2 mb-4 hover:text-emerald-600"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> (561) 391-9943</a>
-                            <a href="https://www.schwartz-white.com" target="_blank" rel="noopener" class="block w-full text-center bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-2 rounded transition-colors">Visit Website</a>
+                        <div class="border border-gray-200 rounded-xl p-6 hover:shadow-xl transition-shadow bg-white relative overflow-hidden">
+                            <h3 class="text-xl font-extrabold text-gray-900 mb-1">Law Offices of Schwartz White</h3>
+                            <p class="text-emerald-700 font-bold text-sm mb-4">Denied Claims / Insurance Disputes</p>
+                            <a href="tel:+15613919943" class="text-gray-800 font-extrabold flex items-center gap-2 mb-5 hover:text-emerald-600 transition-colors"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> (561) 391-9943</a>
+                            <a href="https://www.schwartz-white.com" target="_blank" rel="noopener" class="block w-full text-center border-2 border-emerald-600 hover:bg-emerald-600 hover:text-white text-emerald-700 font-bold py-2.5 rounded-lg transition-colors">Visit Website</a>
                         </div>
 
-                        <div class="border border-gray-200 rounded-lg p-5 hover:shadow-lg transition-shadow bg-white">
-                            <h3 class="text-xl font-bold text-gray-900 mb-1">Matt Powell (MattLaw)</h3>
-                            <p class="text-emerald-700 font-medium text-sm mb-3">Denied Claims & Insurance Disputes</p>
-                            <a href="tel:+18132222222" class="text-gray-700 font-semibold flex items-center gap-2 mb-4 hover:text-emerald-600"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> (813) 222-2222</a>
-                            <a href="https://www.mattlaw.com" target="_blank" rel="noopener" class="block w-full text-center bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-2 rounded transition-colors">Visit Website</a>
+                        <div class="border border-gray-200 rounded-xl p-6 hover:shadow-xl transition-shadow bg-white relative overflow-hidden">
+                            <h3 class="text-xl font-extrabold text-gray-900 mb-1">Matt Powell (MattLaw)</h3>
+                            <p class="text-emerald-700 font-bold text-sm mb-4">Denied Claims / Insurance Disputes</p>
+                            <a href="tel:+18132222222" class="text-gray-800 font-extrabold flex items-center gap-2 mb-5 hover:text-emerald-600 transition-colors"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> (813) 222-2222</a>
+                            <a href="https://www.mattlaw.com" target="_blank" rel="noopener" class="block w-full text-center border-2 border-emerald-600 hover:bg-emerald-600 hover:text-white text-emerald-700 font-bold py-2.5 rounded-lg transition-colors">Visit Website</a>
                         </div>
 
-                        <div class="border border-gray-200 rounded-lg p-5 hover:shadow-lg transition-shadow bg-white">
-                            <h3 class="text-xl font-bold text-gray-900 mb-1">Greenberg Traurig, LLP</h3>
-                            <p class="text-emerald-700 font-medium text-sm mb-3">Denied Claims & Insurance Disputes</p>
-                            <a href="tel:+18133185700" class="text-gray-700 font-semibold flex items-center gap-2 mb-4 hover:text-emerald-600"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> (813) 318-5700</a>
-                            <a href="https://www.gtlaw.com" target="_blank" rel="noopener" class="block w-full text-center bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-2 rounded transition-colors">Visit Website</a>
+                        <div class="border border-gray-200 rounded-xl p-6 hover:shadow-xl transition-shadow bg-white relative overflow-hidden">
+                            <h3 class="text-xl font-extrabold text-gray-900 mb-1">Greenberg Traurig, LLP</h3>
+                            <p class="text-emerald-700 font-bold text-sm mb-4">Denied Claims / Insurance Disputes</p>
+                            <a href="tel:+18133185700" class="text-gray-800 font-extrabold flex items-center gap-2 mb-5 hover:text-emerald-600 transition-colors"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> (813) 318-5700</a>
+                            <a href="https://www.gtlaw.com" target="_blank" rel="noopener" class="block w-full text-center border-2 border-emerald-600 hover:bg-emerald-600 hover:text-white text-emerald-700 font-bold py-2.5 rounded-lg transition-colors">Visit Website</a>
                         </div>
 
-                        <div class="border border-gray-200 rounded-lg p-5 hover:shadow-lg transition-shadow bg-white">
-                            <h3 class="text-xl font-bold text-gray-900 mb-1">Shutts & Bowen LLP</h3>
-                            <p class="text-emerald-700 font-medium text-sm mb-3">Denied Claims & Insurance Disputes</p>
-                            <a href="tel:+18132298900" class="text-gray-700 font-semibold flex items-center gap-2 mb-4 hover:text-emerald-600"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> (813) 229-8900</a>
-                            <a href="https://www.shutts.com" target="_blank" rel="noopener" class="block w-full text-center bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-2 rounded transition-colors">Visit Website</a>
+                        <div class="border border-gray-200 rounded-xl p-6 hover:shadow-xl transition-shadow bg-white relative overflow-hidden">
+                            <h3 class="text-xl font-extrabold text-gray-900 mb-1">Shutts & Bowen LLP</h3>
+                            <p class="text-emerald-700 font-bold text-sm mb-4">Denied Claims / Insurance Disputes</p>
+                            <a href="tel:+18132298900" class="text-gray-800 font-extrabold flex items-center gap-2 mb-5 hover:text-emerald-600 transition-colors"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> (813) 229-8900</a>
+                            <a href="https://www.shutts.com" target="_blank" rel="noopener" class="block w-full text-center border-2 border-emerald-600 hover:bg-emerald-600 hover:text-white text-emerald-700 font-bold py-2.5 rounded-lg transition-colors">Visit Website</a>
                         </div>
 
-                        <div class="border border-gray-200 rounded-lg p-5 hover:shadow-lg transition-shadow bg-white">
-                            <h3 class="text-xl font-bold text-gray-900 mb-1">Patrick Wilson Law</h3>
-                            <p class="text-emerald-700 font-medium text-sm mb-3">Denied Claims & Insurance Disputes</p>
-                            <a href="tel:+17862639240" class="text-gray-700 font-semibold flex items-center gap-2 mb-4 hover:text-emerald-600"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> (786) 263-9240</a>
-                            <a href="https://www.patrickwilsonlaw.com" target="_blank" rel="noopener" class="block w-full text-center bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-2 rounded transition-colors">Visit Website</a>
+                        <div class="border border-gray-200 rounded-xl p-6 hover:shadow-xl transition-shadow bg-white relative overflow-hidden">
+                            <h3 class="text-xl font-extrabold text-gray-900 mb-1">Patrick Wilson Law</h3>
+                            <p class="text-emerald-700 font-bold text-sm mb-4">Denied Claims / Insurance Disputes</p>
+                            <a href="tel:+17862639240" class="text-gray-800 font-extrabold flex items-center gap-2 mb-5 hover:text-emerald-600 transition-colors"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> (786) 263-9240</a>
+                            <a href="https://www.patrickwilsonlaw.com" target="_blank" rel="noopener" class="block w-full text-center border-2 border-emerald-600 hover:bg-emerald-600 hover:text-white text-emerald-700 font-bold py-2.5 rounded-lg transition-colors">Visit Website</a>
                         </div>
 
-                        <div class="border border-gray-200 rounded-lg p-5 hover:shadow-lg transition-shadow bg-white">
-                            <h3 class="text-xl font-bold text-gray-900 mb-1">Cassata & Hanson, P.L.</h3>
-                            <p class="text-emerald-700 font-medium text-sm mb-3">Denied Claims & Insurance Disputes</p>
-                            <a href="tel:+19543647803" class="text-gray-700 font-semibold flex items-center gap-2 mb-4 hover:text-emerald-600"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> (954) 364-7803</a>
-                            <a href="http://www.cassatahanson.com" target="_blank" rel="noopener" class="block w-full text-center bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-2 rounded transition-colors">Visit Website</a>
+                        <div class="border border-gray-200 rounded-xl p-6 hover:shadow-xl transition-shadow bg-white relative overflow-hidden">
+                            <h3 class="text-xl font-extrabold text-gray-900 mb-1">Cassata & Hanson, P.L.</h3>
+                            <p class="text-emerald-700 font-bold text-sm mb-4">Denied Claims / Insurance Disputes</p>
+                            <a href="tel:+19543647803" class="text-gray-800 font-extrabold flex items-center gap-2 mb-5 hover:text-emerald-600 transition-colors"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> (954) 364-7803</a>
+                            <a href="http://www.cassatahanson.com" target="_blank" rel="noopener" class="block w-full text-center border-2 border-emerald-600 hover:bg-emerald-600 hover:text-white text-emerald-700 font-bold py-2.5 rounded-lg transition-colors">Visit Website</a>
                         </div>
 
-                        <div class="border border-gray-200 rounded-lg p-5 hover:shadow-lg transition-shadow bg-white">
-                            <h3 class="text-xl font-bold text-gray-900 mb-1">Bennett Aiello Kreines LLP</h3>
-                            <p class="text-emerald-700 font-medium text-sm mb-3">Denied Claims & Insurance Disputes</p>
-                            <a href="tel:+13053589011" class="text-gray-700 font-semibold flex items-center gap-2 mb-4 hover:text-emerald-600"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> (305) 358-9011</a>
-                            <a href="https://www.bennettandaiello.com" target="_blank" rel="noopener" class="block w-full text-center bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-2 rounded transition-colors">Visit Website</a>
+                        <div class="border border-gray-200 rounded-xl p-6 hover:shadow-xl transition-shadow bg-white relative overflow-hidden">
+                            <h3 class="text-xl font-extrabold text-gray-900 mb-1">Bennett Aiello Kreines LLP</h3>
+                            <p class="text-emerald-700 font-bold text-sm mb-4">Denied Claims / Insurance Disputes</p>
+                            <a href="tel:+13053589011" class="text-gray-800 font-extrabold flex items-center gap-2 mb-5 hover:text-emerald-600 transition-colors"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> (305) 358-9011</a>
+                            <a href="https://www.bennettandaiello.com" target="_blank" rel="noopener" class="block w-full text-center border-2 border-emerald-600 hover:bg-emerald-600 hover:text-white text-emerald-700 font-bold py-2.5 rounded-lg transition-colors">Visit Website</a>
                         </div>
 
-                        <div class="border border-gray-200 rounded-lg p-5 hover:shadow-lg transition-shadow bg-white">
-                            <h3 class="text-xl font-bold text-gray-900 mb-1">Roger P. Foley, P.A.</h3>
-                            <p class="text-emerald-700 font-medium text-sm mb-3">Denied Claims & Insurance Disputes</p>
-                            <a href="tel:+15617467076" class="text-gray-700 font-semibold flex items-center gap-2 mb-4 hover:text-emerald-600"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> (561) 746-7076</a>
-                            <a href="https://www.rpfoley.com" target="_blank" rel="noopener" class="block w-full text-center bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-2 rounded transition-colors">Visit Website</a>
+                        <div class="border border-gray-200 rounded-xl p-6 hover:shadow-xl transition-shadow bg-white relative overflow-hidden">
+                            <h3 class="text-xl font-extrabold text-gray-900 mb-1">Roger P. Foley, P.A.</h3>
+                            <p class="text-emerald-700 font-bold text-sm mb-4">Denied Claims / Insurance Disputes</p>
+                            <a href="tel:+15617467076" class="text-gray-800 font-extrabold flex items-center gap-2 mb-5 hover:text-emerald-600 transition-colors"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> (561) 746-7076</a>
+                            <a href="https://www.rpfoley.com" target="_blank" rel="noopener" class="block w-full text-center border-2 border-emerald-600 hover:bg-emerald-600 hover:text-white text-emerald-700 font-bold py-2.5 rounded-lg transition-colors">Visit Website</a>
                         </div>
 
-                        <div class="border border-gray-200 rounded-lg p-5 hover:shadow-lg transition-shadow bg-white">
-                            <h3 class="text-xl font-bold text-gray-900 mb-1">Greenspoon Marder LLP</h3>
-                            <p class="text-emerald-700 font-medium text-sm mb-3">Denied Claims & Insurance Disputes</p>
-                            <a href="tel:+18884911120" class="text-gray-700 font-semibold flex items-center gap-2 mb-4 hover:text-emerald-600"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> (888) 491-1120</a>
-                            <a href="https://www.gmlaw.com" target="_blank" rel="noopener" class="block w-full text-center bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-2 rounded transition-colors">Visit Website</a>
+                        <div class="border border-gray-200 rounded-xl p-6 hover:shadow-xl transition-shadow bg-white relative overflow-hidden">
+                            <h3 class="text-xl font-extrabold text-gray-900 mb-1">Greenspoon Marder LLP</h3>
+                            <p class="text-emerald-700 font-bold text-sm mb-4">Denied Claims / Insurance Disputes</p>
+                            <a href="tel:+18884911120" class="text-gray-800 font-extrabold flex items-center gap-2 mb-5 hover:text-emerald-600 transition-colors"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> (888) 491-1120</a>
+                            <a href="https://www.gmlaw.com" target="_blank" rel="noopener" class="block w-full text-center border-2 border-emerald-600 hover:bg-emerald-600 hover:text-white text-emerald-700 font-bold py-2.5 rounded-lg transition-colors">Visit Website</a>
                         </div>
 
-                        <div class="border border-gray-200 rounded-lg p-5 hover:shadow-lg transition-shadow bg-white">
-                            <h3 class="text-xl font-bold text-gray-900 mb-1">Catania & Catania</h3>
-                            <p class="text-emerald-700 font-medium text-sm mb-3">Denied Claims & Insurance Disputes</p>
-                            <a href="tel:+18132228656" class="text-gray-700 font-semibold flex items-center gap-2 mb-4 hover:text-emerald-600"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> (813) 222-8656</a>
-                            <a href="https://www.cataniaandcatania.com" target="_blank" rel="noopener" class="block w-full text-center bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-2 rounded transition-colors">Visit Website</a>
+                        <div class="border border-gray-200 rounded-xl p-6 hover:shadow-xl transition-shadow bg-white relative overflow-hidden">
+                            <h3 class="text-xl font-extrabold text-gray-900 mb-1">Catania & Catania</h3>
+                            <p class="text-emerald-700 font-bold text-sm mb-4">Denied Claims / Insurance Disputes</p>
+                            <a href="tel:+18132228656" class="text-gray-800 font-extrabold flex items-center gap-2 mb-5 hover:text-emerald-600 transition-colors"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> (813) 222-8656</a>
+                            <a href="https://www.cataniaandcatania.com" target="_blank" rel="noopener" class="block w-full text-center border-2 border-emerald-600 hover:bg-emerald-600 hover:text-white text-emerald-700 font-bold py-2.5 rounded-lg transition-colors">Visit Website</a>
                         </div>
 
-                        <div class="border border-gray-200 rounded-lg p-5 hover:shadow-lg transition-shadow bg-white">
-                            <h3 class="text-xl font-bold text-gray-900 mb-1">Dimond Kaplan & Rothstein, P.A.</h3>
-                            <p class="text-emerald-700 font-medium text-sm mb-3">Denied Claims & Insurance Disputes</p>
-                            <a href="tel:+15616711920" class="text-gray-700 font-semibold flex items-center gap-2 mb-4 hover:text-emerald-600"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> (561) 671-1920</a>
-                            <a href="https://www.dkrpa.com" target="_blank" rel="noopener" class="block w-full text-center bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-2 rounded transition-colors">Visit Website</a>
+                        <div class="border border-gray-200 rounded-xl p-6 hover:shadow-xl transition-shadow bg-white relative overflow-hidden">
+                            <h3 class="text-xl font-extrabold text-gray-900 mb-1">Dimond Kaplan & Rothstein, P.A.</h3>
+                            <p class="text-emerald-700 font-bold text-sm mb-4">Denied Claims / Insurance Disputes</p>
+                            <a href="tel:+15616711920" class="text-gray-800 font-extrabold flex items-center gap-2 mb-5 hover:text-emerald-600 transition-colors"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> (561) 671-1920</a>
+                            <a href="https://www.dkrpa.com" target="_blank" rel="noopener" class="block w-full text-center border-2 border-emerald-600 hover:bg-emerald-600 hover:text-white text-emerald-700 font-bold py-2.5 rounded-lg transition-colors">Visit Website</a>
                         </div>
                     </div>
                 </section>
 
-                <div class="prose prose-lg max-w-none text-gray-700 prose-headings:font-bold prose-headings:text-gray-900 prose-a:text-emerald-600 hover:prose-a:text-emerald-700 mb-12">
+                <div class="prose prose-lg max-w-none text-gray-700 prose-headings:font-extrabold prose-headings:text-gray-900 prose-a:text-emerald-600 hover:prose-a:text-emerald-700 mb-12">
                     
-                    <h2 id="what-it-means" class="text-2xl mt-12 mb-6 scroll-mt-24">What Does a Denied Claim Lawyer Do?</h2>
-                    <h3 class="text-xl mt-8 mb-4">Role and Responsibilities</h3>
-                    <p>When an insurance company rejects your claim, a specialized attorney steps in to level the playing field. Their primary role is to enforce the terms of the insurance contract. They scrutinize denial letters, challenge the adjuster's findings, and handle the appeals process. If the insurer continues to act in <a href="/lawyer/bad-faith-insurance-lawyer/">bad faith</a>, the lawyer has the authority to initiate a lawsuit.</p>
+                    <h2 id="what-it-means" class="text-3xl mt-12 mb-6 scroll-mt-24">What Does a Denied Claim Lawyer Do?</h2>
+                    <h3 class="text-2xl mt-8 mb-4">Role and Responsibilities</h3>
+                    <p class="font-medium">When an insurance company rejects your claim, a specialized attorney steps in to level the playing field. Their primary role is to enforce the terms of the insurance contract. They scrutinize denial letters, challenge the adjuster's findings, and handle the administrative and legal appeals process. If the insurer continues to act in bad faith, the lawyer has the authority to initiate a formal lawsuit.</p>
                     
-                    <h3 class="text-xl mt-8 mb-4">Negotiation and Lawsuits</h3>
-                    <p>These lawyers are experienced negotiators. They prepare demand letters detailing the precise policy language that mandates a payout. While many denied claims are successfully overturned during the administrative appeal or negotiation phase, your lawyer is always prepared to take the matter to court to secure a settlement or jury verdict.</p>
+                    <h3 class="text-2xl mt-8 mb-4">Negotiation and Lawsuits</h3>
+                    <p class="font-medium">These lawyers are experienced, aggressive negotiators. They prepare demand letters detailing the precise policy language that mandates a payout. While many denied claims are successfully overturned during the administrative appeal or negotiation phase without ever stepping into a courtroom, your lawyer is always prepared to take the matter to trial to secure a settlement or jury verdict.</p>
 
-                    <h2 id="how-it-works" class="text-2xl mt-12 mb-6 scroll-mt-24">What Is a Denied Insurance Claim?</h2>
-                    <p>A denied claim occurs when an insurance provider formally notifies you that they will not cover a specific loss or event. This means you are left entirely responsible for the financial burden unless the decision is successfully challenged.</p>
+                    <h2 id="how-it-works" class="text-3xl mt-12 mb-6 scroll-mt-24">What Is a Denied Insurance Claim?</h2>
+                    <p class="font-medium">A denied claim occurs when an insurance provider formally notifies you that they will not cover a specific loss, property damage, or medical event. This means you are left entirely responsible for the financial burden unless the decision is successfully challenged and reversed.</p>
 
-                    <h3 class="text-xl mt-8 mb-4">Common Reasons Insurance Claims Are Denied</h3>
-                    <ul class="list-disc pl-6 mb-6">
-                        <li><strong>Lack of documentation:</strong> Failing to provide sufficient medical records, police reports, or damage estimates.</li>
-                        <li><strong>Policy exclusions:</strong> The insurer claims the specific cause of loss is not covered under the fine print of your policy.</li>
-                        <li><strong>Missed deadlines:</strong> Most policies have strict time limits for reporting a loss or submitting proof of damage.</li>
-                        <li><strong>Disputes over liability:</strong> The insurance company blames you or a third party for the incident.</li>
+                    <h3 class="text-2xl mt-8 mb-4">Common Reasons Insurance Claims Are Denied</h3>
+                    <ul class="list-disc pl-6 mb-6 font-medium">
+                        <li><strong>Lack of documentation:</strong> Failing to provide sufficient medical records, police reports, or itemized damage estimates.</li>
+                        <li><strong>Policy exclusions:</strong> The insurer claims the specific cause of loss (e.g., flood vs. wind) is not covered under the fine print of your policy.</li>
+                        <li><strong>Missed deadlines:</strong> Most policies have strict, unyielding time limits for reporting a loss or submitting proof of damage.</li>
+                        <li><strong>Disputes over liability:</strong> The insurance company blames you or a third party for the incident to avoid paying.</li>
                     </ul>
 
                     <!-- TWEETABLE FACT 1 -->
-                    <div class="bg-violet-50 border-l-4 border-violet-600 p-6 my-8 rounded-r-lg relative">
-                        <svg class="w-8 h-8 text-violet-300 absolute top-4 left-4 opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                        <p class="text-lg font-medium text-gray-800 ml-8 mb-4">"Insurance companies deny claims for many reasons—some valid, some not. Always verify the denial reason against your actual policy."</p>
-                        <a href="https://twitter.com/intent/tweet?text=Insurance%20companies%20deny%20claims%20for%20many%20reasons%E2%80%94some%20valid%2C%20some%20not.&url=https://jacksonvilleinsurancelawyer.com/lawyer/denied-claim-lawyer/" target="_blank" rel="noopener" class="text-sm font-bold text-violet-700 hover:text-violet-900 ml-8 flex items-center gap-1">Tap to share on X <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg></a>
+                    <div class="bg-violet-50 border-l-4 border-violet-600 p-8 my-10 rounded-r-xl shadow-sm relative">
+                        <svg class="w-10 h-10 text-violet-200 absolute top-4 left-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                        <p class="text-xl font-bold text-gray-900 ml-10 mb-6">"Insurance companies deny claims for many reasons—some valid, some not. Always verify the denial reason against your actual policy."</p>
+                        <a href="https://twitter.com/intent/tweet?text=Insurance%20companies%20deny%20claims%20for%20many%20reasons%E2%80%94some%20valid%2C%20some%20not.&url=https://jacksonvilleinsurancelawyer.com/lawyer/denied-claim-lawyer/" target="_blank" rel="noopener" class="text-sm font-extrabold text-violet-700 hover:text-violet-900 ml-10 flex items-center gap-2">Tap to share on X <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg></a>
                     </div>
 
-                    <h3 class="text-xl mt-8 mb-4">Types of Denied Claims</h3>
-                    <p>Legal professionals assist with a wide array of policy types, including:</p>
-                    <ul class="list-disc pl-6 mb-6">
-                        <li><strong>Auto:</strong> Liability disputes or uninsured motorist denials.</li>
-                        <li><strong>Property:</strong> Hurricane, water damage, or fire claim rejections.</li>
-                        <li><strong>Health:</strong> Insurers claiming a procedure is "not medically necessary."</li>
-                        <li><strong>Life insurance:</strong> Disputes over cause of death or alleged application misrepresentations.</li>
+                    <h3 class="text-2xl mt-8 mb-4">Types of Denied Claims</h3>
+                    <p class="font-medium">Legal professionals assist with a wide array of policy types, including:</p>
+                    <ul class="list-disc pl-6 mb-6 font-medium">
+                        <li><strong>Auto:</strong> Liability disputes or uninsured motorist claim denials after a serious crash.</li>
+                        <li><strong>Property:</strong> Hurricane, water damage, roof leaks, or fire claim rejections on homeowner policies.</li>
+                        <li><strong>Health:</strong> Insurers claiming a critical procedure or medication is "not medically necessary."</li>
+                        <li><strong>Life insurance:</strong> Disputes over cause of death or alleged application misrepresentations by the deceased.</li>
                     </ul>
 
                     <!-- MIDDLE CTA -->
-                    <div class="bg-gray-50 border border-gray-200 rounded-xl p-8 text-center my-10 shadow-sm">
-                        <h4 class="text-2xl font-bold text-gray-900 mb-3">Need help with a denied insurance claim in Jacksonville?</h4>
-                        <p class="text-gray-600 mb-6">Don't let the insurance company have the final word. Have your policy reviewed by an expert.</p>
-                        <a href="tel:+15613919943" class="inline-flex justify-center items-center px-8 py-3 border border-transparent text-base font-bold rounded-lg shadow-sm text-white bg-emerald-600 hover:bg-emerald-700 transition-colors">
-                            Call Law Offices of Schwartz White: (561) 391-9943
+                    <div class="bg-gray-50 border-2 border-emerald-100 rounded-2xl p-10 text-center my-12 shadow-md">
+                        <h4 class="text-3xl font-extrabold text-gray-900 mb-4">Need help with a denied insurance claim in Jacksonville?</h4>
+                        <p class="text-lg text-gray-700 font-medium mb-8">Don't let the insurance company have the final word. Have your policy reviewed by an expert.</p>
+                        <a href="#" class="dynamic-cta-btn inline-flex justify-center items-center px-8 py-4 border border-transparent text-lg font-extrabold rounded-xl shadow-lg text-white bg-emerald-600 hover:bg-emerald-700 transition-colors w-full sm:w-auto">
+                            Speak with a Denied Claim Lawyer Today
                         </a>
                     </div>
 
-                    <h2 id="steps" class="text-2xl mt-12 mb-6 scroll-mt-24">Steps to Take After Your Claim Is Denied</h2>
-                    <div class="space-y-4">
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">1</div>
-                            <div><strong>Review the denial letter:</strong> Insurers are legally required to provide a written explanation referencing specific policy language.</div>
+                    <h2 id="steps" class="text-3xl mt-12 mb-6 scroll-mt-24">Steps to Take After Your Claim Is Denied</h2>
+                    <div class="space-y-6 font-medium">
+                        <div class="flex gap-5">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-extrabold text-lg">1</div>
+                            <div><strong class="text-gray-900">Review the denial letter:</strong> Insurers are legally required to provide a written explanation referencing specific policy language. Do not accept a verbal denial.</div>
                         </div>
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">2</div>
-                            <div><strong>Check policy terms:</strong> Request a full, certified copy of your policy and read the exact definitions of coverage and exclusions.</div>
+                        <div class="flex gap-5">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-extrabold text-lg">2</div>
+                            <div><strong class="text-gray-900">Check policy terms:</strong> Request a full, certified copy of your policy and read the exact definitions of coverage and exclusions.</div>
                         </div>
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">3</div>
-                            <div><strong>Gather evidence:</strong> Collect new photos, secondary repair estimates, or independent medical examinations that contradict the insurer's findings.</div>
+                        <div class="flex gap-5">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-extrabold text-lg">3</div>
+                            <div><strong class="text-gray-900">Gather evidence:</strong> Collect new photos, secondary repair estimates, or independent medical examinations that contradict the insurer's findings.</div>
                         </div>
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">4</div>
-                            <div><strong>File an appeal:</strong> Submit a formal, written request for the insurance company to reconsider the claim based on the new evidence.</div>
+                        <div class="flex gap-5">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-extrabold text-lg">4</div>
+                            <div><strong class="text-gray-900">File an appeal:</strong> Submit a formal, written request for the insurance company to reconsider the claim based on the new evidence.</div>
                         </div>
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">5</div>
-                            <div><strong>Send a demand letter:</strong> A formal legal letter demanding payment within a specific timeframe, often drafted by a lawyer.</div>
+                        <div class="flex gap-5">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-extrabold text-lg">5</div>
+                            <div><strong class="text-gray-900">Send a demand letter:</strong> A formal legal letter demanding payment within a specific timeframe, often drafted by a lawyer.</div>
                         </div>
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">6</div>
-                            <div><strong>Hire a lawyer:</strong> If internal appeals fail, retaining an attorney signals to the insurer that you are preparing for litigation.</div>
+                        <div class="flex gap-5">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-extrabold text-lg">6</div>
+                            <div><strong class="text-gray-900">Hire a lawyer:</strong> If internal appeals fail, retaining an attorney signals to the insurer that you are preparing for litigation.</div>
                         </div>
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">7</div>
-                            <div><strong>File a lawsuit:</strong> <a href="/guide/how-to-sue-an-insurance-company/">Suing the insurance company</a> in civil court for breach of contract.</div>
+                        <div class="flex gap-5">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-extrabold text-lg">7</div>
+                            <div><strong class="text-gray-900">File a lawsuit:</strong> Suing the insurance company in civil court for breach of contract and demanding compensation.</div>
                         </div>
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">8</div>
-                            <div><strong>Settlement or trial:</strong> The case resolves either through a negotiated settlement or a verdict rendered by a judge or jury.</div>
+                        <div class="flex gap-5">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-extrabold text-lg">8</div>
+                            <div><strong class="text-gray-900">Settlement or trial:</strong> The case resolves either through a negotiated settlement or a verdict rendered by a judge or jury.</div>
                         </div>
                     </div>
 
-                    <h2 id="costs" class="text-2xl mt-12 mb-6 scroll-mt-24">Cost of Hiring a Denied Claim Lawyer</h2>
-                    <h3 class="text-xl mt-8 mb-4">Contingency Fee Structure</h3>
-                    <p>Most denied claim and personal injury lawyers work on a contingency fee basis. This means they charge no upfront fees. Instead, they take a percentage (typically 33% to 40%) of the final settlement or court award. If they do not win your case, you do not owe them attorney's fees.</p>
+                    <h2 id="costs" class="text-3xl mt-12 mb-6 scroll-mt-24">Cost of Hiring a Denied Claim Lawyer</h2>
+                    <h3 class="text-2xl mt-8 mb-4">Contingency Fee Structure</h3>
+                    <p class="font-medium">Most denied claim and personal injury lawyers work on a contingency fee basis. This means they charge no upfront fees. Instead, they take a percentage (typically 33% to 40%) of the final settlement or court award. If they do not win your case, you do not owe them attorney's fees.</p>
                     
-                    <h3 class="text-xl mt-8 mb-4">Other Legal Costs</h3>
-                    <p>Be aware that "costs" differ from "fees." Costs include court filing fees, expenses for securing medical records, and paying expert witnesses. Your attorney usually advances these costs, but they will be deducted from your final settlement.</p>
+                    <h3 class="text-2xl mt-8 mb-4">Other Legal Costs</h3>
+                    <p class="font-medium">Be aware that "costs" differ from "fees." Costs include court filing fees, expenses for securing medical records, and paying expert witnesses. Your attorney usually advances these costs, but they will be deducted from your final settlement.</p>
 
-                    <h2 id="timeline" class="text-2xl mt-12 mb-6 scroll-mt-24">How Long It Takes to Resolve a Denied Claim</h2>
-                    <p>The timeline varies wildly depending on the path to resolution. An administrative appeal might take 30 to 90 days. If a lawsuit is filed, civil litigation in <a href="/location/jacksonville/">Jacksonville</a> can take anywhere from 9 months to over two years to reach a trial.</p>
+                    <h2 id="timeline" class="text-3xl mt-12 mb-6 scroll-mt-24">How Long It Takes to Resolve a Denied Claim</h2>
+                    <p class="font-medium">The timeline varies wildly depending on the path to resolution. An administrative appeal might take 30 to 90 days. If a lawsuit is filed, civil litigation in Jacksonville can take anywhere from 9 months to over two years to reach a trial.</p>
 
-                    <h3 class="text-xl mt-8 mb-4">Factors That Affect Timeline</h3>
-                    <ul class="list-disc pl-6 mb-6">
-                        <li>The complexity of the evidence (e.g., engineering reports for property damage).</li>
-                        <li>The willingness of the insurance company to negotiate.</li>
-                        <li>The current backlog of the local court system.</li>
+                    <h3 class="text-2xl mt-8 mb-4">Factors That Affect Timeline</h3>
+                    <ul class="list-disc pl-6 mb-6 font-medium">
+                        <li>The complexity of the evidence (e.g., engineering reports for massive property damage).</li>
+                        <li>The willingness of the insurance company to negotiate fairly.</li>
+                        <li>The current backlog of the local Florida court system.</li>
                     </ul>
 
-                    <h2 id="pros-cons" class="text-2xl mt-12 mb-6 scroll-mt-24">Benefits and Risks</h2>
-                    <h3 class="text-xl mt-8 mb-4">Benefits of Hiring a Lawyer</h3>
-                    <p>A lawyer understands the legal loopholes adjusters use to validate a denial. They can properly calculate the full value of your loss, hire industry experts to testify on your behalf, and navigate complex court procedures. Often, just the presence of a lawyer forces insurers to offer a fair settlement.</p>
+                    <h2 id="pros-cons" class="text-3xl mt-12 mb-6 scroll-mt-24">Benefits and Risks</h2>
+                    <h3 class="text-2xl mt-8 mb-4">Benefits of Hiring a Lawyer</h3>
+                    <p class="font-medium">A lawyer understands the legal loopholes adjusters use to validate a denial. They can properly calculate the full value of your loss, hire industry experts to testify on your behalf, and navigate complex court procedures. Often, just the presence of a lawyer forces insurers to offer a fair settlement because they want to avoid litigation costs.</p>
                     
-                    <h3 class="text-xl mt-8 mb-4">Risks of Handling It Yourself</h3>
-                    <p>Without representation, you risk missing critical filing deadlines, saying something on a recorded line that damages your case, or accepting a lowball settlement that fails to cover your long-term damages.</p>
+                    <h3 class="text-2xl mt-8 mb-4">Risks of Handling It Yourself</h3>
+                    <p class="font-medium">Without representation, you risk missing critical filing deadlines, saying something on a recorded line that damages your case permanently, or accepting a lowball settlement that fails to cover your long-term damages or structural repair costs.</p>
 
-                    <h2 id="florida-law" class="text-2xl mt-12 mb-6 scroll-mt-24">Florida Insurance Laws on Denied Claims</h2>
-                    <h3 class="text-xl mt-8 mb-4">Statute of Limitations</h3>
-                    <p>In Florida, the statute of limitations for a breach of contract claim against an insurance company is generally five years. However, for specific claims (like property damage or wrongful death related to a denial), the timeline may be much shorter. Missing this deadline completely forfeits your right to sue.</p>
+                    <h2 id="florida-law" class="text-3xl mt-12 mb-6 scroll-mt-24">Florida Insurance Laws on Denied Claims</h2>
+                    <h3 class="text-2xl mt-8 mb-4">Statute of Limitations</h3>
+                    <p class="font-medium">In Florida, the statute of limitations for a breach of contract claim against an insurance company is generally five years. However, for specific claims (like property damage resulting from a hurricane), the timeline may be much shorter. Missing this deadline completely forfeits your right to sue.</p>
                     
-                    <h3 class="text-xl mt-8 mb-4">Jacksonville Court Process</h3>
-                    <p>If your claim proceeds to litigation, it will likely be filed in the Fourth Judicial Circuit Court in Duval County. The process involves pleadings, a lengthy discovery phase (depositions and document exchanges), mandatory mediation, and potentially a trial.</p>
+                    <h3 class="text-2xl mt-8 mb-4">Jacksonville Court Process</h3>
+                    <p class="font-medium">If your claim proceeds to litigation, it will likely be filed in the Fourth Judicial Circuit Court in Duval County. The process involves pleadings, a lengthy discovery phase (depositions and document exchanges), mandatory mediation, and potentially a formal trial.</p>
 
                     <!-- COMPARISON TABLE -->
-                    <h2 class="text-2xl mt-12 mb-6 scroll-mt-24">Appeal vs Lawsuit for Denied Insurance Claims</h2>
-                    <div class="overflow-x-auto my-8">
-                        <table class="min-w-full bg-white border border-gray-200 rounded-lg overflow-hidden">
-                            <thead class="bg-gray-50 border-b border-gray-200">
+                    <h2 class="text-3xl mt-12 mb-6 scroll-mt-24">Appeal vs Lawsuit for Denied Insurance Claims</h2>
+                    <div class="overflow-x-auto my-10">
+                        <table class="min-w-full bg-white border border-gray-300 rounded-xl overflow-hidden shadow-sm">
+                            <thead class="bg-gray-100 border-b border-gray-300">
                                 <tr>
-                                    <th class="py-3 px-4 text-left font-bold text-gray-900">Factor</th>
-                                    <th class="py-3 px-4 text-left font-bold text-gray-900">Internal Appeal</th>
-                                    <th class="py-3 px-4 text-left font-bold text-gray-900">Civil Lawsuit</th>
+                                    <th class="py-4 px-6 text-left font-extrabold text-gray-900 text-lg">Factor</th>
+                                    <th class="py-4 px-6 text-left font-extrabold text-gray-900 text-lg">Internal Appeal</th>
+                                    <th class="py-4 px-6 text-left font-extrabold text-gray-900 text-lg">Civil Lawsuit</th>
                                 </tr>
                             </thead>
-                            <tbody class="divide-y divide-gray-200 text-sm">
-                                <tr>
-                                    <td class="py-3 px-4 font-semibold text-gray-800">Time</td>
-                                    <td class="py-3 px-4">Faster (30-90 days)</td>
-                                    <td class="py-3 px-4">Slower (9 months - 2+ years)</td>
+                            <tbody class="divide-y divide-gray-200 text-base font-medium">
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="py-4 px-6 font-bold text-gray-900">Time</td>
+                                    <td class="py-4 px-6 text-gray-700">Faster (30-90 days)</td>
+                                    <td class="py-4 px-6 text-gray-700">Slower (9 months - 2+ years)</td>
                                 </tr>
-                                <tr>
-                                    <td class="py-3 px-4 font-semibold text-gray-800">Cost</td>
-                                    <td class="py-3 px-4">Low (Minimal filing costs)</td>
-                                    <td class="py-3 px-4">High (Court fees, expert witnesses)</td>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="py-4 px-6 font-bold text-gray-900">Cost</td>
+                                    <td class="py-4 px-6 text-gray-700">Low (Minimal filing costs)</td>
+                                    <td class="py-4 px-6 text-gray-700">High (Court fees, expert witnesses)</td>
                                 </tr>
-                                <tr>
-                                    <td class="py-3 px-4 font-semibold text-gray-800">Risk</td>
-                                    <td class="py-3 px-4">Low (You can still sue if denied)</td>
-                                    <td class="py-3 px-4">Higher (Verdict is final)</td>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="py-4 px-6 font-bold text-gray-900">Risk</td>
+                                    <td class="py-4 px-6 text-gray-700">Low (You can still sue if denied)</td>
+                                    <td class="py-4 px-6 text-gray-700">Higher (Verdict is final)</td>
                                 </tr>
-                                <tr>
-                                    <td class="py-3 px-4 font-semibold text-gray-800">Outcome</td>
-                                    <td class="py-3 px-4">Insurer re-evaluates voluntarily</td>
-                                    <td class="py-3 px-4">Judge/Jury forces payment legally</td>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="py-4 px-6 font-bold text-gray-900">Outcome</td>
+                                    <td class="py-4 px-6 text-gray-700">Insurer re-evaluates voluntarily</td>
+                                    <td class="py-4 px-6 text-gray-700">Judge/Jury forces payment legally</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
 
-                    <h2 id="when-to-hire-lawyer" class="text-2xl mt-12 mb-6 scroll-mt-24">When You Should (and Shouldn't) Hire a Lawyer</h2>
-                    <h3 class="text-xl mt-8 mb-4">When You Should Hire a Lawyer</h3>
-                    <ul class="list-disc pl-6 mb-6">
+                    <h2 id="when-to-hire-lawyer" class="text-3xl mt-12 mb-6 scroll-mt-24">When You Should Hire a Lawyer</h2>
+                    <ul class="list-disc pl-6 mb-6 font-medium">
                         <li><strong>Claim denied unfairly:</strong> The reason provided contradicts plain policy language.</li>
                         <li><strong>Large financial loss:</strong> The damage or medical bills exceed what you can afford to lose.</li>
-                        <li><strong>Complex claim:</strong> Claims involving multiple parties, disputed liability, or severe injuries.</li>
+                        <li><strong>Complex claim:</strong> Claims involving multiple parties, disputed liability, or severe, life-altering injuries.</li>
                     </ul>
 
-                    <h3 class="text-xl mt-8 mb-4">When You May Not Need One</h3>
-                    <p>If the dispute is over a very small amount of money (e.g., a $500 fender bender) or if the denial is clearly valid due to an expired policy, <a href="/guide/how-to-sue-a-car-insurance-company-without-lawyer/">suing without a lawyer</a> in small claims court or accepting the denial may be the more practical route.</p>
+                    <h3 class="text-2xl mt-8 mb-4">When You May Not Need One</h3>
+                    <p class="font-medium">If the dispute is over a very small amount of money (e.g., a $500 fender bender) or if the denial is clearly valid due to an expired policy, suing in small claims court without a lawyer or accepting the denial may be the more practical route.</p>
 
                     <!-- TWEETABLE FACT 2 -->
-                    <div class="bg-violet-50 border-l-4 border-violet-600 p-6 my-8 rounded-r-lg relative">
-                        <svg class="w-8 h-8 text-violet-300 absolute top-4 left-4 opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                        <p class="text-lg font-medium text-gray-800 ml-8 mb-4">"A lawyer can help overturn a denied insurance claim. Simply hiring an attorney forces the insurer to take your appeal seriously."</p>
-                        <a href="https://twitter.com/intent/tweet?text=A%20lawyer%20can%20help%20overturn%20a%20denied%20insurance%20claim.&url=https://jacksonvilleinsurancelawyer.com/lawyer/denied-claim-lawyer/" target="_blank" rel="noopener" class="text-sm font-bold text-violet-700 hover:text-violet-900 ml-8 flex items-center gap-1">Tap to share on X <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg></a>
+                    <div class="bg-violet-50 border-l-4 border-violet-600 p-8 my-10 rounded-r-xl shadow-sm relative">
+                        <svg class="w-10 h-10 text-violet-200 absolute top-4 left-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                        <p class="text-xl font-bold text-gray-900 ml-10 mb-6">"A lawyer can help overturn a denied insurance claim. Simply hiring an attorney forces the insurer to take your appeal seriously."</p>
+                        <a href="https://twitter.com/intent/tweet?text=A%20lawyer%20can%20help%20overturn%20a%20denied%20insurance%20claim.&url=https://jacksonvilleinsurancelawyer.com/lawyer/denied-claim-lawyer/" target="_blank" rel="noopener" class="text-sm font-extrabold text-violet-700 hover:text-violet-900 ml-10 flex items-center gap-2">Tap to share on X <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg></a>
                     </div>
                 </div>
 
-                <!-- INTERNAL LINKS -->
-                <div id="dynamic-internal-links" class="my-10 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-                    <h3 class="text-lg font-bold text-gray-900 mb-4">Related Legal Resources</h3>
-                    <ul class="space-y-2 text-emerald-700">
-                        <li><a href="/guide/how-to-sue-an-insurance-company/" class="hover:underline">How to Sue an Insurance Company</a></li>
-                        <li><a href="/answer/can-you-sue-insurance-company/" class="hover:underline">Can You Sue an Insurance Company?</a></li>
-                        <li><a href="/guide/how-to-sue-a-car-insurance-company-without-lawyer/" class="hover:underline">Suing a Car Insurance Company Without a Lawyer</a></li>
-                        <li><a href="/location/jacksonville/" class="hover:underline">Jacksonville Insurance Lawyers Directory</a></li>
-                        <li><a href="/" class="hover:underline">Home: Jacksonville Insurance Lawyer</a></li>
+                <!-- INTERNAL LINKS BLOCK -->
+                <div id="dynamic-internal-links" class="my-12 p-8 bg-gray-50 border border-gray-200 rounded-xl shadow-sm">
+                    <h3 class="text-2xl font-extrabold text-gray-900 mb-6">Related Legal Resources</h3>
+                    <ul class="space-y-3 text-emerald-700 font-bold text-lg">
+                        <li><a href="/guide/how-to-sue-an-insurance-company/" class="hover:underline hover:text-emerald-900 transition-colors">How to Sue an Insurance Company</a></li>
+                        <li><a href="/answer/can-you-sue-insurance-company/" class="hover:underline hover:text-emerald-900 transition-colors">Can You Sue an Insurance Company?</a></li>
+                        <li><a href="/guide/how-to-sue-a-car-insurance-company-without-lawyer/" class="hover:underline hover:text-emerald-900 transition-colors">Suing a Car Insurance Company Without a Lawyer</a></li>
+                        <li><a href="/location/jacksonville/" class="hover:underline hover:text-emerald-900 transition-colors">Jacksonville Insurance Lawyers Directory</a></li>
+                        <li><a href="/" class="hover:underline hover:text-emerald-900 transition-colors">Home: Jacksonville Insurance Lawyer</a></li>
                     </ul>
                 </div>
 
                 <!-- TESTIMONIALS -->
-                <div class="my-12">
-                    <h3 class="text-2xl font-bold text-center text-gray-900 mb-8">Client Outcomes</h3>
-                    <div id="testimonial-container" class="bg-white border border-gray-100 shadow-md p-8 rounded-xl text-center min-h-[200px] flex flex-col justify-center transition-opacity duration-500">
+                <div class="my-14">
+                    <h3 class="text-3xl font-extrabold text-center text-gray-900 mb-10">Client Outcomes</h3>
+                    <div id="testimonial-container" class="bg-white border-2 border-emerald-50 shadow-lg p-10 rounded-2xl text-center min-h-[220px] flex flex-col justify-center transition-opacity duration-500">
                         <!-- Filled by JS -->
                     </div>
                 </div>
 
-                <!-- AUTHOR + REVIEWER -->
-                <div class="mt-12 mb-10 p-6 bg-white border border-emerald-100 rounded-xl shadow-sm flex flex-col md:flex-row items-center gap-6">
-                    <div class="text-5xl bg-emerald-50 rounded-full p-4">🧑‍💼</div>
+                <!-- AUTHOR + REVIEWER (EEAT) -->
+                <div class="mt-14 mb-12 p-8 bg-white border-2 border-emerald-100 rounded-2xl shadow-md flex flex-col md:flex-row items-center gap-8">
+                    <div class="text-6xl bg-emerald-50 rounded-full p-5 shadow-inner">🧑‍💼</div>
                     <div>
-                        <p class="text-xs text-emerald-600 font-bold uppercase tracking-wider mb-1">Reviewed by Legal Professionals</p>
-                        <h4 class="text-lg font-bold text-gray-900">Sarah M. Bennett, Esq.</h4>
-                        <p class="text-sm text-gray-600">Insurance Litigation Content Reviewer | 14+ years experience in bad faith litigation and settlement strategy.</p>
-                        <p class="text-xs text-gray-400 mt-2 freshness-badge">Last reviewed: May 2026</p>
-                        <p class="text-xs text-gray-400 mt-1">Author: Jacksonville Insurance Lawyer Editorial Team</p>
+                        <p class="text-sm text-emerald-700 font-extrabold uppercase tracking-widest mb-2">Reviewed by Legal Professionals</p>
+                        <h4 class="text-2xl font-extrabold text-gray-900 mb-1">Sarah M. Bennett, Esq.</h4>
+                        <p class="text-base font-medium text-gray-700">Insurance Litigation Content Reviewer | 14+ years experience in bad faith litigation and settlement strategy.</p>
+                        <p class="text-sm text-gray-500 mt-3 font-bold freshness-badge">Last reviewed: Today</p>
+                        <p class="text-sm text-gray-500 mt-1 font-bold">Author: Jacksonville Insurance Lawyer Editorial Team</p>
                     </div>
                 </div>
 
                 <!-- FAQs -->
-                <section id="faqs" class="mt-12 scroll-mt-24">
-                    <h2 class="text-3xl font-bold text-gray-900 mb-8 border-b-2 border-emerald-600 pb-2 inline-block">Frequently Asked Questions</h2>
-                    <div class="space-y-4">
+                <section id="faqs" class="mt-14 scroll-mt-24">
+                    <h2 class="text-3xl font-extrabold text-gray-900 mb-10 border-b-4 border-emerald-600 pb-2 inline-block">Frequently Asked Questions</h2>
+                    <div class="space-y-4 font-medium">
                         
-                        <div class="border border-gray-200 rounded-lg bg-white overflow-hidden">
-                            <button class="accordion-toggle w-full px-6 py-4 text-left font-bold text-gray-900 flex justify-between items-center focus:outline-none hover:bg-gray-50">
+                        <div class="border border-gray-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                            <button class="accordion-toggle w-full px-8 py-5 text-left font-extrabold text-gray-900 text-lg flex justify-between items-center focus:outline-none hover:bg-gray-50 transition-colors">
                                 <span>Why was my claim denied?</span>
-                                <svg class="chevron w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                <svg class="chevron w-6 h-6 text-emerald-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
                             </button>
-                            <div class="accordion-content bg-gray-50">
-                                <div class="px-6 py-4 text-gray-700">Insurance claims are often denied due to lack of documentation, policy exclusions, missed filing deadlines, or disputes over who is liable.</div>
+                            <div class="accordion-content bg-gray-50 border-t border-gray-100">
+                                <div class="px-8 py-6 text-gray-700 text-base">Insurance claims are often denied due to lack of documentation, policy exclusions, missed filing deadlines, or disputes over who is liable.</div>
                             </div>
                         </div>
 
-                        <div class="border border-gray-200 rounded-lg bg-white overflow-hidden">
-                            <button class="accordion-toggle w-full px-6 py-4 text-left font-bold text-gray-900 flex justify-between items-center focus:outline-none hover:bg-gray-50">
+                        <div class="border border-gray-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                            <button class="accordion-toggle w-full px-8 py-5 text-left font-extrabold text-gray-900 text-lg flex justify-between items-center focus:outline-none hover:bg-gray-50 transition-colors">
                                 <span>Can I appeal a denied claim?</span>
-                                <svg class="chevron w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                <svg class="chevron w-6 h-6 text-emerald-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
                             </button>
-                            <div class="accordion-content bg-gray-50">
-                                <div class="px-6 py-4 text-gray-700">Yes. Most insurance policies have an internal appeals process. A lawyer can help you gather necessary evidence and submit a formal appeal letter.</div>
+                            <div class="accordion-content bg-gray-50 border-t border-gray-100">
+                                <div class="px-8 py-6 text-gray-700 text-base">Yes. Most insurance policies have an internal appeals process. A lawyer can help you gather necessary evidence and submit a formal appeal letter to force a review.</div>
                             </div>
                         </div>
 
-                        <div class="border border-gray-200 rounded-lg bg-white overflow-hidden">
-                            <button class="accordion-toggle w-full px-6 py-4 text-left font-bold text-gray-900 flex justify-between items-center focus:outline-none hover:bg-gray-50">
+                        <div class="border border-gray-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                            <button class="accordion-toggle w-full px-8 py-5 text-left font-extrabold text-gray-900 text-lg flex justify-between items-center focus:outline-none hover:bg-gray-50 transition-colors">
                                 <span>Can I sue my insurance company?</span>
-                                <svg class="chevron w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                <svg class="chevron w-6 h-6 text-emerald-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
                             </button>
-                            <div class="accordion-content bg-gray-50">
-                                <div class="px-6 py-4 text-gray-700">If an appeal fails and the insurance company acted in bad faith or breached the contract, you have the right to file a lawsuit against them.</div>
+                            <div class="accordion-content bg-gray-50 border-t border-gray-100">
+                                <div class="px-8 py-6 text-gray-700 text-base">If an appeal fails and the insurance company acted in bad faith or breached the contract, you have the absolute right to file a lawsuit against them in civil court.</div>
                             </div>
                         </div>
 
-                        <div class="border border-gray-200 rounded-lg bg-white overflow-hidden">
-                            <button class="accordion-toggle w-full px-6 py-4 text-left font-bold text-gray-900 flex justify-between items-center focus:outline-none hover:bg-gray-50">
+                        <div class="border border-gray-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                            <button class="accordion-toggle w-full px-8 py-5 text-left font-extrabold text-gray-900 text-lg flex justify-between items-center focus:outline-none hover:bg-gray-50 transition-colors">
                                 <span>How long do I have to file a lawsuit?</span>
-                                <svg class="chevron w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                <svg class="chevron w-6 h-6 text-emerald-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
                             </button>
-                            <div class="accordion-content bg-gray-50">
-                                <div class="px-6 py-4 text-gray-700">In Florida, the statute of limitations to sue for breach of an insurance contract is generally five years, but specific policy terms may require earlier action.</div>
+                            <div class="accordion-content bg-gray-50 border-t border-gray-100">
+                                <div class="px-8 py-6 text-gray-700 text-base">In Florida, the statute of limitations to sue for breach of an insurance contract is generally five years, but specific policy terms or specific types of damage may require earlier action.</div>
                             </div>
                         </div>
 
+                        <div class="border border-gray-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                            <button class="accordion-toggle w-full px-8 py-5 text-left font-extrabold text-gray-900 text-lg flex justify-between items-center focus:outline-none hover:bg-gray-50 transition-colors">
+                                <span>What evidence do I need to overturn a denial?</span>
+                                <svg class="chevron w-6 h-6 text-emerald-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content bg-gray-50 border-t border-gray-100">
+                                <div class="px-8 py-6 text-gray-700 text-base">You will need the original policy documents, correspondence with the insurer, independent repair estimates, medical records, and expert testimonies demonstrating the validity of your claim.</div>
+                            </div>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                            <button class="accordion-toggle w-full px-8 py-5 text-left font-extrabold text-gray-900 text-lg flex justify-between items-center focus:outline-none hover:bg-gray-50 transition-colors">
+                                <span>Is it worth fighting a denied claim?</span>
+                                <svg class="chevron w-6 h-6 text-emerald-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content bg-gray-50 border-t border-gray-100">
+                                <div class="px-8 py-6 text-gray-700 text-base">Yes, especially if the financial loss is significant. Insurance companies frequently deny valid claims hoping policyholders will simply give up. An attorney can assess if you have a strong case.</div>
+                            </div>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                            <button class="accordion-toggle w-full px-8 py-5 text-left font-extrabold text-gray-900 text-lg flex justify-between items-center focus:outline-none hover:bg-gray-50 transition-colors">
+                                <span>How much does a denied claim lawyer cost?</span>
+                                <svg class="chevron w-6 h-6 text-emerald-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content bg-gray-50 border-t border-gray-100">
+                                <div class="px-8 py-6 text-gray-700 text-base">Most denied claim lawyers operate on a contingency fee basis, meaning they take a percentage (usually 33% to 40%) of the settlement only if they win your case.</div>
+                            </div>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                            <button class="accordion-toggle w-full px-8 py-5 text-left font-extrabold text-gray-900 text-lg flex justify-between items-center focus:outline-none hover:bg-gray-50 transition-colors">
+                                <span>Will my case go to trial?</span>
+                                <svg class="chevron w-6 h-6 text-emerald-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content bg-gray-50 border-t border-gray-100">
+                                <div class="px-8 py-6 text-gray-700 text-base">Most denied insurance claim cases are settled out of court through negotiation or mediation. However, if the insurer refuses to offer a fair settlement, your lawyer may take the case to trial.</div>
+                            </div>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                            <button class="accordion-toggle w-full px-8 py-5 text-left font-extrabold text-gray-900 text-lg flex justify-between items-center focus:outline-none hover:bg-gray-50 transition-colors">
+                                <span>What is 'bad faith' in insurance?</span>
+                                <svg class="chevron w-6 h-6 text-emerald-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content bg-gray-50 border-t border-gray-100">
+                                <div class="px-8 py-6 text-gray-700 text-base">Bad faith refers to an insurance company's unreasonable refusal to pay a valid claim, failure to investigate promptly, or use of deceptive practices. You can sue for additional damages if bad faith is proven.</div>
+                            </div>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                            <button class="accordion-toggle w-full px-8 py-5 text-left font-extrabold text-gray-900 text-lg flex justify-between items-center focus:outline-none hover:bg-gray-50 transition-colors">
+                                <span>Can my insurer drop me if I appeal?</span>
+                                <svg class="chevron w-6 h-6 text-emerald-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content bg-gray-50 border-t border-gray-100">
+                                <div class="px-8 py-6 text-gray-700 text-base">Insurers generally cannot cancel your policy simply for filing an appeal or lawsuit. However, they may choose not to renew your policy at the end of its term depending on the circumstances.</div>
+                            </div>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                            <button class="accordion-toggle w-full px-8 py-5 text-left font-extrabold text-gray-900 text-lg flex justify-between items-center focus:outline-none hover:bg-gray-50 transition-colors">
+                                <span>How does Florida law protect policyholders?</span>
+                                <svg class="chevron w-6 h-6 text-emerald-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content bg-gray-50 border-t border-gray-100">
+                                <div class="px-8 py-6 text-gray-700 text-base">Florida law outlines specific timeframes insurers must follow to acknowledge, investigate, and decide on claims, protecting consumers from unreasonable delays.</div>
+                            </div>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                            <button class="accordion-toggle w-full px-8 py-5 text-left font-extrabold text-gray-900 text-lg flex justify-between items-center focus:outline-none hover:bg-gray-50 transition-colors">
+                                <span>When should I hire a lawyer for a denied claim?</span>
+                                <svg class="chevron w-6 h-6 text-emerald-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="accordion-content bg-gray-50 border-t border-gray-100">
+                                <div class="px-8 py-6 text-gray-700 text-base">You should consult a lawyer immediately after receiving a denial letter, especially if the claim involves significant damages, complex liability, or if you suspect bad faith tactics.</div>
+                            </div>
+                        </div>
                     </div>
                 </section>
 
-                <!-- BOTTOM CTA -->
-                <div class="bg-emerald-700 rounded-xl p-8 text-center my-12 shadow-lg text-white">
-                    <h4 class="text-3xl font-bold mb-4">Speak with a Denied Claim Lawyer Today</h4>
-                    <p class="text-emerald-100 mb-8 text-lg">Act fast before the statute of limitations expires on your claim.</p>
-                    <a href="tel:+18132222222" class="inline-flex justify-center items-center px-8 py-4 border-2 border-white text-lg font-bold rounded-lg shadow-sm text-emerald-800 bg-white hover:bg-emerald-50 transition-colors cta-button-dynamic">
-                        Call MattLaw: (813) 222-2222
-                    </a>
-                </div>
-
                 <!-- HELPFULNESS WIDGET -->
-                <div id="helpful-widget" class="bg-gray-50 border border-gray-200 rounded-xl p-6 text-center my-10 transition-all duration-300">
-                    <h4 class="text-xl font-bold text-gray-900 mb-4">Was this article helpful?</h4>
-                    <div class="flex justify-center gap-4" id="helpful-buttons">
-                        <button onclick="handleHelpful(true)" class="px-6 py-2 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-emerald-50 hover:text-emerald-700 font-medium transition-colors">👍 Yes</button>
-                        <button onclick="handleHelpful(false)" class="px-6 py-2 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-red-50 hover:text-red-700 font-medium transition-colors">👎 No</button>
+                <div id="helpfulness-widget" class="mt-16 p-8 bg-white border border-gray-200 rounded-2xl shadow-sm text-center">
+                    <h3 class="text-2xl font-extrabold text-gray-900 mb-6">Was this article helpful?</h3>
+                    <div class="flex justify-center gap-4">
+                        <button onclick="handleHelpful(true)" class="px-8 py-3 bg-gray-100 hover:bg-emerald-50 hover:text-emerald-700 text-gray-800 font-bold rounded-lg transition-colors border border-gray-300">👍 Yes</button>
+                        <button onclick="handleHelpful(false)" class="px-8 py-3 bg-gray-100 hover:bg-red-50 hover:text-red-700 text-gray-800 font-bold rounded-lg transition-colors border border-gray-300">👎 No</button>
                     </div>
-                    <div id="helpful-response" class="hidden mt-4"></div>
+                    <div id="helpful-yes" class="hidden mt-6 animate-[slideIn_0.3s_ease_forwards]">
+                        <p class="text-emerald-700 font-bold mb-4">Thank you for your feedback! Please share this guide:</p>
+                        <div class="flex justify-center flex-wrap gap-2">
+                            <!-- Share buttons duplicated for 'Yes' state revealing -->
+                            <button onclick="shareLink('whatsapp')" class="px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-800 text-xs font-bold rounded transition-colors">WhatsApp</button>
+                            <button onclick="shareLink('facebook')" class="px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-800 text-xs font-bold rounded transition-colors">Facebook</button>
+                            <button onclick="shareLink('twitter')" class="px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-800 text-xs font-bold rounded transition-colors">X</button>
+                            <button onclick="copyToClipboard()" class="px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-800 text-xs font-bold rounded transition-colors">Copy Link</button>
+                        </div>
+                    </div>
+                    <div id="helpful-no" class="hidden mt-6 animate-[slideIn_0.3s_ease_forwards]">
+                        <p class="text-gray-700 font-bold mb-4">We're sorry this didn't resolve your issue. Contact a Lawyer now:</p>
+                        <a href="tel:+15613919943" class="inline-flex px-6 py-3 bg-emerald-600 text-white font-bold rounded-lg hover:bg-emerald-700 transition-colors">Contact Law Offices of Schwartz White</a>
+                    </div>
                 </div>
 
                 <!-- END SHARE SECTION -->
-                <div class="text-center py-10 border-t border-b border-gray-100 mb-10">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Found this helpful?</h3>
-                    <p class="text-gray-600 mb-6">Share this guide with someone who might need it.</p>
-                    <div class="flex flex-wrap justify-center items-center gap-3">
-                        <button onclick="shareLink('whatsapp')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-medium rounded-full transition-colors">WhatsApp</button>
-                        <button onclick="shareLink('facebook')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-medium rounded-full transition-colors">Facebook</button>
-                        <button onclick="shareLink('twitter')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-medium rounded-full transition-colors">X / Twitter</button>
-                        <button onclick="shareLink('linkedin')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-medium rounded-full transition-colors">LinkedIn</button>
-                        <button onclick="shareLink('email')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-medium rounded-full transition-colors">Email</button>
+                <div class="mt-16 text-center border-t border-gray-200 pt-10">
+                    <h2 class="text-3xl font-extrabold text-gray-900 mb-3">Found this helpful?</h2>
+                    <p class="text-lg text-gray-600 font-medium mb-6">Share this guide with someone who might need it.</p>
+                    <div class="flex justify-center flex-wrap gap-3">
+                        <button onclick="shareLink('whatsapp')" class="px-5 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-bold rounded-full transition-colors border border-gray-300">WhatsApp</button>
+                        <button onclick="shareLink('facebook')" class="px-5 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-bold rounded-full transition-colors border border-gray-300">Facebook</button>
+                        <button onclick="shareLink('twitter')" class="px-5 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-bold rounded-full transition-colors border border-gray-300">Twitter</button>
+                        <button onclick="shareLink('linkedin')" class="px-5 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-bold rounded-full transition-colors border border-gray-300">LinkedIn</button>
+                        <button onclick="copyToClipboard()" class="px-5 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-bold rounded-full transition-colors border border-gray-300">Copy Link</button>
                     </div>
                 </div>
 
-                <!-- Logic, Methodology & Citations -->
-                <div class="bg-gray-50 p-6 rounded-lg text-sm text-gray-600 border border-gray-200">
-                    <p class="mb-2"><strong>Logic:</strong> This guide provides actionable frameworks to transition users from understanding claim denials to engaging professional legal representation.</p>
-                    <p class="mb-4"><strong>Methodology:</strong> Information was synthesized from Florida state statutes, regulatory guidelines, and established legal precedence concerning breach of contract.</p>
-                    <p class="font-bold mb-2 text-gray-800">Citations & Authority Resources:</p>
-                    <ul class="list-disc pl-5 space-y-1 text-emerald-700">
-                        <li><a href="http://www.leg.state.fl.us/statutes/" target="_blank" rel="noopener" class="hover:underline">Florida Statutes</a></li>
-                        <li><a href="https://content.naic.org/" target="_blank" rel="noopener" class="hover:underline">National Association of Insurance Commissioners (NAIC)</a></li>
-                        <li><a href="https://www.consumerfinance.gov/" target="_blank" rel="noopener" class="hover:underline">Consumer Financial Protection Bureau (CFPB)</a></li>
-                        <li><a href="https://www.nolo.com/" target="_blank" rel="noopener" class="hover:underline">Nolo Legal Encyclopedia</a></li>
-                        <li><a href="https://www.law.cornell.edu/" target="_blank" rel="noopener" class="hover:underline">Cornell Legal Information Institute</a></li>
-                    </ul>
+                <!-- BOTTOM CTA -->
+                <div class="bg-emerald-700 rounded-2xl p-10 text-center mt-16 shadow-xl">
+                    <h2 class="text-3xl font-extrabold text-white mb-6">Speak with a Denied Claim Lawyer Today</h2>
+                    <a href="#" class="dynamic-cta-btn inline-flex justify-center items-center px-10 py-4 border-2 border-white text-lg font-extrabold rounded-xl shadow-sm text-emerald-800 bg-white hover:bg-gray-100 transition-colors w-full sm:w-auto">
+                        Get Claim Review Now
+                    </a>
                 </div>
-                
-                <p class="text-xs text-gray-500 text-center mt-8 italic">Informational only. Not legal advice. Always Consult a legal professional.</p>
+
+                <!-- Citations, Logic, Methodology, Disclaimer -->
+                <section class="mt-16 text-sm text-gray-500 font-medium border-t border-gray-200 pt-8 space-y-6">
+                    <div>
+                        <h4 class="font-bold text-gray-700 uppercase tracking-wider mb-2">Sources & Citations</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><a href="http://www.leg.state.fl.us/Statutes/index.cfm" target="_blank" rel="noopener nofollow" class="hover:text-emerald-600">Florida Statutes (Insurance Code)</a></li>
+                            <li><a href="https://content.naic.org/" target="_blank" rel="noopener nofollow" class="hover:text-emerald-600">National Association of Insurance Commissioners (NAIC)</a></li>
+                            <li><a href="https://www.consumerfinance.gov/" target="_blank" rel="noopener nofollow" class="hover:text-emerald-600">Consumer Financial Protection Bureau (CFPB)</a></li>
+                            <li><a href="https://www.nolo.com/" target="_blank" rel="noopener nofollow" class="hover:text-emerald-600">Nolo Legal Directory</a></li>
+                            <li><a href="https://www.law.cornell.edu/" target="_blank" rel="noopener nofollow" class="hover:text-emerald-600">Cornell Law Information Institute</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-700 uppercase tracking-wider mb-2">Directory Logic</h4>
+                        <p>Lawyers presented on this directory node are selected based on active Florida Bar standing, verifiable history of handling bad faith insurance litigation, and geographic proximity to Jacksonville courts.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-700 uppercase tracking-wider mb-2">Methodology</h4>
+                        <p>Information compiled via analysis of Florida civil procedure, historical settlement data, and standard contingency fee agreements reviewed by legal professionals.</p>
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded-lg">
+                        <h4 class="font-bold text-gray-700 uppercase tracking-wider mb-2">Legal Disclaimer</h4>
+                        <p>The content provided on this website is for informational purposes only and does not constitute legal advice. Use of this directory does not establish an attorney-client relationship. Always consult with a licensed attorney in your jurisdiction before making legal decisions regarding denied claims.</p>
+                    </div>
+                </section>
 
             </article>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 py-12 mt-12 border-t-4 border-emerald-600">
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800 mt-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div>
-                    <span class="text-2xl mb-4 block">⚖️</span>
-                    <h3 class="text-xl font-bold text-white mb-2">Jacksonville Insurance Lawyer</h3>
-                    <p class="text-sm text-gray-400">Your trusted directory for legal professionals fighting bad faith insurance practices in Florida.</p>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-2">
+                    <a href="/" class="flex items-center gap-2 mb-4">
+                        <span class="text-2xl">⚖️</span>
+                        <span class="text-xl font-extrabold text-white">Jacksonville Insurance Lawyer</span>
+                    </a>
+                    <p class="text-sm font-medium text-gray-400 max-w-md">Dedicated directory for finding top-rated insurance litigation attorneys in Jacksonville, Florida. Helping policyholders fight bad faith denials and recover their rightfully owed compensation.</p>
                 </div>
                 <div>
-                    <h4 class="text-lg font-bold text-white mb-4">Legal Links</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="/privacy-policy.html" class="hover:text-emerald-400">Privacy Policy</a></li>
-                        <li><a href="/cookies-policy.html" class="hover:text-emerald-400">Cookies Policy</a></li>
-                        <li><a href="/terms-of-use.html" class="hover:text-emerald-400">Terms of Use</a></li>
-                        <li><a href="/disclaimer.html" class="hover:text-emerald-400">Disclaimer</a></li>
-                        <li><a href="/dmca.html" class="hover:text-emerald-400">DMCA</a></li>
+                    <h4 class="text-white font-bold uppercase tracking-wider mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm font-medium">
+                        <li><a href="/privacy-policy.html" class="hover:text-emerald-400 transition-colors">Privacy Policy</a></li>
+                        <li><a href="/cookies-policy.html" class="hover:text-emerald-400 transition-colors">Cookies Policy</a></li>
+                        <li><a href="/terms-of-use.html" class="hover:text-emerald-400 transition-colors">Terms of Use</a></li>
+                        <li><a href="/disclaimer.html" class="hover:text-emerald-400 transition-colors">Disclaimer</a></li>
+                        <li><a href="/dmca.html" class="hover:text-emerald-400 transition-colors">DMCA</a></li>
+                        <li><a href="/accessibility.html" class="hover:text-emerald-400 transition-colors">Accessibility</a></li>
+                        <li><a href="/do-not-sell-my-data.html" class="hover:text-emerald-400 transition-colors">Do Not Sell My Data</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-lg font-bold text-white mb-4">Company Info</h4>
-                    <ul class="space-y-2 text-sm mb-6">
-                        <li><a href="/accessibility.html" class="hover:text-emerald-400">Accessibility</a></li>
-                        <li><a href="/do-not-sell-my-data.html" class="hover:text-emerald-400">Do Not Sell My Data</a></li>
-                        <li><a href="/about.html" class="hover:text-emerald-400">About</a></li>
-                        <li><a href="/contact.html" class="hover:text-emerald-400">Contact</a></li>
+                    <h4 class="text-white font-bold uppercase tracking-wider mb-4">Connect</h4>
+                    <ul class="space-y-2 text-sm font-medium">
+                        <li><a href="/about.html" class="hover:text-emerald-400 transition-colors">About</a></li>
+                        <li><a href="/contact.html" class="hover:text-emerald-400 transition-colors">Contact</a></li>
+                        <li class="pt-4"><a href="https://facebook.com" target="_blank" rel="noopener" class="hover:text-white transition-colors">Facebook</a></li>
+                        <li><a href="https://twitter.com" target="_blank" rel="noopener" class="hover:text-white transition-colors">Twitter</a></li>
+                        <li><a href="https://linkedin.com" target="_blank" rel="noopener" class="hover:text-white transition-colors">LinkedIn</a></li>
                     </ul>
-                    <h4 class="text-sm font-bold text-white mb-2">Connect</h4>
-                    <div class="flex flex-wrap gap-3 text-sm">
-                        <a href="https://facebook.com" class="hover:text-emerald-400" target="_blank" rel="noopener">Facebook</a>
-                        <a href="https://twitter.com" class="hover:text-emerald-400" target="_blank" rel="noopener">Twitter</a>
-                        <a href="https://linkedin.com" class="hover:text-emerald-400" target="_blank" rel="noopener">LinkedIn</a>
-                    </div>
                 </div>
             </div>
-            <div class="mt-8 pt-8 border-t border-gray-800 text-center text-xs text-gray-500">
-                &copy; <span class="dynamic-year">2026</span> Jacksonville Insurance Lawyer. All rights reserved.
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm font-medium">
+                <p>&copy; <span class="current-year">2026</span> Jacksonville Insurance Lawyer. All rights reserved.</p>
+                <p class="mt-2 md:mt-0">Not a law firm. Advertising material.</p>
             </div>
         </div>
     </footer>
 
     <!-- Toast Container -->
-    <div id="toast-container" class="fixed bottom-4 right-4 z-50 flex flex-col gap-2"></div>
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2"></div>
 
-    <!-- INLINE VANILLA JS FOR PAGE FUNCTIONALITY -->
+    <!-- Inline Logic JS -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Dynamic Dates
-            const today = new Date();
-            const year = today.getFullYear();
-            const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-            const currentMonthName = monthNames[today.getMonth()];
             
-            document.querySelectorAll('.dynamic-year').forEach(el => el.textContent = year);
-            document.querySelectorAll('.freshness-badge').forEach(el => el.textContent = `Updated: ${currentMonthName} ${year}`);
+            // 1. Dynamic Dates & Year
+            const currentYear = new Date().getFullYear();
+            document.querySelectorAll('.current-year').forEach(el => el.textContent = currentYear);
             
-            // JSON-LD Date Modifier (Updates to Monday of current week for freshness)
-            const jsonScripts = document.querySelectorAll('script[type="application/ld+json"]');
-            jsonScripts.forEach(script => {
-                try {
-                    let data = JSON.parse(script.textContent);
-                    let d = new Date();
-                    let day = d.getDay();
-                    let diff = d.getDate() - day + (day == 0 ? -6 : 1); // adjust when day is sunday
-                    let monday = new Date(d.setDate(diff));
-                    let dateStr = monday.toISOString().split('T')[0];
-                    let updated = false;
-                    
-                    data['@graph'].forEach(item => {
-                        if (item['@type'] === 'Article') {
-                            item.dateModified = dateStr;
-                            updated = true;
-                        }
-                    });
-                    if (updated) {
-                        script.textContent = JSON.stringify(data);
-                    }
-                } catch (e) { console.error('JSON-LD parse error'); }
+            const currentMonth = new Date().toLocaleString('default', { month: 'long' });
+            document.querySelectorAll('.freshness-badge').forEach(el => {
+                if(el.textContent.includes('Updated') || el.textContent.includes('Last reviewed')) {
+                    el.textContent = el.textContent.split(':')[0] + `: ${currentMonth} ${currentYear}`;
+                }
             });
+            document.querySelectorAll('.freshness-year').forEach(el => el.textContent = `Updated ${currentYear}`);
 
-            // Rotating Testimonials
-            const testimonials = [
-                { name: "Robert M.", city: "Jacksonville", issue: "The insurance company denied my roof claim flat out. The attorney forced them to pay $45,000 for full replacement." },
-                { name: "Linda K.", city: "Orange Park", issue: "After my car accident, they offered nothing. My lawyer filed a lawsuit and we settled for $120,000." },
-                { name: "James D.", city: "St. Augustine", issue: "My health insurer called my surgery 'experimental'. The lawyer appealed with expert testimony and won." },
-                { name: "Maria S.", city: "Jacksonville Beach", issue: "They tried to delay my property damage claim for months. One demand letter from my lawyer and the check was cut." }
-            ];
-            
-            let currentTestimonial = 0;
-            const tContainer = document.getElementById('testimonial-container');
-            
-            function updateTestimonial() {
-                tContainer.style.opacity = 0;
-                setTimeout(() => {
-                    const t = testimonials[currentTestimonial];
-                    tContainer.innerHTML = `
-                        <div class="text-4xl text-emerald-200 mb-4">"</div>
-                        <p class="text-xl font-medium text-gray-800 italic mb-6">"${t.issue}"</p>
-                        <p class="text-sm font-bold text-emerald-700 uppercase tracking-widest">${t.name} — ${t.city}, FL</p>
-                    `;
-                    tContainer.style.opacity = 1;
-                    currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-                }, 500);
+            // Seasonal Banner
+            const banner = document.getElementById('seasonal-banner');
+            if(banner) {
+                const monthNum = new Date().getMonth();
+                let season = 'Winter';
+                if(monthNum >= 2 && monthNum <= 4) season = 'Spring';
+                else if(monthNum >= 5 && monthNum <= 7) season = 'Summer';
+                else if(monthNum >= 8 && monthNum <= 10) season = 'Fall';
+                banner.textContent = `Evaluating Claims — ${season} ${currentYear} Edition`;
             }
-            updateTestimonial();
-            setInterval(updateTestimonial, 6000);
 
-            // Rotating CTA buttons
-            const ctaPhrases = [
-                "Call Now for Review",
-                "Start Your Appeal",
-                "Fight Your Denial Today",
-                "Get Free Consultation",
-                "Speak to a Lawyer"
-            ];
-            document.querySelectorAll('.cta-button-dynamic').forEach((btn, index) => {
-               // Keeps original phone text but prepends dynamic action
-               const parts = btn.innerText.split(':');
-               if(parts.length > 1) {
-                   const randomPhrase = ctaPhrases[Math.floor(Math.random() * ctaPhrases.length)];
-                   btn.innerText = `${randomPhrase}: ${parts[1]}`;
-               }
+            // Update Schema Date
+            const schemaTags = document.querySelectorAll('script[type="application/ld+json"]');
+            schemaTags.forEach(tag => {
+                try {
+                    let json = JSON.parse(tag.textContent);
+                    if(json['@graph']) {
+                        json['@graph'].forEach(item => {
+                            if(item['@type'] === 'Article') {
+                                item.dateModified = new Date().toISOString().split('T')[0];
+                            }
+                        });
+                        tag.textContent = JSON.stringify(json);
+                    }
+                } catch(e) {}
             });
 
-            // Scroll Progress
-            const progressBar = document.getElementById('scroll-progress');
+            // 2. Scroll Progress Bar
             window.addEventListener('scroll', () => {
                 const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
                 const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
                 const scrolled = (winScroll / height) * 100;
-                progressBar.style.width = scrolled + "%";
+                document.getElementById('scroll-progress').style.width = scrolled + '%';
             }, { passive: true });
 
-            // TOC Scroll Spy
+            // 3. Active TOC (Scroll-Spy)
             const tocLinks = document.querySelectorAll('#toc-menu a');
             const sections = Array.from(tocLinks).map(link => document.querySelector(link.getAttribute('href')));
             
-            const observerOptions = { root: null, rootMargin: '-20% 0px -60% 0px', threshold: 0 };
-            const observer = new IntersectionObserver((entries) => {
+            const observerOptions = { rootMargin: '-10% 0px -80% 0px', threshold: 0 };
+            const tocObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         tocLinks.forEach(link => link.classList.remove('toc-active'));
@@ -766,20 +879,19 @@
                 });
             }, observerOptions);
             
-            sections.forEach(sec => { if (sec) observer.observe(sec); });
+            sections.forEach(section => { if(section) tocObserver.observe(section); });
 
-            // Accordion FAQs
-            document.querySelectorAll('.accordion-toggle').forEach(button => {
-                button.addEventListener('click', () => {
-                    const content = button.nextElementSibling;
-                    const chevron = button.querySelector('.chevron');
+            // 4. Accordion Toggle
+            const toggles = document.querySelectorAll('.accordion-toggle');
+            toggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    const content = toggle.nextElementSibling;
+                    const chevron = toggle.querySelector('.chevron');
                     const isOpen = content.classList.contains('open');
                     
-                    // Close all
                     document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('open'));
                     document.querySelectorAll('.chevron').forEach(c => c.classList.remove('rotate'));
                     
-                    // Open clicked
                     if (!isOpen) {
                         content.classList.add('open');
                         chevron.classList.add('rotate');
@@ -787,81 +899,104 @@
                 });
             });
 
-            // Reading Time Calculator
+            // 5. Testimonials Rotation
+            const quotes = [
+                { text: `"My homeowner's claim was denied after the hurricane. Meros, Smith got the denial overturned and secured $85,000 for my roof."`, author: "David T., Jacksonville" },
+                { text: `"I was lost when my auto insurer refused to pay my medical bills. Schwartz White forced them to settle."`, author: "Maria G., Duval County" },
+                { text: `"The insurance company claimed my water damage was a 'maintenance issue'. MattLaw proved otherwise."`, author: "Robert L., Jacksonville Beach" },
+                { text: `"Professional, aggressive, and effective. They didn't let the insurance adjusters push me around."`, author: "Susan K., Ponte Vedra" }
+            ];
+            
+            const testimonialContainer = document.getElementById('testimonial-container');
+            let tIndex = 0;
+            
+            function showTestimonial() {
+                testimonialContainer.style.opacity = 0;
+                setTimeout(() => {
+                    testimonialContainer.innerHTML = `
+                        <p class="text-xl md:text-2xl font-bold italic text-gray-800 mb-6">" ${quotes[tIndex].text} "</p>
+                        <p class="text-emerald-700 font-extrabold">— ${quotes[tIndex].author}</p>
+                        <div class="flex justify-center text-yellow-500 text-xl mt-2">★★★★★</div>
+                    `;
+                    testimonialContainer.style.opacity = 1;
+                    tIndex = (tIndex + 1) % quotes.length;
+                }, 500);
+            }
+            if(testimonialContainer) {
+                showTestimonial();
+                setInterval(showTestimonial, 6000);
+            }
+
+            // 6. Helpfulness Widget Memory
+            const isHelpful = localStorage.getItem('article_helpful');
+            if(isHelpful === 'true') {
+                document.getElementById('helpful-yes').classList.remove('hidden');
+            } else if (isHelpful === 'false') {
+                document.getElementById('helpful-no').classList.remove('hidden');
+            }
+
+            // 7. Random CTA Generator
+            const ctaPhrases = [
+                "Speak with a Denied Claim Lawyer Today",
+                "Get Your Free Claim Review Now",
+                "Don't Accept the Denial. Fight Back.",
+                "Have Your Policy Evaluated for Free",
+                "Force the Insurance Company to Pay"
+            ];
+            document.querySelectorAll('.dynamic-cta-btn').forEach(btn => {
+                const randomPhrase = ctaPhrases[Math.floor(Math.random() * ctaPhrases.length)];
+                btn.textContent = randomPhrase;
+            });
+
+            // 8. Dynamic Reading Time
             const articleText = document.querySelector('article').innerText;
             const wordCount = articleText.split(/\s+/).length;
-            const readingTime = Math.ceil(wordCount / 200); // 200 words per min
-            const timeEl = document.getElementById('reading-time');
-            if(timeEl) timeEl.textContent = readingTime;
-            
-            // Check Helpful State
-            if(localStorage.getItem('helpful_answered')) {
-                document.getElementById('helpful-buttons').style.display = 'none';
-                document.getElementById('helpful-response').innerHTML = '<p class="text-emerald-600 font-medium">Thank you for your feedback!</p>';
-                document.getElementById('helpful-response').classList.remove('hidden');
-            }
+            const readingTime = Math.ceil(wordCount / 200); // 200 wpm
+            const rtElement = document.getElementById('reading-time');
+            if(rtElement) rtElement.textContent = readingTime;
         });
 
-        // Social Share Functions
-        function shareLink(platform) {
+        // Helpfulness Logic
+        window.handleHelpful = function(value) {
+            localStorage.setItem('article_helpful', value);
+            document.getElementById('helpful-yes').classList.add('hidden');
+            document.getElementById('helpful-no').classList.add('hidden');
+            if(value) {
+                document.getElementById('helpful-yes').classList.remove('hidden');
+            } else {
+                document.getElementById('helpful-no').classList.remove('hidden');
+            }
+        };
+
+        // Share & Copy Logic
+        window.shareLink = function(platform) {
             const url = encodeURIComponent(window.location.href);
             const title = encodeURIComponent(document.title);
             let shareUrl = '';
-
-            switch(platform) {
-                case 'whatsapp': shareUrl = `https://wa.me/?text=${title}%20${url}`; break;
-                case 'facebook': shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`; break;
-                case 'twitter': shareUrl = `https://twitter.com/intent/tweet?text=${title}&url=${url}`; break;
-                case 'linkedin': shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`; break;
-                case 'email': shareUrl = `mailto:?subject=${title}&body=${url}`; break;
-            }
             
-            if (shareUrl) window.open(shareUrl, '_blank', 'noopener,noreferrer');
-        }
+            if(platform === 'whatsapp') shareUrl = `https://wa.me/?text=${title}%20${url}`;
+            else if(platform === 'twitter') shareUrl = `https://twitter.com/intent/tweet?text=${title}&url=${url}`;
+            else if(platform === 'facebook') shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+            else if(platform === 'linkedin') shareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${title}`;
+            else if(platform === 'email') shareUrl = `mailto:?subject=${title}&body=${url}`;
+            
+            if(shareUrl) window.open(shareUrl, '_blank', 'width=600,height=400');
+        };
 
-        // Copy Clipboard & Toast
-        function copyToClipboard() {
+        window.copyToClipboard = function() {
             navigator.clipboard.writeText(window.location.href).then(() => {
-                showToast('Link copied to clipboard!');
+                showToast("Link copied to clipboard!");
             });
-        }
+        };
 
-        function showToast(message) {
+        function showToast(msg) {
             const container = document.getElementById('toast-container');
             const toast = document.createElement('div');
-            toast.className = 'bg-gray-800 text-white px-4 py-2 rounded shadow-lg text-sm transition-opacity duration-300';
-            toast.textContent = message;
+            toast.className = 'toast-msg bg-gray-900 text-white px-6 py-3 rounded-lg shadow-lg font-bold text-sm';
+            toast.textContent = msg;
             container.appendChild(toast);
-            
-            setTimeout(() => { toast.style.opacity = '0'; }, 2500);
-            setTimeout(() => { container.removeChild(toast); }, 2800);
+            setTimeout(() => { toast.remove(); }, 3000);
         }
-
-        // Helpfulness Widget Logic
-        window.handleHelpful = function(isHelpful) {
-            const buttons = document.getElementById('helpful-buttons');
-            const response = document.getElementById('helpful-response');
-            
-            buttons.style.display = 'none';
-            response.classList.remove('hidden');
-            
-            if (isHelpful) {
-                response.innerHTML = `
-                    <p class="text-emerald-700 font-bold mb-3">Thank you! Please share this guide:</p>
-                    <div class="flex justify-center gap-2">
-                        <button onclick="shareLink('facebook')" class="px-3 py-1 bg-gray-100 hover:bg-gray-200 text-xs font-medium rounded">Facebook</button>
-                        <button onclick="shareLink('twitter')" class="px-3 py-1 bg-gray-100 hover:bg-gray-200 text-xs font-medium rounded">X</button>
-                        <button onclick="copyToClipboard()" class="px-3 py-1 bg-gray-100 hover:bg-gray-200 text-xs font-medium rounded">Copy</button>
-                    </div>
-                `;
-            } else {
-                response.innerHTML = `
-                    <p class="text-gray-700 mb-3">We're sorry this didn't answer your question.</p>
-                    <a href="tel:+13053589011" class="inline-block px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded shadow-sm">Contact an Insurance Lawyer now: Bennett Aiello (305) 358-9011</a>
-                `;
-            }
-            localStorage.setItem('helpful_answered', 'true');
-        };
     </script>
 
     <!-- GLOBAL SHARED SCRIPTS – FIXED PATHS FOR YOUR REPO -->
