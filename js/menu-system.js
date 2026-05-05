@@ -1,6 +1,6 @@
 /**
- * menu-system.js - V6.0 ENTERPRISE
- * Fixed: Z-Index layering for Homepage Hero + Font weight reduction
+ * menu-system.js - V6.1 ENTERPRISE
+ * Fixed: Extracted mobile drawer to document.body to escape header's backdrop-filter stacking context
  */
 "use strict";
 
@@ -46,9 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const groupedData = getCategorizedData();
 
-    // 2. UI Components (Reduced Font Weights to Semibold/Medium)
+    // 2. UI Components
     const buildDesktop = () => {
-        // Explicitly start with Home
         let html = `<a href="/" class="text-[13px] font-semibold text-gray-800 hover:text-emerald-700 transition px-2">Home</a>`;
 
         NAV_ORDER.forEach(folder => {
@@ -104,6 +103,8 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // 3. Master Injection
+    
+    // Step A: Inject the normal desktop nav and mobile toggle into the header
     navDock.innerHTML = `
         <nav class="hidden lg:flex items-center space-x-2" aria-label="Main Navigation">
             ${buildDesktop()}
@@ -117,9 +118,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 <path id="m-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
         </button>
+    `;
 
-        <!-- Fixed z-index for mobile drawer to stay above hero -->
-        <div id="m-drawer" class="hidden fixed inset-0 top-[70px] w-full bg-white z-[10000] p-6 overflow-y-auto">
+    // Step B: Define the mobile drawer separately
+    const mDrawerHTML = `
+        <!-- Fixed z-index for mobile drawer, injected into <body> to stay above hero -->
+        <div id="m-drawer" class="hidden fixed inset-0 top-[70px] w-full bg-white z-[99999] p-6 overflow-y-auto">
             ${buildMobile()}
             <div class="mt-8">
                 <a href="tel:+19045009653" class="flex items-center justify-center w-full py-4 bg-emerald-700 text-white font-bold rounded-xl shadow-lg">
@@ -128,6 +132,14 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
         </div>
     `;
+
+    // Step C: Inject the drawer directly into the body.
+    // We first check if it already exists to prevent duplicates if the script reruns.
+    const existingDrawer = document.getElementById('m-drawer');
+    if (existingDrawer) {
+        existingDrawer.remove();
+    }
+    document.body.insertAdjacentHTML('beforeend', mDrawerHTML);
 
     // 4. Global Handlers
     const toggle = document.getElementById('m-toggle');
@@ -143,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             drawer.classList.remove('hidden');
             icon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
-            document.body.style.overflow = 'hidden';
+            document.body.style.overflow = 'hidden'; // Prevents background scrolling
         }
     });
 });
