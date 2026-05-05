@@ -20,7 +20,7 @@ jobs:
       - name: Setup Node.js Environment
         uses: actions/setup-node@v4
         with:
-          node-version: '20' # Using a stable, modern Node version
+          node-version: '20'
 
       - name: Run Generate Files Script
         run: node generate-files.js
@@ -31,15 +31,15 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           
-          # Stage the newly generated files
-          git add sitemap.xml pages.json registry.js
+          # IMPORTANT: We now target the js/ folder for registry.js
+          git add sitemap.xml pages.json js/registry.js
           
           # Check if there are actual changes before trying to commit to avoid errors
           if git diff --staged --quiet; then
             echo "No changes detected in generated files. Skipping commit."
           else
             # Commit the files with the [skip ci] tag so this push doesn't trigger an infinite loop
-            git commit -m "chore: auto-generate sitemap.xml, pages.json, and registry.js [skip ci]"
+            git commit -m "chore: auto-generate sitemap.xml, pages.json, and js/registry.js [skip ci]"
             git push
             echo "Changes successfully pushed to repository."
           fi
