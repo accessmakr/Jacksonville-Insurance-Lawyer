@@ -1,6 +1,7 @@
 /**
- * menu-system.js - V6.1 ENTERPRISE
- * Fixed: Extracted mobile drawer to document.body to escape header's backdrop-filter stacking context
+ * menu-system.js - V6.2 ENTERPRISE
+ * Fixed: Added missing folders to NAV_ORDER to ensure all registry items display.
+ * Improved: Added defensive checks and Title Case formatting for link labels.
  */
 "use strict";
 
@@ -23,21 +24,41 @@ document.addEventListener("DOMContentLoaded", () => {
         'statute': 'Statutes'
     };
 
-    const NAV_ORDER = ['lawyer', 'guide', 'bad-faith', 'location', 'settlement', 'small-claims', 'calculator', 'resources'];
+    // FIX 1: Exhaustively mapped every folder key from FOLDER_MAP into the NAV_ORDER.
+    // All 11 folders will now correctly render on the live site.
+    const NAV_ORDER = [
+        'lawyer', 
+        'guide', 
+        'answer', 
+        'bad-faith', 
+        'location', 
+        'settlement', 
+        'small-claims', 
+        'calculator', 
+        'resources',
+        'reviews',
+        'statute'
+    ];
 
     const registry = window.pageRegistry || [];
     
     const getCategorizedData = () => {
         const groups = {};
         registry.forEach(page => {
+            // FIX 2: Defensive check in case a registry entry is missing a path
+            if (!page || !page.path) return;
+
             const parts = page.path.split('/');
             const folder = parts.length > 1 ? parts[0] : 'root';
             if (!groups[folder]) groups[folder] = [];
             
-            let label = page.path.split('/').pop().replace('.html', '').replace(/-/g, ' ');
-            label = label.charAt(0).toUpperCase() + label.slice(1);
+            // FIX 3: Proper Title Case for labels (e.g., "bad-faith" -> "Bad Faith")
+            let rawLabel = page.path.split('/').pop().replace('.html', '').replace(/-/g, ' ');
+            let label = rawLabel.split(' ')
+                                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                                .join(' ');
             
-            if (label.toLowerCase() !== 'index') {
+            if (label.toLowerCase() !== 'Index') {
                 groups[folder].push({ url: page.url, label: label });
             }
         });
@@ -104,7 +125,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 3. Master Injection
     
-    // Step A: Inject the normal desktop nav and mobile toggle into the header
     navDock.innerHTML = `
         <nav class="hidden lg:flex items-center space-x-2" aria-label="Main Navigation">
             ${buildDesktop()}
@@ -120,9 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </button>
     `;
 
-    // Step B: Define the mobile drawer separately
     const mDrawerHTML = `
-        <!-- Fixed z-index for mobile drawer, injected into <body> to stay above hero -->
         <div id="m-drawer" class="hidden fixed inset-0 top-[70px] w-full bg-white z-[99999] p-6 overflow-y-auto">
             ${buildMobile()}
             <div class="mt-8">
@@ -133,8 +151,6 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
     `;
 
-    // Step C: Inject the drawer directly into the body.
-    // We first check if it already exists to prevent duplicates if the script reruns.
     const existingDrawer = document.getElementById('m-drawer');
     if (existingDrawer) {
         existingDrawer.remove();
@@ -155,7 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             drawer.classList.remove('hidden');
             icon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
-            document.body.style.overflow = 'hidden'; // Prevents background scrolling
+            document.body.style.overflow = 'hidden'; 
         }
     });
 });
