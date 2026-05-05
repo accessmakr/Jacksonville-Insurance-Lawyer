@@ -1,0 +1,82 @@
+// Auto-generated registry of all site pages
+const sitePagesRegistry = [
+  {
+    "url": "https://jacksonvilleinsurancelawyer.com/about/",
+    "path": "about.html"
+  },
+  {
+    "url": "https://jacksonvilleinsurancelawyer.com/accessibility/",
+    "path": "accessibility.html"
+  },
+  {
+    "url": "https://jacksonvilleinsurancelawyer.com/contact/",
+    "path": "contact.html"
+  },
+  {
+    "url": "https://jacksonvilleinsurancelawyer.com/cookies-policy/",
+    "path": "cookies-policy.html"
+  },
+  {
+    "url": "https://jacksonvilleinsurancelawyer.com/disclaimer/",
+    "path": "disclaimer.html"
+  },
+  {
+    "url": "https://jacksonvilleinsurancelawyer.com/dmca/",
+    "path": "dmca.html"
+  },
+  {
+    "url": "https://jacksonvilleinsurancelawyer.com/do-not-sell-my-data/",
+    "path": "do-not-sell-my-data.html"
+  },
+  {
+    "url": "https://jacksonvilleinsurancelawyer.com/",
+    "path": "index.html"
+  },
+  {
+    "url": "https://jacksonvilleinsurancelawyer.com/privacy-policy/",
+    "path": "privacy-policy.html"
+  },
+  {
+    "url": "https://jacksonvilleinsurancelawyer.com/terms-of-use/",
+    "path": "terms-of-use.html"
+  },
+  {
+    "url": "https://jacksonvilleinsurancelawyer.com/guide/can-you-sue-an-insurance-company/",
+    "path": "guide/can-you-sue-an-insurance-company.html"
+  },
+  {
+    "url": "https://jacksonvilleinsurancelawyer.com/guide/how-to-settle-a-car-accident-claim-without-a-lawyer/",
+    "path": "guide/how-to-settle-a-car-accident-claim-without-a-lawyer.html"
+  },
+  {
+    "url": "https://jacksonvilleinsurancelawyer.com/guide/how-to-sue-a-car-insurance-company-without-lawyer/",
+    "path": "guide/how-to-sue-a-car-insurance-company-without-lawyer.html"
+  },
+  {
+    "url": "https://jacksonvilleinsurancelawyer.com/guide/how-to-sue-an-insurance-company/",
+    "path": "guide/how-to-sue-an-insurance-company.html"
+  },
+  {
+    "url": "https://jacksonvilleinsurancelawyer.com/lawyer/bad-faith-insurance-lawyer/",
+    "path": "lawyer/bad-faith-insurance-lawyer.html"
+  },
+  {
+    "url": "https://jacksonvilleinsurancelawyer.com/lawyer/car-insurance-lawyer/",
+    "path": "lawyer/car-insurance-lawyer.html"
+  },
+  {
+    "url": "https://jacksonvilleinsurancelawyer.com/lawyer/denied-claim-lawyer/",
+    "path": "lawyer/denied-claim-lawyer.html"
+  },
+  {
+    "url": "https://jacksonvilleinsurancelawyer.com/lawyer/property-claim-lawyer/",
+    "path": "lawyer/property-claim-lawyer.html"
+  },
+  {
+    "url": "https://jacksonvilleinsurancelawyer.com/lawyer/work-injury-lawyer/",
+    "path": "lawyer/work-injury-lawyer.html"
+  }
+];
+
+// Expose to global window object for other scripts to consume
+window.pageRegistry = sitePagesRegistry;
