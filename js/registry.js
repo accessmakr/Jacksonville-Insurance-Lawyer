@@ -75,6 +75,10 @@ const sitePagesRegistry = [
   {
     "url": "https://jacksonvilleinsurancelawyer.com/lawyer/work-injury-lawyer/",
     "path": "lawyer/work-injury-lawyer.html"
+  },
+  {
+    "url": "https://jacksonvilleinsurancelawyer.com/location/jacksonville/",
+    "path": "location/jacksonville.html"
   }
 ];
 
