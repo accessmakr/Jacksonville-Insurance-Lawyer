@@ -1,0 +1,45 @@
+name: Auto-Generate SEO & Registry Files
+
+on:
+  push:
+    branches:
+      - main # Runs whenever code is pushed to the main branch
+  workflow_dispatch: # Allows you to manually trigger the workflow from the GitHub UI
+
+permissions:
+  contents: write # Grants the action permission to push files back to your repo
+
+jobs:
+  generate-and-commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Using a stable, modern Node version
+
+      - name: Run Generate Files Script
+        run: node generate-files.js
+
+      - name: Commit and Push Changes
+        run: |
+          # Configure Git as a bot
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          
+          # Stage the newly generated files
+          git add sitemap.xml pages.json registry.js
+          
+          # Check if there are actual changes before trying to commit to avoid errors
+          if git diff --staged --quiet; then
+            echo "No changes detected in generated files. Skipping commit."
+          else
+            # Commit the files with the [skip ci] tag so this push doesn't trigger an infinite loop
+            git commit -m "chore: auto-generate sitemap.xml, pages.json, and registry.js [skip ci]"
+            git push
+            echo "Changes successfully pushed to repository."
+          fi
