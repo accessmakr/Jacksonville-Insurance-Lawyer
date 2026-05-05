@@ -2,9 +2,9 @@
  * generate-files.js
  * 
  * This script automatically scans the repository for .html files and generates:
- * 1. A clean-URL sitemap.xml
- * 2. A pages.json data file
- * 3. A registry.js file for your frontend scripts
+ * 1. A clean-URL sitemap.xml (Root directory)
+ * 2. A pages.json data file (Root directory)
+ * 3. A registry.js file for your frontend scripts (js/ directory)
  */
 
 const fs = require('fs');
@@ -65,8 +65,7 @@ try {
         }
     });
 
-    // 3. Generate sitemap.xml
-    // Includes dynamic priority (root gets 1.0, subpages get 0.8) and dynamic lastmod
+    // 3. Generate sitemap.xml in root
     const today = new Date().toISOString().split('T')[0];
     const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -79,26 +78,36 @@ ${pages.map(page => `  <url>
 </urlset>`;
 
     fs.writeFileSync(path.join(__dirname, 'sitemap.xml'), sitemapXml.trim());
-    console.log('✅ sitemap.xml generated successfully.');
+    console.log('✅ sitemap.xml generated successfully in root.');
 
-    // 4. Generate pages.json
+    // 4. Generate pages.json in root
     fs.writeFileSync(path.join(__dirname, 'pages.json'), JSON.stringify(pages, null, 2));
-    console.log('✅ pages.json generated successfully.');
+    console.log('✅ pages.json generated successfully in root.');
 
-    // 5. Generate registry.js
-    // Formatted for inclusion in your frontend <script> tags
+    // 5. Generate registry.js inside the /js/ directory
+    const jsDirectory = path.join(__dirname, 'js');
+    
+    // Safely create the /js/ directory if it doesn't already exist
+    if (!fs.existsSync(jsDirectory)) {
+        fs.mkdirSync(jsDirectory, { recursive: true });
+        console.log('📁 Created /js/ directory.');
+    }
+
+    const registryJsPath = path.join(jsDirectory, 'registry.js');
     const registryJs = `// Auto-generated registry of all site pages
 const sitePagesRegistry = ${JSON.stringify(pages, null, 2)};
 
 // Expose to global window object for other scripts to consume
 window.pageRegistry = sitePagesRegistry;
 `;
-    fs.writeFileSync(path.join(__dirname, 'registry.js'), registryJs);
-    console.log('✅ registry.js generated successfully.');
+    
+    // Write directly to js/registry.js
+    fs.writeFileSync(registryJsPath, registryJs);
+    console.log('✅ js/registry.js generated successfully with fresh data.');
 
     console.log(`🎉 Process complete! Registered a total of ${pages.length} URLs.`);
 
 } catch (error) {
     console.error('❌ Error during file generation:', error);
-    process.exit(1); // Fail the GitHub Action if something goes wrong
+    process.exit(1); 
 }
