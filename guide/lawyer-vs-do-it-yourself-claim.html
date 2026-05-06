@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth overflow-x-hidden max-w-full">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -114,24 +114,24 @@
     }
     </script>
 </head>
-<body class="bg-gray-50 flex flex-col min-h-screen">
+<body class="bg-gray-50 flex flex-col min-h-screen overflow-x-hidden w-full max-w-full">
 
     <!-- Scroll Progress Bar -->
     <div id="scroll-progress"></div>
 
     <!-- Header -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
+    <header class="bg-white shadow-sm sticky top-0 z-50 w-full max-w-full">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
+            <div class="flex justify-between items-center min-h-[4rem] py-3">
                 <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="/" class="flex items-center gap-2 text-xl font-bold text-gray-900 hover:text-emerald-700 transition">
+                <div class="flex items-center">
+                    <a href="/" class="flex flex-wrap items-center gap-2 text-lg sm:text-xl font-bold text-gray-900 hover:text-emerald-700 transition leading-tight">
                         <span class="text-2xl">⚖️</span>
-                        Jacksonville Insurance Lawyer
+                        <span>Jacksonville Insurance Lawyer</span>
                     </a>
                 </div>
                 <!-- Right Nav & Search Trigger -->
-                <div class="flex items-center gap-4">
+                <div class="flex items-center gap-4 flex-shrink-0">
                     <!-- SEARCH SYSTEM TRIGGER -->
                     <button type="button" class="trigger-search flex items-center text-gray-600 hover:text-emerald-700 transition-colors duration-200 focus:outline-none" aria-label="Open Search">
                         <span class="mr-2 text-sm font-medium hidden sm:inline">Search</span>
@@ -147,7 +147,7 @@
     </header>
 
     <!-- Main Layout Grid -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col lg:flex-row gap-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col lg:flex-row gap-12 w-full">
         
         <!-- Left Sidebar: Table of Contents (Sticky) -->
         <aside class="hidden lg:block lg:w-1/4">
@@ -170,15 +170,15 @@
         </aside>
 
         <!-- Main Content -->
-        <main class="w-full lg:w-3/4">
-            <article class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-10 mb-8">
+        <main class="w-full lg:w-3/4 max-w-full">
+            <article class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-10 mb-8 max-w-full break-words">
                 
                 <!-- Seasonal Banner -->
                 <div id="seasonal-banner" class="inline-block px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-semibold rounded-full mb-4 uppercase tracking-wide">
                     Edition
                 </div>
                 
-                <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight mb-6 tracking-tight">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-6 tracking-tight break-words">
                     Lawyer vs Do-It-Yourself Insurance Claim
                 </h1>
 
@@ -205,12 +205,12 @@
                     <button onclick="shareSystem('linkedin')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-full transition font-medium">LinkedIn</button>
                     <button onclick="shareSystem('email')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-full transition font-medium">Email</button>
                     <button onclick="copyToClipboard()" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-full transition font-medium flex items-center gap-2">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg> Copy Link
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg> Copy Link
                     </button>
                 </div>
 
                 <!-- TOP CTA -->
-                <div class="text-center sm:text-left mb-6">
+                <div class="text-center sm:text-left mb-6 w-full">
                     <a href="tel:+18339641255" class="random-cta inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-emerald-600 hover:bg-emerald-700 rounded-lg shadow-md transition-all w-full sm:w-auto">
                         Free Consultation: The Ferraro Law Firm
                     </a>
@@ -218,16 +218,16 @@
 
                 <!-- Trust Badges -->
                 <div class="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm font-medium text-gray-600 mb-12">
-                    <span class="flex items-center gap-1.5"><svg class="w-5 h-5 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Free Case Review</span>
-                    <span class="flex items-center gap-1.5"><svg class="w-5 h-5 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> No Fee Unless We Win</span>
-                    <span class="flex items-center gap-1.5"><svg class="w-5 h-5 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Attorney Reviewed</span>
-                    <span class="flex items-center gap-1.5"><svg class="w-5 h-5 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Updated <span class="dynamic-year">2026</span></span>
+                    <span class="flex items-center gap-1.5"><svg class="w-5 h-5 text-emerald-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Free Case Review</span>
+                    <span class="flex items-center gap-1.5"><svg class="w-5 h-5 text-emerald-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> No Fee Unless We Win</span>
+                    <span class="flex items-center gap-1.5"><svg class="w-5 h-5 text-emerald-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Attorney Reviewed</span>
+                    <span class="flex items-center gap-1.5"><svg class="w-5 h-5 text-emerald-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Updated <span class="dynamic-year">2026</span></span>
                 </div>
 
                 <hr class="border-gray-100 mb-10">
 
                 <!-- MAIN CONTENT AREA -->
-                <div class="prose prose-lg max-w-none text-gray-700" id="main-text-content">
+                <div class="prose prose-lg max-w-none text-gray-700 break-words" id="main-text-content">
 
                     <h2 id="overview" class="text-3xl font-bold text-gray-900 mt-12 mb-6 scroll-mt-28">What Is an Insurance Claim Process</h2>
                     <h3 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Contract relationship</h3>
@@ -239,11 +239,11 @@
                     <!-- Tweetable Fact 1 -->
                     <div class="my-10 bg-gray-50 border border-gray-200 rounded-xl p-6 relative group cursor-pointer hover:shadow-md transition" onclick="window.open('https://twitter.com/intent/tweet?text=Insurance%20companies%20often%20pay%20less%20to%20unrepresented%20claimants.&url=' + encodeURIComponent(window.location.href), '_blank')">
                         <svg class="w-8 h-8 text-emerald-300 absolute top-4 left-4 opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                        <blockquote class="pl-12 pr-4 py-2">
+                        <blockquote class="pl-12 pr-4 py-2 border-none">
                             <p class="text-xl font-medium text-gray-800 italic m-0">"Insurance companies often pay less to unrepresented claimants."</p>
                         </blockquote>
-                        <div class="mt-4 pl-12 flex items-center text-sm font-semibold text-emerald-600 group-hover:text-emerald-700">
-                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg> Tap to share
+                        <div class="mt-4 pl-12 flex flex-wrap items-center text-sm font-semibold text-emerald-600 group-hover:text-emerald-700">
+                            <svg class="w-4 h-4 mr-1 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg> <span>Tap to share</span>
                         </div>
                     </div>
 
@@ -261,12 +261,12 @@
                     <div id="dynamic-internal-links" class="my-10 bg-gray-50 p-6 rounded-xl border border-gray-200">
                         <h4 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4">Related Legal Resources</h4>
                         <ul class="grid sm:grid-cols-2 gap-3 text-sm font-medium">
-                            <li><a href="/lawyer/car-insurance-lawyer/" class="text-emerald-700 hover:underline">Car Insurance Lawyer Directory</a></li>
-                            <li><a href="/lawyer/denied-claim-lawyer/" class="text-emerald-700 hover:underline">Denied Claim Lawyer Directory</a></li>
-                            <li><a href="/lawyer/property-claim-lawyer/" class="text-emerald-700 hover:underline">Property Claim Lawyer Directory</a></li>
-                            <li><a href="/guide/how-to-sue-a-car-insurance-company-without-lawyer/" class="text-emerald-700 hover:underline">Sue a Car Insurance Co. Without Lawyer</a></li>
-                            <li><a href="/guide/can-you-sue-an-insurance-company/" class="text-emerald-700 hover:underline">Can You Sue an Insurance Company?</a></li>
-                            <li><a href="/" class="text-emerald-700 hover:underline">Return to Main Directory</a></li>
+                            <li class="truncate"><a href="/lawyer/car-insurance-lawyer/" class="text-emerald-700 hover:underline">Car Insurance Lawyer Directory</a></li>
+                            <li class="truncate"><a href="/lawyer/denied-claim-lawyer/" class="text-emerald-700 hover:underline">Denied Claim Lawyer Directory</a></li>
+                            <li class="truncate"><a href="/lawyer/property-claim-lawyer/" class="text-emerald-700 hover:underline">Property Claim Lawyer Directory</a></li>
+                            <li class="truncate"><a href="/guide/how-to-sue-a-car-insurance-company-without-lawyer/" class="text-emerald-700 hover:underline">Sue a Car Insurance Co. Without Lawyer</a></li>
+                            <li class="truncate"><a href="/guide/can-you-sue-an-insurance-company/" class="text-emerald-700 hover:underline">Can You Sue an Insurance Company?</a></li>
+                            <li class="truncate"><a href="/" class="text-emerald-700 hover:underline">Return to Main Directory</a></li>
                         </ul>
                     </div>
 
@@ -287,7 +287,7 @@
                     <div class="bg-emerald-900 text-white rounded-2xl p-8 my-10 text-center shadow-lg">
                         <h3 class="text-2xl font-bold mb-4 text-white">Handling your claim alone can cost you thousands</h3>
                         <p class="text-emerald-100 mb-6 max-w-2xl mx-auto">Don't let the insurance company undervalue your damages. Get a professional case assessment today.</p>
-                        <a href="tel:+18132228656" class="random-cta inline-block px-8 py-4 bg-white text-emerald-900 font-bold rounded-lg hover:bg-gray-100 transition shadow">
+                        <a href="tel:+18132228656" class="random-cta inline-block px-8 py-4 bg-white text-emerald-900 font-bold rounded-lg hover:bg-gray-100 transition shadow w-full sm:w-auto">
                             Call Catania & Catania: (813) 222-8656
                         </a>
                     </div>
@@ -333,11 +333,11 @@
                     <!-- Tweetable Fact 2 -->
                     <div class="my-10 bg-gray-50 border border-gray-200 rounded-xl p-6 relative group cursor-pointer hover:shadow-md transition" onclick="window.open('https://twitter.com/intent/tweet?text=Legal%20representation%20can%20significantly%20increase%20settlement%20outcomes.&url=' + encodeURIComponent(window.location.href), '_blank')">
                         <svg class="w-8 h-8 text-violet-300 absolute top-4 left-4 opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                        <blockquote class="pl-12 pr-4 py-2">
+                        <blockquote class="pl-12 pr-4 py-2 border-none">
                             <p class="text-xl font-medium text-gray-800 italic m-0">"Legal representation can significantly increase settlement outcomes."</p>
                         </blockquote>
-                        <div class="mt-4 pl-12 flex items-center text-sm font-semibold text-violet-600 group-hover:text-violet-700">
-                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg> Tap to share
+                        <div class="mt-4 pl-12 flex flex-wrap items-center text-sm font-semibold text-violet-600 group-hover:text-violet-700">
+                            <svg class="w-4 h-4 mr-1 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg> <span>Tap to share</span>
                         </div>
                     </div>
 
@@ -350,8 +350,8 @@
 
                     <!-- CRITICAL COMPARISON TABLE -->
                     <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">Lawyer vs DIY Insurance Claim Comparison</h2>
-                    <div class="my-6 overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
-                        <table class="w-full text-left border-collapse">
+                    <div class="my-6 w-full max-w-full overflow-x-auto rounded-xl border border-gray-200 shadow-sm block">
+                        <table class="w-full text-left border-collapse min-w-[700px]">
                             <thead>
                                 <tr class="bg-gray-50 text-gray-900 border-b border-gray-200">
                                     <th class="p-4 font-bold text-lg w-1/5">Factor</th>
@@ -402,19 +402,19 @@
                 <!-- Testimonial Rotator -->
                 <div class="my-16 bg-gray-900 rounded-2xl p-8 sm:p-12 text-center shadow-xl relative overflow-hidden">
                     <div id="testimonial-container" class="relative z-10 min-h-[160px] flex items-center justify-center">
-                        <div class="testimonial-slide active">
+                        <div class="testimonial-slide active w-full">
                             <p class="text-xl sm:text-2xl font-medium text-white italic mb-6">"I tried to fight the insurance company myself for six months over my roof damage. They offered $4,000. Once I hired a lawyer, we settled for $32,000. Best decision I made."</p>
                             <p class="text-emerald-400 font-bold tracking-wide uppercase text-sm">— Michael T. (Failed DIY → lawyer success)</p>
                         </div>
-                        <div class="testimonial-slide">
+                        <div class="testimonial-slide w-full">
                             <p class="text-xl sm:text-2xl font-medium text-white italic mb-6">"My claim was flat-out denied initially. I thought it was over. An attorney reviewed my policy and proved they were acting in bad faith. The recovery changed everything."</p>
                             <p class="text-emerald-400 font-bold tracking-wide uppercase text-sm">— Sarah L. (Underpaid claim recovered)</p>
                         </div>
-                        <div class="testimonial-slide">
+                        <div class="testimonial-slide w-full">
                             <p class="text-xl sm:text-2xl font-medium text-white italic mb-6">"The paperwork and demands from the adjuster were overwhelming. Hiring representation took all the stress away and finally got my medical bills fully paid."</p>
                             <p class="text-emerald-400 font-bold tracking-wide uppercase text-sm">— David K.</p>
                         </div>
-                        <div class="testimonial-slide">
+                        <div class="testimonial-slide w-full">
                             <p class="text-xl sm:text-2xl font-medium text-white italic mb-6">"I was hesitant about the 33% fee, but the final settlement was three times what the insurance company offered me directly. The math makes sense."</p>
                             <p class="text-emerald-400 font-bold tracking-wide uppercase text-sm">— Elena R.</p>
                         </div>
@@ -442,93 +442,93 @@
                     <div class="border border-gray-200 rounded-lg bg-white overflow-hidden">
                         <button class="faq-btn w-full text-left px-6 py-4 font-bold text-gray-900 bg-gray-50 hover:bg-gray-100 flex justify-between items-center focus:outline-none transition-colors">
                             Should I hire a lawyer?
-                            <svg class="chevron w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            <svg class="chevron w-5 h-5 text-emerald-600 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
                         <div class="accordion-content px-6 text-gray-700"><p>Yes, for complex disputes, high-value claims, or bad faith allegations.</p></div>
                     </div>
                     <div class="border border-gray-200 rounded-lg bg-white overflow-hidden">
                         <button class="faq-btn w-full text-left px-6 py-4 font-bold text-gray-900 bg-gray-50 hover:bg-gray-100 flex justify-between items-center focus:outline-none transition-colors">
                             Is DIY worth it?
-                            <svg class="chevron w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            <svg class="chevron w-5 h-5 text-emerald-600 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
                         <div class="accordion-content px-6 text-gray-700"><p>Only for minor property damage or undisputed small claims.</p></div>
                     </div>
                     <div class="border border-gray-200 rounded-lg bg-white overflow-hidden">
                         <button class="faq-btn w-full text-left px-6 py-4 font-bold text-gray-900 bg-gray-50 hover:bg-gray-100 flex justify-between items-center focus:outline-none transition-colors">
                             What are the risks?
-                            <svg class="chevron w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            <svg class="chevron w-5 h-5 text-emerald-600 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
                         <div class="accordion-content px-6 text-gray-700"><p>Missed deadlines, lower settlements, and procedural errors.</p></div>
                     </div>
                     <div class="border border-gray-200 rounded-lg bg-white overflow-hidden">
                         <button class="faq-btn w-full text-left px-6 py-4 font-bold text-gray-900 bg-gray-50 hover:bg-gray-100 flex justify-between items-center focus:outline-none transition-colors">
                             How much more can a lawyer recover?
-                            <svg class="chevron w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            <svg class="chevron w-5 h-5 text-emerald-600 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
                         <div class="accordion-content px-6 text-gray-700"><p>Often 2 to 3 times more than unrepresented individuals.</p></div>
                     </div>
                     <div class="border border-gray-200 rounded-lg bg-white overflow-hidden">
                         <button class="faq-btn w-full text-left px-6 py-4 font-bold text-gray-900 bg-gray-50 hover:bg-gray-100 flex justify-between items-center focus:outline-none transition-colors">
                             What is a contingency fee?
-                            <svg class="chevron w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            <svg class="chevron w-5 h-5 text-emerald-600 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
                         <div class="accordion-content px-6 text-gray-700"><p>It means the lawyer only gets paid if they win your case, typically taking a percentage.</p></div>
                     </div>
                     <div class="border border-gray-200 rounded-lg bg-white overflow-hidden">
                         <button class="faq-btn w-full text-left px-6 py-4 font-bold text-gray-900 bg-gray-50 hover:bg-gray-100 flex justify-between items-center focus:outline-none transition-colors">
                             Will I have to go to court?
-                            <svg class="chevron w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            <svg class="chevron w-5 h-5 text-emerald-600 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
                         <div class="accordion-content px-6 text-gray-700"><p>Most cases settle out of court, but a lawyer will prepare your case as if it's going to trial.</p></div>
                     </div>
                     <div class="border border-gray-200 rounded-lg bg-white overflow-hidden">
                         <button class="faq-btn w-full text-left px-6 py-4 font-bold text-gray-900 bg-gray-50 hover:bg-gray-100 flex justify-between items-center focus:outline-none transition-colors">
                             Can I handle a denied claim myself?
-                            <svg class="chevron w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            <svg class="chevron w-5 h-5 text-emerald-600 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
                         <div class="accordion-content px-6 text-gray-700"><p>It is not recommended. Denials require strict policy interpretation and appeals.</p></div>
                     </div>
                     <div class="border border-gray-200 rounded-lg bg-white overflow-hidden">
                         <button class="faq-btn w-full text-left px-6 py-4 font-bold text-gray-900 bg-gray-50 hover:bg-gray-100 flex justify-between items-center focus:outline-none transition-colors">
                             How long does the process take?
-                            <svg class="chevron w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            <svg class="chevron w-5 h-5 text-emerald-600 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
                         <div class="accordion-content px-6 text-gray-700"><p>It varies from a few weeks for minor disputes to over a year for complex litigation.</p></div>
                     </div>
                     <div class="border border-gray-200 rounded-lg bg-white overflow-hidden">
                         <button class="faq-btn w-full text-left px-6 py-4 font-bold text-gray-900 bg-gray-50 hover:bg-gray-100 flex justify-between items-center focus:outline-none transition-colors">
                             What if the insurance company stalls?
-                            <svg class="chevron w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            <svg class="chevron w-5 h-5 text-emerald-600 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
                         <div class="accordion-content px-6 text-gray-700"><p>Lawyers can invoke prompt payment statutes to force action.</p></div>
                     </div>
                     <div class="border border-gray-200 rounded-lg bg-white overflow-hidden">
                         <button class="faq-btn w-full text-left px-6 py-4 font-bold text-gray-900 bg-gray-50 hover:bg-gray-100 flex justify-between items-center focus:outline-none transition-colors">
                             Are there cases lawyers won't take?
-                            <svg class="chevron w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            <svg class="chevron w-5 h-5 text-emerald-600 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
                         <div class="accordion-content px-6 text-gray-700"><p>Yes, if damages are too low to justify the legal fees, they may advise DIY.</p></div>
                     </div>
                     <div class="border border-gray-200 rounded-lg bg-white overflow-hidden">
                         <button class="faq-btn w-full text-left px-6 py-4 font-bold text-gray-900 bg-gray-50 hover:bg-gray-100 flex justify-between items-center focus:outline-none transition-colors">
                             What is an independent appraiser?
-                            <svg class="chevron w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            <svg class="chevron w-5 h-5 text-emerald-600 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
                         <div class="accordion-content px-6 text-gray-700"><p>An expert hired to provide an unbiased valuation of damages, separate from the insurer.</p></div>
                     </div>
                     <div class="border border-gray-200 rounded-lg bg-white overflow-hidden">
                         <button class="faq-btn w-full text-left px-6 py-4 font-bold text-gray-900 bg-gray-50 hover:bg-gray-100 flex justify-between items-center focus:outline-none transition-colors">
                             Can I switch from DIY to a lawyer mid-claim?
-                            <svg class="chevron w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            <svg class="chevron w-5 h-5 text-emerald-600 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
                         <div class="accordion-content px-6 text-gray-700"><p>Yes, but earlier is always better to prevent costly initial mistakes.</p></div>
                     </div>
                 </div>
 
                 <!-- Helpful Widget -->
-                <div id="helpful-widget" class="bg-gray-50 border border-gray-200 rounded-xl p-8 text-center my-12 shadow-sm transition-all">
+                <div id="helpful-widget" class="bg-gray-50 border border-gray-200 rounded-xl p-8 text-center my-12 shadow-sm transition-all w-full">
                     <h3 class="text-xl font-bold text-gray-900 mb-4">Was this article helpful?</h3>
-                    <div class="flex justify-center gap-4" id="helpful-buttons">
+                    <div class="flex flex-wrap justify-center gap-4" id="helpful-buttons">
                         <button onclick="handleHelpful(true)" class="px-6 py-2 bg-white border border-gray-300 rounded-full hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-300 transition font-medium text-gray-700 flex items-center gap-2">👍 Yes</button>
                         <button onclick="handleHelpful(false)" class="px-6 py-2 bg-white border border-gray-300 rounded-full hover:bg-red-50 hover:text-red-700 hover:border-red-300 transition font-medium text-gray-700 flex items-center gap-2">👎 No</button>
                     </div>
@@ -551,19 +551,19 @@
                 </div>
 
                 <!-- Bottom CTA -->
-                <div class="text-center mt-12 mb-8">
+                <div class="text-center mt-12 mb-8 w-full">
                     <h3 class="text-2xl font-bold text-gray-900 mb-6">Speak with an Insurance Lawyer Today</h3>
-                    <a href="tel:+14073770150" class="random-cta inline-block px-8 py-4 bg-emerald-600 text-white font-bold rounded-lg hover:bg-emerald-700 transition shadow-lg text-lg">
+                    <a href="tel:+14073770150" class="random-cta inline-block px-8 py-4 bg-emerald-600 text-white font-bold rounded-lg hover:bg-emerald-700 transition shadow-lg text-lg w-full sm:w-auto">
                         Call Moses and Rooth: (407) 377-0150
                     </a>
                 </div>
 
                 <!-- Logic, Methodology, Citations -->
-                <div class="bg-gray-50 rounded-xl p-6 text-sm text-gray-600 mt-12 border border-gray-100">
+                <div class="bg-gray-50 rounded-xl p-6 text-sm text-gray-600 mt-12 border border-gray-100 break-words">
                     <p class="mb-3"><strong>Logic:</strong> This comparison evaluates procedural burdens and historical payout data to determine the efficacy of self-representation.</p>
                     <p class="mb-3"><strong>Methodology:</strong> Insights are compiled from standard legal practices, regulatory guidelines, and published dispute resolution statistics.</p>
                     <p class="mb-2"><strong>Citations:</strong></p>
-                    <ul class="list-disc pl-5 space-y-1 text-gray-500">
+                    <ul class="list-disc pl-5 space-y-1 text-gray-500 break-all">
                         <li><a href="http://www.leg.state.fl.us/statutes/" class="hover:underline text-emerald-700" target="_blank" rel="nofollow">Florida Statutes</a></li>
                         <li><a href="https://content.naic.org/" class="hover:underline text-emerald-700" target="_blank" rel="nofollow">NAIC</a></li>
                         <li><a href="https://www.consumerfinance.gov/" class="hover:underline text-emerald-700" target="_blank" rel="nofollow">CFPB</a></li>
@@ -579,7 +579,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800 w-full max-w-full">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Branding & Copy -->
